@@ -1,0 +1,6 @@
+node_modules/
+*.log
+index.html.backup-*.html
+screenshot*.png
+logo_crop_test.html
+logo_test2.html
