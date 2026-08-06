@@ -31,18 +31,15 @@ Always do **at least 2 comparison rounds** before stopping. Check spacing (px), 
 
 ## Local assets
 
-All images are in the project root — reference them by filename:
+All images are in the project root — reference them by filename. Only assets actually used by `index.html`/`privacy-policy.html`/`terms-of-service.html` are kept in the repo (unused dev artifacts and reference-only files were removed on 2026-08-06):
 
-- `Pareto Partners Cropped Logo Image.png` — nav logo (height 36px)
-- `Pareto Partners.png` — full logo
-- `Local_icon_darkblue.png` — "Lokaal en persoonlijk" icon (28×28px)
-- `Target_icon_darkblue.png` — "80/20-filter" icon (28×28px)
-- `Stats_icon_darkblue.png` — "Geen woorden maar daden" icon (28×28px)
-- `Skin in the game Icon.png` — skin-in-the-game icon
-- `8020 Icon.png` — 80/20 icon
-- `Geen Woorden Maar Daden ICon.png` — icon
-- `LeftClick Hero section.png` — reference screenshot of hero section
-- `Pareto_Partners_Presentatie.pptx.pdf` — original pitch deck (brand reference)
+- `Pareto Partners Cropped Logo Image.png` — nav/footer logo (height 36px)
+- `favicon.png` — browser favicon
+- `og-image.png` — social share preview image
+- `blue_icon_location.png`, `blue_icon_target.png`, `blue_icon_people.png`, `blue_icon_analysis.png` — proof block icons (28×28px)
+- `blue_icon_analysis.png`, `blue_icon_crm.png`, `blue_icon_Leadgen.png`, `blue_icon_AIcolleague.png` — service card icons (28×28px)
+- `Jilles_en_Rob_Foto.jpeg` — "Wie wij zijn" founder photo
+- `Sjef_En_Rob_cropped.png`, `zakelijke_meeting_BO.jpg` — case study card photos
 
 ## Page sections (top → bottom)
 
@@ -53,7 +50,7 @@ All images are in the project root — reference them by filename:
 5. **Wie wij zijn** — text left, photo placeholder right
 6. **Diensten (Services)** — light gray bg, 2×2 service cards + custom callout
 7. **Bewezen werk (Case studies)** — dark navy bg, 3 white project cards
-8. **Contact** — contact form / CTA section
+8. **Contact** — CTA banner (footer holds the actual contact details; the on-page contact form was removed)
 9. **Footer**
 
 Several sections are commented out in the HTML (`<!-- ... -->`) and should remain commented unless the user asks to restore them.

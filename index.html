@@ -170,7 +170,6 @@
     // would reintroduce the stretch-on-expand problem items-start was added to prevent).
     const cardGroups = [
       { selector: '.case-card', minWidth: 768, maxHeight: null },
-      { selector: '.service-card', minWidth: 640, maxHeight: null },
       { selector: '.case-checkmarks', minWidth: 768, maxHeight: null },
       { selector: '.case-preview', minWidth: 768, maxHeight: null },
     ];
@@ -191,6 +190,25 @@
     }
     window.addEventListener('load', measureCardHeights);
     window.addEventListener('resize', applyCardHeights);
+
+    // Service cards: equalize height per row-pair (not globally across all 4) so the
+    // "In de praktijk" button lines up with its row-mate, without inheriting whitespace
+    // from the other row. Measured before expansion, same reasoning as cardGroups above.
+    function equalizeServiceCardPairs() {
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(c => { c.style.minHeight = ''; });
+      const isWide = window.matchMedia('(min-width: 640px)').matches;
+      if (!isWide) return;
+      for (let i = 0; i < cards.length; i += 2) {
+        const a = cards[i], b = cards[i + 1];
+        if (!b) break;
+        const maxHeight = Math.max(a.offsetHeight, b.offsetHeight);
+        a.style.minHeight = maxHeight + 'px';
+        b.style.minHeight = maxHeight + 'px';
+      }
+    }
+    window.addEventListener('load', equalizeServiceCardPairs);
+    window.addEventListener('resize', equalizeServiceCardPairs);
   </script>
 
   <!-- HERO — navy, full viewport height below nav -->
@@ -202,9 +220,8 @@
           Procesverbetering door automatisering, de 20% die 80% van je tijd kost.
         </h1>
         <p class="hero-fade-in-delay-1 text-lg sm:text-xl text-white/70 font-medium mb-10 max-w-xl mx-auto leading-relaxed">
-          Pareto Partners helpt MKB-ondernemers in en rondom Breda met procesautomatisering, AI en dashboards die het
-          meest opleveren. Geen jarenlange transformatietrajecten, maar een werkende oplossing binnen weken, betaald
-          uit wat het oplevert.
+          Voor bedrijven in en rondom Breda die vastlopen op handmatig werk en losse systemen. Wij bouwen een
+          werkende oplossing binnen weken — betaald uit wat het oplevert.
         </p>
         <div class="hero-fade-in-delay-2 flex items-center justify-center">
           <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
@@ -242,8 +259,8 @@
               <img src="blue_icon_target.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
             </div>
             <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">80/20 filter</p>
-            <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">We automatiseren niet alles. We
-              pakken juist die 20% van je processen die 80% van het resultaat opleveren.</p>
+            <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">Niet alles automatiseren. Wél de
+              20% die het echte verschil maakt.</p>
           </div>
 
           <div class="flex flex-col items-center text-center md:flex-1 md:px-6">
@@ -263,7 +280,7 @@
             </div>
             <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">Meetbaar resultaat</p>
             <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">Meten, dashboarden en bijsturen bij
-              elke automatisering. Zo baseer je je beslissingen op data, niet op buikgevoel.</p>
+              elke automatisering. Zo baseer je je beslissingen op data, niet op onderbuikgevoel.</p>
           </div>
 
         </div>
@@ -317,7 +334,7 @@
           </div>
           <h3 class="text-white font-semibold text-base mb-2">Kennismaking</h3>
           <p class="text-white/65 text-sm leading-relaxed">In dit gesprek bespreken we waar je tegenaan loopt en of
-            wij daar iets voor kunnen betekenen. Geen verplichting, geen verkooppraatje — gewoon kijken of er een
+            wij iets voor je kunnen betekenen. Geen verplichtingen, geen verkooppraatjes — gewoon kijken of er een
             match is.</p>
         </div>
 
@@ -461,9 +478,9 @@
 
         <!-- Right: photo (~40%), height matched to text column -->
         <div class="md:flex-[2]">
-          <div class="w-full h-full rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto">
+          <div class="w-full h-full rounded-2xl overflow-hidden aspect-[3/4] md:aspect-auto">
             <img src="Jilles_en_Rob_Foto.jpeg" alt="Jilles en Rob, oprichters van Pareto Partners"
-              class="w-full h-full object-cover" style="object-position: center 20%;" />
+              class="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -584,11 +601,11 @@
               style="background:#F7F7F5;">
               <img src="blue_icon_AIcolleague.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
             </div>
-            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">AI-collega's</h3>
+            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">AI-assistenten</h3>
           </div>
-          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">Wij bouwen AI-assistenten die opereren als
-            een extra teamlid. Voor klantvragen, interne kennisontsluiting, sales-ondersteuning of documentwerk —
-            altijd in jouw tone of voice, altijd met de manier waarop jouw beste medewerker het zou aanpakken.</p>
+          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">AI-assistenten die opereren als
+            een extra teamlid. Voor klantvragen, interne kennisontsluiting, sales-ondersteuning of documentwerk.
+            Altijd in jouw tone of voice en zoals jouw beste medewerker het zou aanpakken.</p>
           <div class="border-t border-black/[0.06] pt-4">
             <button type="button" onclick="toggleServiceDetail('service-detail-4', this)"
               class="flex items-center gap-1.5 text-[#1e5bff] text-xs font-semibold">
@@ -600,7 +617,7 @@
             </button>
             <div id="service-detail-4" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
               <div class="overflow-hidden">
-                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Een AI-collega op WhatsApp die
+                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Een AI-assistent op WhatsApp die
                   klantvragen beantwoordt in jullie stijl, plus een interne assistent die kennis vindt die anders in
                   mailboxen en hoofden verstopt zit.</p>
               </div>
@@ -615,10 +632,11 @@
         <div class="flex-1">
           <p class="text-white font-semibold text-base mb-2">Niet zeker of we jou kunnen helpen?</p>
           <p class="text-white/65 text-sm leading-relaxed">Dat weten wij ook niet zonder kennismaking. In een kort
-            gesprek bepalen we samen of onze oplossing hier het verschil maakt — zonder verplichtingen.</p>
+            gesprek ontdekken we waar de grootste kansen liggen en of Pareto Partners daarbij kan helpen. Daarna is
+            de keuze aan jou.</p>
         </div>
         <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
-          class="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200 whitespace-nowrap flex-shrink-0">
+          class="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200 flex-shrink-0">
           Plan een kennismakingsgesprek
           <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
@@ -711,10 +729,15 @@
 
         <!-- Card 2: Jaarrapportagetool -->
         <div class="case-card border border-black/[0.08] rounded-2xl p-7 bg-white flex flex-col">
-          <div class="w-full rounded-xl overflow-hidden border border-black/[0.08] bg-white mb-5"
+          <div class="w-full rounded-xl overflow-hidden border border-dashed border-black/[0.15] bg-[#F7F7F5] mb-5 flex flex-col items-center justify-center gap-2"
             style="aspect-ratio:4/3;">
-            <img src="zakelijke_meeting_BO.jpg" alt="Zakelijke meeting" class="w-full h-full"
-              style="object-fit:cover; object-position: center 65%;" />
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7aad" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="9" cy="9" r="1.5" />
+              <path d="M21 15l-5-5-9 9" />
+            </svg>
+            <span class="text-xs text-[#6b7aad] font-medium">Foto volgt</span>
           </div>
           <h3 class="text-[#0f2a4a] font-bold text-base leading-snug mb-3">Van jaarrekening naar gespreksklaar advies
             in minuten.</h3>
@@ -772,7 +795,7 @@
           </button>
           <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-black/[0.06]">
             <span
-              class="text-xs text-[#0f2a4a]/60 bg-black/[0.04] border border-black/[0.07] rounded-full px-3 py-1">AI-collega's</span>
+              class="text-xs text-[#0f2a4a]/60 bg-black/[0.04] border border-black/[0.07] rounded-full px-3 py-1">AI-assistenten</span>
           </div>
         </div>
 
@@ -836,111 +859,6 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION — white -->
-  <section class="bg-white py-24 px-6 hidden">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Neem contact op</h2>
-        <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-[#6b7aad] text-base max-w-md mx-auto">Korte omschrijving van je situatie is genoeg. Wij nemen
-          contact op.</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="card-border rounded-2xl p-7 sm:p-8 bg-[#F7F7F5]">
-          <form action="https://formsubmit.co/jilles@paretopartners.nl" method="POST" class="flex flex-col gap-4">
-            <input type="hidden" name="_cc" value="rob@paretopartners.nl" />
-            <input type="hidden" name="_subject" value="Nieuw bericht via de website — Pareto Partners" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_honey" style="display:none" />
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label for="naam" class="block text-xs text-[#6b7aad] mb-1.5 font-medium">Naam</label>
-                <input type="text" id="naam" name="naam" placeholder="Jan de Vries" required
-                  class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-[#0f2a4a] text-sm placeholder-[#b0b8cc] focus:outline-none focus:border-[#1e5bff]/50 transition-colors" />
-              </div>
-              <div>
-                <label for="bedrijf" class="block text-xs text-[#6b7aad] mb-1.5 font-medium">Bedrijf</label>
-                <input type="text" id="bedrijf" name="bedrijf" placeholder="Jouw bedrijf" required
-                  class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-[#0f2a4a] text-sm placeholder-[#b0b8cc] focus:outline-none focus:border-[#1e5bff]/50 transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label for="email" class="block text-xs text-[#6b7aad] mb-1.5 font-medium">E-mailadres</label>
-              <input type="email" id="email" name="email" placeholder="jan@bedrijf.nl" required
-                class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-[#0f2a4a] text-sm placeholder-[#b0b8cc] focus:outline-none focus:border-[#1e5bff]/50 transition-colors" />
-            </div>
-            <div>
-              <label for="bericht" class="block text-xs text-[#6b7aad] mb-1.5 font-medium">Wat wil je
-                automatiseren?</label>
-              <textarea id="bericht" name="bericht" rows="4"
-                placeholder="Vertel kort wat je wilt verbeteren of automatiseren in je bedrijfsproces..."
-                class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-[#0f2a4a] text-sm placeholder-[#b0b8cc] focus:outline-none focus:border-[#1e5bff]/50 transition-colors resize-none leading-relaxed"></textarea>
-            </div>
-            <button type="submit"
-              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200 mt-1 w-fit">
-              Verstuur <span>→</span>
-            </button>
-          </form>
-        </div>
-
-        <div class="flex flex-col gap-5 lg:pl-4 justify-center">
-          <div>
-            <p class="text-[#0f2a4a] font-semibold text-lg mb-1">Of neem direct contact op</p>
-            <p class="text-[#6b7aad] text-sm">We reageren binnen één werkdag.</p>
-          </div>
-          <div class="flex flex-col gap-4">
-            <a href="mailto:rob@paretopartners.nl" class="flex items-center gap-3 group">
-              <div
-                class="w-10 h-10 rounded-xl bg-[#F7F7F5] card-border flex items-center justify-center flex-shrink-0 group-hover:border-[#1e5bff]/30 transition-colors">
-                <svg class="w-4 h-4 text-[#1e5bff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs text-[#6b7aad] mb-0.5">E-mail</p>
-                <p class="text-[#0f2a4a] text-sm group-hover:text-[#1e5bff] transition-colors">rob@paretopartners.nl</p>
-              </div>
-            </a>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#F7F7F5] card-border flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-[#1e5bff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs text-[#6b7aad] mb-0.5">Locatie</p>
-                <p class="text-[#0f2a4a] text-sm">Breda, Nederland</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-t border-black/[0.06] my-1"></div>
-
-          <div class="card-border rounded-2xl p-5 bg-[#F7F7F5]">
-            <p class="text-[#0f2a4a] text-sm font-medium mb-1">Liever meteen een afspraak?</p>
-            <p class="text-[#6b7aad] text-xs mb-4 leading-relaxed">Plan direct een gratis kennismakingsgesprek van 30
-              minuten. We bespreken jouw uitdagingen en kijken samen of er een match is.</p>
-            <a href="#contact"
-              class="inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 text-xs font-medium text-white bg-[#1e5bff] rounded-full hover:bg-[#1a4ee0] transition-all duration-200">
-              Plan een gratis gesprek
-              <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER — dark navy -->
   <footer id="contact" class="bg-[#0f2a4a] px-6 pt-20 pb-10">
     <div class="max-w-6xl mx-auto">
@@ -949,24 +867,39 @@
       <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-14 mb-16">
 
         <!-- Left: identity + contact details + button -->
-        <div>
+        <div class="flex flex-col items-start">
           <p class="text-white font-bold text-lg mb-1">Pareto Partners</p>
-          <div class="flex flex-col gap-2 mb-7">
+          <div class="flex flex-col gap-1 mb-7">
             <p class="text-white/45 text-sm">Breda, Nederland</p>
-            <a href="mailto:jilles@paretopartners.nl"
-              class="text-white/55 hover:text-white transition-colors text-sm w-fit">jilles@paretopartners.nl</a>
-            <a href="tel:0640160236" class="text-white/55 hover:text-white transition-colors text-sm w-fit">06-40160236</a>
-            <a href="mailto:rob@paretopartners.nl"
-              class="text-white/55 hover:text-white transition-colors text-sm w-fit">rob@paretopartners.nl</a>
-            <a href="tel:0634121485" class="text-white/55 hover:text-white transition-colors text-sm w-fit">06-34121485</a>
             <p class="text-white/45 text-sm">KvK 42116229</p>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-              class="text-white/55 hover:text-white transition-colors mt-1 w-fit">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-5 sm:gap-10 mb-6">
+            <div class="flex flex-col items-start gap-1">
+              <p class="text-white/70 text-xs font-semibold mb-1">Jilles</p>
+              <a href="mailto:jilles@paretopartners.nl"
+                class="text-white/55 hover:text-white transition-colors text-sm w-fit">jilles@paretopartners.nl</a>
+              <a href="tel:0640160236" class="text-white/55 hover:text-white transition-colors text-sm w-fit">06-40160236</a>
+              <a href="https://www.linkedin.com/in/jilles-verbeek-280758234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Jilles"
+                class="text-white/55 hover:text-white transition-colors mt-1.5 inline-flex w-fit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            </div>
+            <div class="flex flex-col items-start gap-1">
+              <p class="text-white/70 text-xs font-semibold mb-1">Rob</p>
+              <a href="mailto:rob@paretopartners.nl"
+                class="text-white/55 hover:text-white transition-colors text-sm w-fit">rob@paretopartners.nl</a>
+              <a href="tel:0634121485" class="text-white/55 hover:text-white transition-colors text-sm w-fit">06-34121485</a>
+              <a href="https://www.linkedin.com/in/rob-rokx-82117a234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Rob"
+                class="text-white/55 hover:text-white transition-colors mt-1.5 inline-flex w-fit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            </div>
           </div>
           <a href="mailto:rob@paretopartners.nl"
             class="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-white text-[#0f2a4a] text-sm font-semibold hover:bg-white/90 transition-all duration-200">
@@ -992,9 +925,9 @@
 
       <!-- Bottom bar: logo + legal + copyright -->
       <div class="border-t border-white/[0.08] pt-8 grid grid-cols-1 sm:grid-cols-3 items-center gap-5">
-        <div class="flex-shrink-0 bg-white rounded px-3 py-1.5 justify-self-start">
+        <a href="#top" class="flex-shrink-0 bg-white rounded px-3 py-1.5 justify-self-start">
           <img src="Pareto Partners Cropped Logo Image.png" alt="Pareto Partners" style="height:30px;width:auto;" />
-        </div>
+        </a>
         <div class="flex items-center gap-6 justify-self-start sm:justify-self-center">
           <a href="privacy-policy.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Privacyverklaring</a>
           <a href="terms-of-service.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Algemene voorwaarden</a>
