@@ -39,19 +39,24 @@ All images are in the project root — reference them by filename. Only assets a
 - `blue_icon_location.png`, `blue_icon_target.png`, `blue_icon_people.png`, `blue_icon_analysis.png` — proof block icons (28×28px)
 - `blue_icon_analysis.png`, `blue_icon_crm.png`, `blue_icon_Leadgen.png`, `blue_icon_AIcolleague.png` — service card icons (28×28px)
 - `Jilles_en_Rob_Foto.jpeg` — "Wie wij zijn" founder photo
-- `Sjef_En_Rob_cropped.png`, `zakelijke_meeting_BO.jpg` — case study card photos
+- `Sjef_En_Rob_cropped.png`, `Jilles_en_Rob_foto2.jpeg` — waren de foto's in de projectkaarten; sinds 2026-11-11 niet meer gebruikt (alle zes kaarten hebben een schermvoorbeeld in HTML/CSS)
+- `logos/` — klant- en partnerlogo's; `logos/tools/` — tool-iconen
 
 ## Page sections (top → bottom)
 
-1. **Header/nav** — logo, nav links, "Plan QuickScan" pill CTA
+1. **Header/nav** — logo, nav links, "Contact" pill CTA
 2. **Hero** — full-viewport-height, centered headline + subtext + CTA button
-3. **Proof block** — 3-column trust signals with icons (white bg, dividers)
-4. **Aanpak (How it works)** — 3 dark navy cards (Week 1/2–4/Doorlopend) + Skin in the Game callout
-5. **Wie wij zijn** — text left, photo placeholder right
-6. **Diensten (Services)** — light gray bg, 2×2 service cards + custom callout
-7. **Bewezen werk (Case studies)** — dark navy bg, 3 white project cards
-8. **Contact** — CTA banner (footer holds the actual contact details; the on-page contact form was removed)
-9. **Footer**
+3. **Proof block** — 4-column trust signals with icons
+4. **Logo-carrousel** — "Opdrachtgevers & partners", doorlopende strip (CSS-animatie, lijst wordt in JS één keer verdubbeld via `data-marquee`). Logo's in `logos/`, als zwarte silhouetten via CSS-filter.
+5. **Aanpak (How it works)** — 4 dark navy cards + Skin in the Game callout
+6. **Wie wij zijn** — text left, photo right
+7. **Diensten (Services)** — light gray bg, 2×2 service cards + custom callout
+8. **Tools (`#tools`)** — "Waar wij mee bouwen", 4 groepen met tool-chips. Iconen in `logos/tools/` (Simple Icons of eigen site van de tool); zonder icoon een letterbadge (`.tool-mono`).
+9. **Projecten (`#werk`)** — dark navy, 6 cases in een doorlopende carrousel (JS, `data-case-carousel`): loopt vanzelf, pauzeert bij hover/focus/buiten beeld, pijlen en slepen/swipen. Klik op een kaart opent het case-venster (`#case-modal`); de volledige tekst staat per case in `<template id="case-…">`, de tools in `data-tools`. Cases zijn anoniem (sector + regio, geen klantnaam).
+10. **Contact** — CTA banner
+11. **Footer**
+
+Blokken schuiven in bij scrollen: zet `data-reveal` (optioneel `data-reveal-delay="100"`) op een element. Werkt alleen met JS (`.js`-class op `<html>`) en staat uit bij `prefers-reduced-motion`.
 
 Several sections are commented out in the HTML (`<!-- ... -->`) and should remain commented unless the user asks to restore them.
 

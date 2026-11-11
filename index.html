@@ -67,7 +67,132 @@
       animation: heroFadeIn 0.5s ease-out both;
       animation-delay: 0.2s;
     }
+
+    /* Inschuiven bij scrollen (alleen als JS draait, anders blijft alles zichtbaar) */
+    .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    /* Logo-carrousel opdrachtgevers & partners */
+    .logo-strip { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .logo-track { display: flex; align-items: center; width: max-content; margin: 0; padding: 0; list-style: none; animation: logo-scroll 40s linear infinite; }
+    .logo-strip:hover .logo-track { animation-play-state: paused; }
+    @keyframes logo-scroll { to { transform: translateX(-50%); } }
+    .logo-item { display: flex; align-items: center; gap: 10px; padding: 0 48px; flex-shrink: 0; height: 44px; opacity: .5; color: #000; font-size: 17px; font-weight: 600; white-space: nowrap; transition: opacity .3s; }
+    .logo-item:hover { opacity: .9; }
+    .logo-item img { width: auto; filter: brightness(0); }
+
+    /* Tools */
+    .tool-group { border: 1px solid rgba(0,0,0,.08); border-radius: 16px; padding: 24px; background: #fff; transition: box-shadow .3s, border-color .3s; }
+    .tool-group:hover { border-color: rgba(30,91,255,.3); box-shadow: 0 16px 32px -16px rgba(15,42,74,.25); }
+    .tool-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; color: #1e5bff; margin-bottom: 8px; }
+    .tool-group-text { font-size: 13px; color: #6b7aad; line-height: 1.55; margin-bottom: 18px; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .tool { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(0,0,0,.07); background: #F7F7F5; border-radius: 999px; padding: 6px 12px 6px 9px; font-size: 13px; font-weight: 500; color: #0f2a4a; }
+    .tool img { height: 16px; width: 16px; object-fit: contain; filter: brightness(0); opacity: .8; }
+        .tool-mono { width: 16px; height: 16px; border-radius: 4px; background: #0f2a4a; color: #fff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; opacity: .85; }
+
+    /* Projecten-carrousel */
+    .case-carousel { overflow: hidden; touch-action: pan-y; cursor: grab; padding: 12px 0 24px; }
+    .case-carousel.is-dragging { cursor: grabbing; }
+    .case-track { display: flex; gap: 24px; width: max-content; will-change: transform; }
+    .case-card { width: 360px; flex-shrink: 0; background: #fff; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; user-select: none; -webkit-user-select: none; transition: transform .35s ease, box-shadow .35s ease; }
+    .case-card:hover { transform: translateY(-6px); box-shadow: 0 28px 48px -16px rgba(0,0,0,.5); }
+    .case-card:focus-visible { outline: 3px solid #1e5bff; outline-offset: 3px; }
+    @media (max-width: 640px) { .case-card { width: 82vw; } .case-track { gap: 16px; } }
+    .case-visual { aspect-ratio: 16 / 10; background: #EBF3FF; position: relative; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,.06); }
+    .case-visual img { pointer-events: none; -webkit-user-drag: none; }
+    .case-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .case-sector { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; color: #1e5bff; margin-bottom: 8px; }
+    .case-title { color: #0f2a4a; font-weight: 700; font-size: 17px; line-height: 1.35; margin-bottom: 16px; }
+    .case-checks { list-style: none; margin: 0 0 20px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .case-checks li { position: relative; padding-left: 24px; font-size: 14px; font-weight: 500; color: #0f2a4a; line-height: 1.4; }
+    .case-checks li::before { content: ""; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%231e5bff' fill-opacity='0.12'/%3E%3Cpath d='M5 8l2 2 4-4' stroke='%231e5bff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat; }
+    .case-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.06); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .case-tag { font-size: 12px; color: rgba(15,42,74,.6); background: rgba(0,0,0,.04); border: 1px solid rgba(0,0,0,.07); border-radius: 999px; padding: 4px 12px; white-space: nowrap; }
+    .case-more { display: inline-flex; align-items: center; gap: 6px; color: #1e5bff; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .case-more svg { transition: transform .25s; }
+    .case-card:hover .case-more svg { transform: translateX(3px); }
+
+    /* Schermvoorbeelden in de projectkaarten */
+    .mock { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 18px; color: #0f2a4a; }
+    .mock-window { width: 92%; max-width: 440px; background: #fff; border-radius: 10px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); overflow: hidden; }
+    .mock-bar { display: flex; align-items: center; gap: 4px; padding: 7px 10px; border-bottom: 1px solid rgba(0,0,0,.06); font-size: 10px; font-weight: 600; color: rgba(15,42,74,.6); }
+    .mock-bar i { width: 6px; height: 6px; border-radius: 50%; background: rgba(15,42,74,.15); }
+    .mock-bar span { margin-left: 6px; }
+    .mock-rows { padding: 4px 10px; }
+    .mock-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; font-size: 11px; border-bottom: 1px solid rgba(0,0,0,.05); }
+    .mock-row:last-child { border-bottom: 0; }
+    .mock-row b { font-weight: 600; }
+    .pill { font-size: 9.5px; font-weight: 600; border-radius: 999px; padding: 2px 8px; }
+    .pill-done { background: rgba(22,163,74,.12); color: #15803d; }
+    .pill-wait { background: rgba(30,91,255,.12); color: #1e5bff; }
+    .pill-new { background: rgba(15,42,74,.08); color: rgba(15,42,74,.7); }
+    .mock-badge { display: inline-flex; align-items: center; gap: 6px; background: #0f2a4a; color: #fff; font-size: 10.5px; font-weight: 600; border-radius: 999px; padding: 5px 12px; }
+    .mock-flow { display: flex; flex-direction: column; gap: 7px; position: relative; width: 78%; max-width: 360px; }
+    .mock-flow::before { content: ""; position: absolute; left: 21px; top: 14px; bottom: 14px; width: 2px; background: rgba(30,91,255,.25); }
+    .flow-step { position: relative; display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 999px; padding: 5px 12px 5px 6px; font-size: 11px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(15,42,74,.35); }
+    .flow-dot { width: 20px; height: 20px; border-radius: 50%; background: #EBF3FF; color: #1e5bff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .flow-ai .flow-dot { background: #1e5bff; color: #fff; }
+    .flow-end .flow-dot { background: #0f2a4a; color: #fff; }
+    .mock-funnel { width: 86%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .funnel-bar { background: #0f2a4a; color: #fff; border-radius: 8px; padding: 7px 0; text-align: center; font-size: 10.5px; font-weight: 600; white-space: nowrap; }
+    .funnel-bar:nth-child(2) { background: #1d3d63; }
+    .funnel-bar:nth-child(3) { background: #2b527f; }
+    .funnel-end { background: #1e5bff !important; }
+    .mock:has(.mock-phone), .mock-h { flex-direction: row; gap: 14px; }
+    .mock-row small { display: block; font-size: 9.5px; color: rgba(15,42,74,.5); font-weight: 500; margin-top: 1px; }
+    .mock-file { width: 76px; height: 96px; background: #fff; border-radius: 8px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-size: 9.5px; font-weight: 600; color: rgba(15,42,74,.7); }
+    .mock-file span { background: #0f2a4a; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 8.5px; font-weight: 700; letter-spacing: .05em; }
+    .mock-onepager { width: 156px; background: #fff; border-radius: 10px; padding: 11px 12px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); }
+    .op-title { font-size: 10.5px; font-weight: 700; margin-bottom: 8px; }
+    .op-title span { font-weight: 500; color: rgba(15,42,74,.5); }
+    .op-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+    .op-kpi { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; height: 46px; background: #EBF3FF; border-radius: 6px; padding: 5px 4px 4px; font-size: 7.5px; font-weight: 600; color: rgba(15,42,74,.6); }
+    .op-kpi i { display: block; width: 12px; background: #1e5bff; border-radius: 2px; }
+    .op-line { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: 600; margin-top: 4px; }
+    .op-line em { width: 7px; height: 7px; border-radius: 50%; background: #0f2a4a; }
+    .op-line em.op-plus { background: #16a34a; }
+    .op-line em.op-attn { background: #f59e0b; }
+    .mock-label { position: absolute; top: 12px; left: 12px; background: #fff; color: #1e5bff; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; border-radius: 999px; padding: 3px 9px; }
+    .mock-phone { width: 104px; background: #fff; border-radius: 16px; padding: 10px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); border: 3px solid #0f2a4a; }
+    .phone-head { font-size: 10px; font-weight: 700; margin-bottom: 6px; }
+    .phone-bars { display: flex; align-items: flex-end; gap: 5px; height: 58px; }
+    .phone-bars div { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; }
+    .phone-bars i { display: block; width: 100%; background: #1e5bff; border-radius: 3px; }
+    .phone-bars span { font-size: 7.5px; color: rgba(15,42,74,.5); }
+    .phone-ok { margin-top: 8px; display: flex; align-items: center; gap: 4px; font-size: 9.5px; font-weight: 600; color: #15803d; }
+    .mock-arrow { color: #1e5bff; }
+    .mock-erp { background: #fff; border-radius: 10px; padding: 10px 12px; font-size: 10.5px; line-height: 1.4; color: rgba(15,42,74,.7); box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); }
+    .mock-erp b { color: #0f2a4a; }
+
+    /* Case-venster */
+    .case-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .case-modal[hidden] { display: none; }
+    .case-modal-backdrop { position: absolute; inset: 0; background: rgba(8,20,36,.7); backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s; }
+    .case-modal-panel { position: relative; background: #fff; border-radius: 24px; width: 100%; max-width: 720px; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; opacity: 0; transform: translateY(24px) scale(.98); transition: opacity .35s ease, transform .35s ease; }
+    .case-modal.is-open .case-modal-backdrop { opacity: 1; }
+    .case-modal.is-open .case-modal-panel { opacity: 1; transform: none; }
+    .case-modal-close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #0f2a4a; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
+    .case-modal-close:hover { background: #F7F7F5; }
+    .case-modal-visual .case-visual { aspect-ratio: 16 / 7; }
+    .case-modal-body { padding: 28px 32px 32px; }
+    @media (max-width: 640px) { .case-modal-body { padding: 22px 20px 24px; } .case-modal-visual .case-visual { aspect-ratio: 16 / 10; } }
+    .case-checks-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 8px; }
+    .case-checks-row li { background: #F7F7F5; border-radius: 12px; padding: 12px 12px 12px 36px; }
+    .case-checks-row li::before { left: 12px; top: 13px; }
+    .case-modal-text h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; color: #1e5bff; margin: 24px 0 6px; }
+    .case-modal-text p { color: #4c5b84; font-size: 15px; line-height: 1.7; }
+    .case-modal-text .case-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,.06); }
+    .case-tools-label { font-size: 12px; color: rgba(15,42,74,.5); margin-right: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .logo-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 16px; }
+      .logo-track [aria-hidden="true"] { display: none; }
+      .case-card, .case-modal-panel, .case-modal-backdrop { transition: none; }
+    }
   </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="antialiased">
@@ -150,14 +275,6 @@
         iconClose.classList.remove('hidden');
       }
     });
-    function toggleCaseDetail(id, btn) {
-      const detail = document.getElementById(id);
-      const isOpen = detail.classList.contains('grid-rows-[1fr]');
-      detail.classList.toggle('grid-rows-[0fr]', isOpen);
-      detail.classList.toggle('grid-rows-[1fr]', !isOpen);
-      btn.querySelector('.toggle-label').textContent = isOpen ? 'Lees meer' : 'Lees minder';
-      btn.querySelector('svg').style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-    }
     function toggleServiceDetail(id, btn) {
       const detail = document.getElementById(id);
       const isOpen = detail.classList.contains('grid-rows-[1fr]');
@@ -165,32 +282,6 @@
       detail.classList.toggle('grid-rows-[1fr]', !isOpen);
       btn.querySelector('svg').style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     }
-    // Equalize each card group (case-study cards, service cards) to the same collapsed
-    // height (measured once, before any card is expanded — re-measuring after expansion
-    // would reintroduce the stretch-on-expand problem items-start was added to prevent).
-    const cardGroups = [
-      { selector: '.case-card', minWidth: 768, maxHeight: null },
-      { selector: '.case-checkmarks', minWidth: 768, maxHeight: null },
-      { selector: '.case-preview', minWidth: 768, maxHeight: null },
-    ];
-    function measureCardHeights() {
-      cardGroups.forEach(group => {
-        const cards = document.querySelectorAll(group.selector);
-        cards.forEach(c => { c.style.minHeight = ''; });
-        group.maxHeight = cards.length ? Math.max(...Array.from(cards).map(c => c.offsetHeight)) : null;
-      });
-      applyCardHeights();
-    }
-    function applyCardHeights() {
-      cardGroups.forEach(group => {
-        const cards = document.querySelectorAll(group.selector);
-        const isWide = window.matchMedia(`(min-width: ${group.minWidth}px)`).matches;
-        cards.forEach(c => { c.style.minHeight = (isWide && group.maxHeight) ? group.maxHeight + 'px' : ''; });
-      });
-    }
-    window.addEventListener('load', measureCardHeights);
-    window.addEventListener('resize', applyCardHeights);
-
     // Service cards: equalize height per row-pair (not globally across all 4) so the
     // "In de praktijk" button lines up with its row-mate, without inheriting whitespace
     // from the other row. Measured before expansion, same reasoning as cardGroups above.
@@ -243,7 +334,7 @@
       <div class="max-w-5xl mx-auto">
         <div class="flex flex-col gap-8 md:flex-row md:gap-0 md:divide-x md:divide-black/[0.08]">
 
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6">
+          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="0">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
               style="background:#ffffff;">
               <img src="blue_icon_location.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
@@ -255,7 +346,7 @@
             </div>
           </div>
 
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6">
+          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="100">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
               style="background:#ffffff;">
               <img src="blue_icon_target.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
@@ -267,7 +358,7 @@
             </div>
           </div>
 
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6">
+          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="200">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
               style="background:#ffffff;">
               <img src="blue_icon_people.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
@@ -279,7 +370,7 @@
             </div>
           </div>
 
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6">
+          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="300">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
               style="background:#ffffff;">
               <img src="blue_icon_analysis.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
@@ -295,37 +386,28 @@
       </div>
     </div>
 
-  <!-- TOOL STRIP — preserved, placement TBD
-  <div class="bg-[#F7F7F5] border-y border-black/[0.06] py-8 px-6">
-    <div class="max-w-6xl mx-auto">
-      <p class="text-center text-[10px] text-[#0f2a4a]/30 uppercase tracking-widest mb-6">Tools & systemen die wij inzetten</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8">
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Anthropic</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">OpenAI</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">n8n</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Make.com</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Apify</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Notion</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Carerix</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">Simplicate</span>
-        <span class="text-[#0f2a4a]/15 text-xs">·</span>
-        <span class="text-[#0f2a4a]/40 text-sm font-medium">MijnKantoor</span>
-      </div>
+  <!-- LOGO-CARROUSEL — opdrachtgevers en partners, doorlopend -->
+  <div class="bg-white border-y border-black/[0.06] py-10 mb-14" aria-label="Opdrachtgevers en partners">
+    <p class="text-center text-[11px] text-[#0f2a4a]/45 uppercase tracking-[0.18em] font-medium mb-7 px-6">Opdrachtgevers &amp; partners</p>
+    <div class="logo-strip">
+      <ul class="logo-track" data-marquee>
+        <li class="logo-item"><img src="logos/beter-ondernemen.png" alt="Beter Ondernemen" style="height:30px" /></li>
+        <li class="logo-item"><img src="logos/silverspas.svg" alt="Silverspas" style="height:24px" /></li>
+        <li class="logo-item"><img src="logos/vermeulen.png" alt="Vermeulen Groep" style="height:38px" /></li>
+        <li class="logo-item"><img src="logos/cijferwijs.png" alt="Cijferwijs" style="height:26px" /></li>
+        <li class="logo-item logo-text"><img src="logos/senss.png" alt="" style="height:32px;filter:none" /><span>Senss Branding</span></li>
+        <li class="logo-item logo-text">
+          <svg viewBox="0 0 108 66" style="height:20px;width:auto" aria-hidden="true" fill="currentColor"><rect x="78" y="0" width="30" height="30" transform="rotate(12 93 15)" /><rect x="0" y="36" width="30" height="30" /><rect x="36" y="36" width="30" height="30" /><rect x="72" y="36" width="30" height="30" /></svg>
+          <span class="tracking-tight" style="font-weight:700">fraanje <span style="font-weight:500">software</span></span>
+        </li>
+      </ul>
     </div>
   </div>
-  -->
 
   <!-- HOW IT WORKS — moved up, now follows proof block -->
   <section id="aanpak" class="bg-white pt-10 pb-24 px-6">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14">
+      <div class="text-center mb-14" data-reveal>
         <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">In vier stappen van gesprek naar<br
             class="hidden sm:block" /> meetbaar resultaat.</h2>
         <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
@@ -334,7 +416,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6" id="aanpak-cards">
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]">
+        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="0">
           <div class="flex items-center gap-3 mb-5">
             <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
               style="background:#1e5bff;">1</span>
@@ -346,7 +428,7 @@
             match is.</p>
         </div>
 
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]">
+        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="100">
           <div class="flex items-center gap-3 mb-5">
             <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
               style="background:#1e5bff;">2</span>
@@ -358,7 +440,7 @@
             inclusief prijs, tijdlijn en verwacht rendement.</p>
         </div>
 
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]">
+        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="200">
           <div class="flex items-center gap-3 mb-5">
             <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
               style="background:#1e5bff;">3</span>
@@ -370,7 +452,7 @@
             uurtje-factuurtje.</p>
         </div>
 
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]">
+        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="300">
           <div class="flex items-center gap-3 mb-5">
             <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
               style="background:#1e5bff;">4</span>
@@ -384,7 +466,7 @@
 
       <!-- Skin in the Game — separate layer, own breathing room -->
       <div class="mt-16 sm:mt-20">
-        <div class="rounded-2xl p-6 bg-[#0f2a4a] flex items-start gap-4">
+        <div class="rounded-2xl p-6 bg-[#0f2a4a] flex items-start gap-4" data-reveal>
           <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#1e5bff;">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
               stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -415,7 +497,7 @@
   <!-- HERKEN JE DIT — temporarily removed from page
   <section id="probleem" class="bg-white py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14">
+      <div class="text-center mb-14" data-reveal>
         <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Herken je dit?</h2>
         <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
         <p class="text-[#6b7aad] text-base max-w-xl mx-auto">Elke ondernemer herkent het: keihard werken, maar een groot
@@ -462,7 +544,7 @@
       <div class="flex flex-col-reverse md:flex-row md:items-stretch gap-12 md:gap-16">
 
         <!-- Left: text (~60%) -->
-        <div class="md:flex-[3]">
+        <div class="md:flex-[3]" data-reveal>
           <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3 leading-tight">WIE WIJ ZIJN</h2>
           <div class="w-8 h-0.5 bg-[#1e5bff] mb-5"></div>
           <p class="text-[#0f2a4a] text-lg font-semibold mb-5">Wij zijn Jilles en Rob.</p>
@@ -485,7 +567,7 @@
         </div>
 
         <!-- Right: photo (~40%), height matched to text column -->
-        <div class="md:flex-[2]">
+        <div class="md:flex-[2]" data-reveal data-reveal-delay="150">
           <div class="w-full h-full rounded-2xl overflow-hidden aspect-[3/4] md:aspect-auto">
             <img src="Jilles_en_Rob_Foto.jpeg" alt="Jilles en Rob, oprichters van Pareto Partners"
               class="w-full h-full object-cover" />
@@ -499,7 +581,7 @@
   <!-- SERVICES SECTION — light gray -->
   <section id="diensten" class="bg-[#F7F7F5] py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14">
+      <div class="text-center mb-14" data-reveal>
         <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Waar wij mee helpen.</h2>
         <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
         <p class="text-[#6b7aad] text-base max-w-xl mx-auto">Elk traject begint bij jouw grootste bottleneck. Pas daarna
@@ -509,7 +591,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 items-start">
 
         <!-- Card 1: Strategie & dashboarding -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col">
+        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="0">
           <div class="flex items-center gap-4 mb-5">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
               style="background:#F7F7F5;">
@@ -541,7 +623,7 @@
         </div>
 
         <!-- Card 2: CRM & procesautomatisering -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col">
+        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="100">
           <div class="flex items-center gap-4 mb-5">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
               style="background:#F7F7F5;">
@@ -572,7 +654,7 @@
         </div>
 
         <!-- Card 3: Leadgeneratie -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col">
+        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="0">
           <div class="flex items-center gap-4 mb-5">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
               style="background:#F7F7F5;">
@@ -603,7 +685,7 @@
         </div>
 
         <!-- Card 4: AI-collega's -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col">
+        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="100">
           <div class="flex items-center gap-4 mb-5">
             <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
               style="background:#F7F7F5;">
@@ -636,7 +718,7 @@
       </div>
 
       <!-- Custom solutions callout -->
-      <div class="rounded-2xl p-7 bg-[#0f2a4a] flex flex-col sm:flex-row sm:items-center gap-6">
+      <div class="rounded-2xl p-7 bg-[#0f2a4a] flex flex-col sm:flex-row sm:items-center gap-6" data-reveal>
         <div class="flex-1">
           <p class="text-white font-semibold text-base mb-2">Niet zeker of we jou kunnen helpen?</p>
           <p class="text-white/65 text-sm leading-relaxed">Dat weten wij ook niet zonder kennismaking. In een kort
@@ -658,191 +740,403 @@
     </div>
   </section>
 
-  <!-- PROOF / CASE — dark navy -->
-  <section id="werk" class="bg-[#0f2a4a] py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">Wat we al hebben opgeleverd</h2>
+  <!-- TOOLS — waar wij mee bouwen -->
+  <section id="tools" class="bg-white py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-reveal>
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Waar wij mee bouwen.</h2>
         <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-white/50 text-base">Deze ondernemers hebben weer tijd voor het échte werk.</p>
+        <p class="text-[#6b7aad] text-base max-w-xl mx-auto">We kiezen de techniek die bij jouw vraag past, en koppelen aan
+          de systemen die je al gebruikt. Geen nieuw pakket waar je team aan moet wennen.</p>
       </div>
 
-      <!-- BEWEZEN WERK — 3 project cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start max-w-[844px] mx-auto">
-
-        <!-- Card 1: Leadscraper -->
-        <div class="case-card border border-black/[0.08] rounded-2xl p-7 bg-white flex flex-col">
-          <div class="w-full rounded-xl overflow-hidden border border-black/[0.08] bg-white mb-5"
-            style="aspect-ratio:4/3;">
-            <img src="Sjef_En_Rob_cropped.png" alt="Sjef en Rob" class="w-full h-full"
-              style="object-fit:cover; object-position: center 25%;" />
-          </div>
-          <h3 class="text-[#0f2a4a] font-bold text-base leading-snug mb-3">Nooit meer handmatig zoeken naar opdrachten.
-          </h3>
-          <div class="case-checkmarks flex flex-col gap-2 mb-5 pb-5 border-b border-black/[0.06]">
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">±10 gekwalificeerde leads per week</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">±2 uur per dag bespaard</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">Consultant focust op bellen, niet op
-                zoeken</span>
-            </div>
-          </div>
-          <p class="case-preview text-[#6b7aad] text-sm leading-relaxed mb-3">Onze opdrachtgever verloor dagelijks uren aan het
-            handmatig zoeken naar vacatures op jobboards.</p>
-          <div id="case-detail-1" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-            <div class="overflow-hidden">
-              <p class="text-[#6b7aad] text-sm leading-relaxed mt-3">Een interim financekantoor uit Breda had een
-                medewerker die dagelijks jobboards afstruinde op zoek naar finance-vacatures — een uur of twee, elke
-                dag. Toen die capaciteit wegviel, stapelden gemiste kansen zich op.<br><br>Wij bouwden scrapers die
-                meerdere jobboards automatisch doorzoeken, de relevante vacatures filteren en inclusief
-                contactpersoon op één plek klaarzetten. De consultant hoeft alleen nog contact op te nemen: hét werk
-                waar hij goed in is.</p>
-            </div>
-          </div>
-          <button type="button" onclick="toggleCaseDetail('case-detail-1', this)"
-            class="flex items-center gap-1.5 text-[#1e5bff] text-sm font-semibold mt-1 mb-1 self-start">
-            <span class="toggle-label">Lees meer</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-              stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-          <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-black/[0.06]">
-            <span
-              class="text-xs text-[#0f2a4a]/60 bg-black/[0.04] border border-black/[0.07] rounded-full px-3 py-1">Leadgeneratie</span>
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="tool-group" data-reveal>
+          <p class="tool-group-label">AI</p>
+          <p class="tool-group-text">Taalmodellen die lezen, samenvatten en beslissen, ingebouwd in je processen.</p>
+          <ul class="tool-list">
+            <li class="tool"><img src="logos/tools/claude.svg" alt="" /><span>Claude</span></li>
+            <li class="tool"><img src="logos/tools/openai.svg" alt="" /><span>OpenAI</span></li>
+          </ul>
         </div>
 
-        <!-- Card 2: Jaarrapportagetool -->
-        <div class="case-card border border-black/[0.08] rounded-2xl p-7 bg-white flex flex-col">
-          <div class="w-full rounded-xl overflow-hidden border border-black/[0.08] bg-white mb-5" role="img"
-            aria-label="Jilles en Rob"
-            style="aspect-ratio:4/3; background-image:url('Jilles_en_Rob_foto2.jpeg'); background-size:80% auto; background-position:center 40%; background-repeat:no-repeat;">
-          </div>
-          <h3 class="text-[#0f2a4a] font-bold text-base leading-snug mb-3">Van jaarrekening naar gespreksklaar advies
-            in minuten.</h3>
-          <div class="case-checkmarks flex flex-col gap-2 mb-5 pb-5 border-b border-black/[0.06]">
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">Eerste analyse zonder de PDF te
-                openen</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">Omzet, kosten en resultaat direct in
-                beeld</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="8" fill="#1e5bff" fill-opacity="0.12" />
-                <path d="M5 8l2 2 4-4" stroke="#1e5bff" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              <span class="text-[#0f2a4a] text-sm font-medium leading-snug">Gespreksklaar én commercieel
-                inzetbaar</span>
-            </div>
-          </div>
-          <p class="case-preview text-[#6b7aad] text-sm leading-relaxed mb-3">Onze opdrachtgever verloor bij elk klantgesprek uren
-            aan voorbereiding. Tijd die niet besteed werd aan advies.</p>
-          <div id="case-detail-2" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-            <div class="overflow-hidden">
-              <p class="text-[#6b7aad] text-sm leading-relaxed mt-3">Een accountantskantoor in Breda wilde sneller
-                voorbereid aan tafel zitten bij klanten. Voorbereiding kostte uren per gesprek — tijd die geen omzet
-                opleverde en die accountants liever aan advieswerk besteedden.<br><br>Wij bouwden een tool waarbij je
-                een jaarrekening uploadt en binnen minuten een overzichtelijke onepager terugkrijgt: bedrijfsprofiel,
-                kerncijfers, pluspunten, aandachtspunten en concrete adviespunten. In de huisstijl van het kantoor,
-                klaar om als gespreksstarter of commercieel instrument in te zetten.</p>
-            </div>
-          </div>
-          <button type="button" onclick="toggleCaseDetail('case-detail-2', this)"
-            class="flex items-center gap-1.5 text-[#1e5bff] text-sm font-semibold mt-1 mb-1 self-start">
-            <span class="toggle-label">Lees meer</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-              stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-          <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-black/[0.06]">
-            <span
-              class="text-xs text-[#0f2a4a]/60 bg-black/[0.04] border border-black/[0.07] rounded-full px-3 py-1">AI-assistenten</span>
-          </div>
+        <div class="tool-group" data-reveal data-reveal-delay="100">
+          <p class="tool-group-label">Cloud &amp; data</p>
+          <p class="tool-group-text">Beveiligde portalen, databases en hosting die met je meegroeien.</p>
+          <ul class="tool-list">
+            <li class="tool"><img src="logos/tools/microsoftazure.svg" alt="" /><span>Azure</span></li>
+            <li class="tool"><img src="logos/tools/supabase.svg" alt="" /><span>Supabase</span></li>
+            <li class="tool"><img src="logos/tools/vercel.svg" alt="" /><span>Vercel</span></li>
+          </ul>
         </div>
 
-      </div>
+        <div class="tool-group" data-reveal data-reveal-delay="200">
+          <p class="tool-group-label">Automatisering &amp; data ophalen</p>
+          <p class="tool-group-text">De verbindingen tussen je systemen, en data van buiten naar binnen.</p>
+          <ul class="tool-list">
+            <li class="tool"><img src="logos/tools/make.svg" alt="" /><span>Make</span></li>
+            <li class="tool"><img src="logos/tools/n8n.svg" alt="" /><span>n8n</span></li>
+            <li class="tool"><img src="logos/tools/apify.svg" alt="" /><span>Apify</span></li>
+          </ul>
+        </div>
 
-      <!--
-      BEWEZEN WERK — original single-card version (preserved for reference)
-      <div class="border border-white/10 rounded-2xl p-8 sm:p-10 bg-white/[0.04]">
-        <div class="flex flex-col sm:flex-row sm:items-start gap-6">
-          <div class="flex-1">
-            <span class="inline-block text-xs text-white/50 border border-white/15 rounded-full px-3 py-1 mb-5">Accountancy & interim finance</span>
-            <h3 class="text-white font-bold text-xl sm:text-2xl leading-tight mb-4">Geautomatiseerde vacaturematching en AI-gedreven jaarrekeninganalyse.</h3>
-            <p class="text-white/55 text-sm leading-relaxed mb-6">Voor een accountancy- en interim financekantoor bouwden we twee werkende systemen: een scraper die automatisch vacatures matcht op kandidaatprofielen, en een tool die jaarrekeningen analyseert met AI. Het resultaat: minder handmatig werk, snellere doorlooptijden en een schaalbare basis voor verdere groei.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-xs text-white/45 border border-white/12 rounded-full px-3 py-1">Leadgeneratie</span>
-              <span class="text-xs text-white/45 border border-white/12 rounded-full px-3 py-1">Document AI</span>
-              <span class="text-xs text-[#1e5bff] bg-[#1e5bff]/15 border border-[#1e5bff]/30 rounded-full px-3 py-1">Live binnen 4 weken</span>
-            </div>
-          </div>
-          <div class="sm:w-64 lg:w-72 flex-shrink-0 flex flex-col gap-3">
-            <div class="border border-white/10 rounded-xl p-4 bg-white/[0.04]">
-              <p class="text-xs text-white/35 mb-1">Resultaat</p>
-              <p class="text-white text-sm font-medium">Minder handmatig werk</p>
-              <p class="text-white/45 text-xs leading-relaxed mt-1">Uren per week bespaard op terugkerend administratief werk.</p>
-            </div>
-            <div class="border border-white/10 rounded-xl p-4 bg-white/[0.04]">
-              <p class="text-xs text-white/35 mb-1">Doorlooptijd</p>
-              <p class="text-white text-sm font-medium">Live binnen 4 weken</p>
-              <p class="text-white/45 text-xs leading-relaxed mt-1">Van eerste gesprek tot werkende automatisering in productie.</p>
-            </div>
-            <div class="border border-white/10 rounded-xl p-4 bg-white/[0.04]">
-              <p class="text-xs text-white/35 mb-1">Schaal</p>
-              <p class="text-white text-sm font-medium">Schaalbare basis</p>
-              <p class="text-white/45 text-xs leading-relaxed mt-1">Systemen die meegroeien naarmate het bedrijf groeit.</p>
-            </div>
-          </div>
+        <div class="tool-group" data-reveal data-reveal-delay="300">
+          <p class="tool-group-label">CRM, ERP &amp; boekhouding</p>
+          <p class="tool-group-text">Koppelingen met de pakketten waar je bedrijf op draait.</p>
+          <ul class="tool-list">
+            <li class="tool"><img src="logos/tools/salesforce.svg" alt="" /><span>Salesforce</span></li>
+            <li class="tool"><img src="logos/tools/exact.svg" alt="" /><span>Exact Online</span></li>
+            <li class="tool"><img src="logos/tools/carerix.svg" alt="" /><span>Carerix</span></li>
+            <li class="tool"><span class="tool-mono">S</span><span>Simplicate</span></li>
+            <li class="tool"><span class="tool-mono">M</span><span>MijnKantoor</span></li>
+            <li class="tool"><span class="tool-mono">V</span><span>Voys</span></li>
+          </ul>
         </div>
       </div>
-      -->
+
+      <div class="mt-10 rounded-2xl p-7 bg-[#F7F7F5] grid gap-6 md:grid-cols-3 md:gap-8" data-reveal>
+        <div>
+          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Altijd de beste oplossing voor jouw situatie</p>
+          <p class="text-[#6b7aad] text-sm leading-relaxed">We beginnen niet bij een pakket, maar bij je proces. Daarna
+            kiezen we de route die het meest oplevert.</p>
+        </div>
+        <div>
+          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Eigen platform of verder bouwen</p>
+          <p class="text-[#6b7aad] text-sm leading-relaxed">Soms is een eigen omgeving of portaal de beste keus, soms bouwen
+            we verder op de systemen die je al hebt. Wij kunnen allebei.</p>
+        </div>
+        <div>
+          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Geen koppeling? Dan bouwen we die</p>
+          <p class="text-[#6b7aad] text-sm leading-relaxed">Heeft een systeem geen API, dan bouwen we zelf de verbinding.
+            Zo lukt het koppelen alsnog.</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- PROJECTEN — dark navy, doorlopende carrousel, kaart opent een case-venster -->
+  <section id="werk" class="bg-[#0f2a4a] py-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12" data-reveal>
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">Wat we al hebben opgeleverd</h2>
+          <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto md:mx-0 mb-5"></div>
+          <p class="text-white/50 text-base max-w-xl">Deze ondernemers hebben weer tijd voor het échte werk. Klik op een
+            project voor de hele case: waar ze tegenaan liepen, wat we bouwden en wat het oplevert.</p>
+        </div>
+        <div class="flex items-center justify-center gap-3 flex-shrink-0">
+          <button type="button" class="case-nav w-11 h-11 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-prev aria-label="Vorig project">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+          </button>
+          <button type="button" class="case-nav w-11 h-11 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-next aria-label="Volgend project">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-carousel" data-case-carousel data-reveal>
+      <div class="case-track" data-case-track>
+
+        <!-- Case 1: Vacaturescrapers -->
+        <article class="case-card" data-case="scrapers" tabindex="0" role="button" aria-label="Bekijk de case: Nooit meer handmatig zoeken naar opdrachten">
+          <div class="case-visual mock">
+            <div class="mock-window">
+              <div class="mock-bar"><i></i><i></i><i></i><span>Nieuwe opdrachten vandaag</span></div>
+              <div class="mock-rows">
+                <div class="mock-row"><span><b>Interim controller</b><small>Jobboard A · Breda</small></span><span class="pill pill-wait">Nieuw</span></div>
+                <div class="mock-row"><span><b>Financial controller</b><small>Jobboard B · Tilburg</small></span><span class="pill pill-done">Gebeld</span></div>
+              </div>
+            </div>
+            <div class="mock-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg> Inclusief contactpersoon, klaar om te bellen</div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Interim finance · Breda</p>
+            <h3 class="case-title">Nooit meer handmatig zoeken naar opdrachten.</h3>
+            <ul class="case-checks">
+              <li>±10 gekwalificeerde leads per week</li>
+              <li>±2 uur per dag bespaard</li>
+              <li>Consultant focust op bellen, niet op zoeken</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">Leadgeneratie</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 2: Jaarrapportagetool -->
+        <article class="case-card" data-case="jaarrekening" tabindex="0" role="button" aria-label="Bekijk de case: Van jaarrekening naar gespreksklaar advies in minuten">
+          <div class="case-visual mock mock-h">
+            <div class="mock-file">
+              <svg width="22" height="26" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2 2h12l6 6v16H2z" /><path d="M14 2v6h6" /></svg>
+              <span>PDF</span>
+              Jaarrekening
+            </div>
+            <div class="mock-arrow">
+              <svg width="28" height="14" viewBox="0 0 28 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h25M20 1l6 6-6 6" /></svg>
+            </div>
+            <div class="mock-onepager">
+              <p class="op-title">Onepager <span>· gespreksklaar</span></p>
+              <div class="op-kpis">
+                <div class="op-kpi"><i style="height:26px"></i>Omzet</div>
+                <div class="op-kpi"><i style="height:18px"></i>Kosten</div>
+                <div class="op-kpi"><i style="height:9px"></i>Resultaat</div>
+              </div>
+              <p class="op-line"><em class="op-plus"></em>Pluspunten</p>
+              <p class="op-line"><em class="op-attn"></em>Aandachtspunten</p>
+              <p class="op-line"><em></em>Adviespunten</p>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Accountancy · Breda</p>
+            <h3 class="case-title">Van jaarrekening naar gespreksklaar advies in minuten.</h3>
+            <ul class="case-checks">
+              <li>Eerste analyse zonder de PDF te openen</li>
+              <li>Omzet, kosten en resultaat direct in beeld</li>
+              <li>Gespreksklaar én commercieel inzetbaar</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">AI-assistenten</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 3: Contractportaal -->
+        <article class="case-card" data-case="contracten" tabindex="0" role="button" aria-label="Bekijk de case: Van plaatsing naar getekend contract, zonder overtypen">
+          <div class="case-visual mock">
+            <div class="mock-window">
+              <div class="mock-bar"><i></i><i></i><i></i><span>Contractportaal</span></div>
+              <div class="mock-rows">
+                <div class="mock-row"><b>Interim controller</b><span class="pill pill-done">Getekend</span></div>
+                <div class="mock-row"><b>Financieel adviseur</b><span class="pill pill-wait">Bij opdrachtgever</span></div>
+                <div class="mock-row"><b>Interim CFO</b><span class="pill pill-wait">Verstuurd</span></div>
+              </div>
+            </div>
+            <div class="mock-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg> Getekende PDF terug in het CRM</div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Interim finance · Breda</p>
+            <h3 class="case-title">Van plaatsing naar getekend contract, zonder overtypen.</h3>
+            <ul class="case-checks">
+              <li>Contract opgesteld uit CRM-data</li>
+              <li>Digitaal getekend, automatisch terug in het CRM</li>
+              <li>Status van elk contract in één overzicht</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">CRM-koppeling</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 4: Salesautomatisering -->
+        <article class="case-card" data-case="sales" tabindex="0" role="button" aria-label="Bekijk de case: Geen showroombezoek meer zonder opvolging">
+          <div class="case-visual mock">
+            <div class="mock-flow">
+              <div class="flow-step"><span class="flow-dot">1</span>Showroombezoek</div>
+              <div class="flow-step"><span class="flow-dot">2</span>Gesprekken &amp; mails verzameld</div>
+              <div class="flow-step flow-ai"><span class="flow-dot">AI</span>Samenvatting + belmoment</div>
+              <div class="flow-step flow-end"><span class="flow-dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span>Opvolgtaak in het CRM</div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Wellness- en productiebranche</p>
+            <h3 class="case-title">Geen showroombezoek meer zonder opvolging.</h3>
+            <ul class="case-checks">
+              <li>Elk bezoek krijgt automatisch een opvolgtaak</li>
+              <li>AI vat gesprekken en mails samen</li>
+              <li>Telefoongesprekken direct bij de juiste lead</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">Salesautomatisering</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 5: Leadpijplijn -->
+        <article class="case-card" data-case="leads" tabindex="0" role="button" aria-label="Bekijk de case: Elke week een verse lijst ondernemers uit de regio">
+          <div class="case-visual mock">
+            <div class="mock-funnel">
+              <div class="funnel-bar" style="width:100%"><span>Profielen in de regio</span></div>
+              <div class="funnel-bar" style="width:80%"><span>Filter op doelgroep</span></div>
+              <div class="funnel-bar" style="width:60%"><span>KVK-verificatie</span></div>
+              <div class="funnel-bar funnel-end" style="width:42%"><span>Leadportaal</span></div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Financiële administratie · Breda</p>
+            <h3 class="case-title">Elke week een verse lijst ondernemers uit de regio.</h3>
+            <ul class="case-checks">
+              <li>Leads gevonden zonder handmatig zoekwerk</li>
+              <li>Rechtsvorm en regio geverifieerd via de KVK</li>
+              <li>Opvolging per lead in een eigen portaal</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">Leadgeneratie</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 6: Urenportaal -->
+        <article class="case-card" data-case="uren" tabindex="0" role="button" aria-label="Bekijk de case: Uren schrijven op de bouwplaats, direct in de boekhouding">
+          <div class="case-visual mock">
+            <span class="mock-label">In ontwikkeling</span>
+            <div class="mock-phone">
+              <p class="phone-head">Week 46</p>
+              <div class="phone-bars">
+                <div><i style="height:80%"></i><span>ma</span></div>
+                <div><i style="height:100%"></i><span>di</span></div>
+                <div><i style="height:90%"></i><span>wo</span></div>
+                <div><i style="height:100%"></i><span>do</span></div>
+                <div><i style="height:55%"></i><span>vr</span></div>
+              </div>
+              <p class="phone-ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg> Goedgekeurd</p>
+            </div>
+            <div class="mock-arrow">
+              <svg width="28" height="14" viewBox="0 0 28 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h25M20 1l6 6-6 6" /></svg>
+            </div>
+            <div class="mock-erp">Boeking op<br>project in de<br><b>boekhouding</b></div>
+          </div>
+          <div class="case-body">
+            <p class="case-sector">Vastgoedonderhoud · West-Brabant</p>
+            <h3 class="case-title">Uren schrijven op de bouwplaats, direct in de boekhouding.</h3>
+            <ul class="case-checks">
+              <li>Uren per project op de telefoon</li>
+              <li>Goedkeuren in twee stappen</li>
+              <li>Goedgekeurde uren direct naar Exact Online</li>
+            </ul>
+            <div class="case-foot">
+              <span class="case-tag">ERP-koppeling</span>
+              <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Volledige case-teksten: worden in het case-venster getoond -->
+    <template id="case-scrapers">
+      <h4>Uitgangssituatie</h4>
+      <p>Een interim financekantoor uit Breda had een medewerker die dagelijks jobboards afstruinde op zoek naar
+        finance-vacatures, een uur of twee per dag. Toen die capaciteit wegviel, stapelden gemiste kansen zich op.</p>
+      <h4>Wat we bouwden</h4>
+      <p>Scrapers die meerdere jobboards automatisch doorzoeken, de relevante vacatures filteren en inclusief
+        contactpersoon op één plek klaarzetten. De consultant hoeft alleen nog contact op te nemen: hét werk waar hij
+        goed in is.</p>
+      <h4>Resultaat</h4>
+      <p>Zo'n tien gekwalificeerde leads per week en ongeveer twee uur per dag terug voor gesprekken in plaats van
+        zoekwerk.</p>
+      <div class="case-tools" data-tools="Apify,Make"></div>
+    </template>
+
+    <template id="case-jaarrekening">
+      <h4>Uitgangssituatie</h4>
+      <p>Een accountantskantoor in Breda wilde sneller voorbereid aan tafel zitten bij klanten. Voorbereiding kostte
+        uren per gesprek: tijd die geen omzet opleverde en die accountants liever aan advieswerk besteedden.</p>
+      <h4>Wat we bouwden</h4>
+      <p>Een tool waarbij je een jaarrekening uploadt en binnen minuten een overzichtelijke onepager terugkrijgt:
+        bedrijfsprofiel, kerncijfers, pluspunten, aandachtspunten en concrete adviespunten. In de huisstijl van het
+        kantoor, klaar om als gespreksstarter of commercieel instrument in te zetten.</p>
+      <h4>Resultaat</h4>
+      <p>De eerste analyse ligt klaar zonder dat iemand de PDF hoeft te openen. Accountants beginnen het gesprek met
+        de cijfers al op een rij.</p>
+      <div class="case-tools" data-tools="OpenAI,Make"></div>
+    </template>
+
+    <template id="case-contracten">
+      <h4>Uitgangssituatie</h4>
+      <p>Bij elke nieuwe plaatsing van een interim professional hoort een contract. Gegevens overtypen uit het CRM,
+        een Word-document vullen, mailen, wachten op handtekeningen en het getekende stuk weer terugzetten: foutgevoelig
+        handwerk dat per contract veel tijd kostte.</p>
+      <h4>Wat we bouwden</h4>
+      <p>Een beveiligd portaal dat de gegevens van een plaatsing rechtstreeks uit het CRM (Carerix) haalt. Ontbrekende
+        gegevens worden automatisch uitgevraagd, het contract wordt in de eigen huisstijl als PDF opgesteld en met één
+        klik digitaal ter ondertekening verstuurd. Zodra alle partijen getekend hebben, staat het contract automatisch
+        terug in het CRM en krijgt iedereen bericht.</p>
+      <h4>Resultaat</h4>
+      <p>Contracten zonder overtypen, één vaste werkwijze voor het hele team en altijd zicht op welk contract waar
+        staat.</p>
+      <div class="case-tools" data-tools="Carerix,Make,Vercel"></div>
+    </template>
+
+    <template id="case-sales">
+      <h4>Uitgangssituatie</h4>
+      <p>Na een showroombezoek is de opvolging alles. Maar gesprekken, mails en afspraken stonden verspreid, en het
+        verkoopteam moest zelf bijhouden wie wanneer teruggebeld moest worden. Warme leads vielen tussen wal en schip.</p>
+      <h4>Wat we bouwden</h4>
+      <p>Een automatisering rond Salesforce. Elk telefoongesprek uit de telefooncentrale (Voys) komt automatisch als
+        activiteit bij de juiste lead. Na een showroombezoek leest AI de volledige klantgeschiedenis (gesprekken, mails
+        en afspraken), schrijft een korte samenvatting en zet een opvolgtaak met het juiste belmoment klaar voor de
+        verkoper. Komt een klant opnieuw langs, dan wordt de bestaande taak bijgewerkt in plaats van verdubbeld.</p>
+      <h4>Resultaat</h4>
+      <p>Geen showroombezoek meer zonder opvolging, en een verkoper die elk gesprek begint met de context al voor zich.</p>
+      <div class="case-tools" data-tools="Salesforce,Voys,Claude,Make"></div>
+    </template>
+
+    <template id="case-leads">
+      <h4>Uitgangssituatie</h4>
+      <p>Een administratiekantoor voor zzp'ers en vof's wilde groeien in de eigen regio, maar had geen tijd om zelf
+        ondernemers te zoeken. Gekochte lijsten waren duur en pasten slecht bij de doelgroep.</p>
+      <h4>Wat we bouwden</h4>
+      <p>Een pijplijn die ondernemers in de regio vindt op basis van hun eigen profiel, bedrijven die niet passen er
+        automatisch uitfiltert en de rest controleert via de officiële KVK-registratie (rechtsvorm, vestiging,
+        inschrijfdatum). Dubbele contacten worden herkend. Elke week komt een nieuwe lichting vrij in een eigen
+        leadportaal, waar de opvolging per lead wordt bijgehouden.</p>
+      <h4>Resultaat</h4>
+      <p>Een voorspelbare stroom van precies de doelgroep, zonder handmatig zoekwerk en met overzicht over wie al
+        benaderd is.</p>
+      <div class="case-tools" data-tools="Apify,KVK API,Make,Notion"></div>
+    </template>
+
+    <template id="case-uren">
+      <h4>Uitgangssituatie</h4>
+      <p>Een onderhoudsbedrijf met vaste ploegen en zzp'ers op wisselende projecten. Uren kwamen binnen via briefjes,
+        appjes en lijstjes en moesten daarna met de hand worden verwerkt in de boekhouding. Zicht op de voortgang per
+        project ontbrak.</p>
+      <h4>Wat we bouwen</h4>
+      <p>Een app voor op de telefoon waarin medewerkers per dag hun uren op een project schrijven. Voormannen en
+        directie keuren in twee stappen goed. Per project zie je het team, de uren, de voortgang en een logboek met
+        foto's. Goedgekeurde uren gaan rechtstreeks als boeking naar Exact Online, op het juiste project. Iedere rol
+        ziet alleen wat nodig is.</p>
+      <h4>Resultaat</h4>
+      <p>Uren die kloppen en op tijd binnen zijn, projectkosten die actueel in de boekhouding staan en geen overtypwerk
+        meer. Dit project is in ontwikkeling.</p>
+      <div class="case-tools" data-tools="Supabase,Vercel,Exact"></div>
+    </template>
+  </section>
+
+  <!-- Case-venster (modal) -->
+  <div id="case-modal" class="case-modal" hidden>
+    <div class="case-modal-backdrop" data-case-close></div>
+    <div class="case-modal-panel" role="dialog" aria-modal="true" aria-labelledby="case-modal-title">
+      <button type="button" class="case-modal-close" data-case-close aria-label="Sluiten">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+      </button>
+      <div class="case-modal-visual" data-case-modal-visual></div>
+      <div class="case-modal-body">
+        <p class="case-sector" data-case-modal-sector></p>
+        <h3 id="case-modal-title" class="text-[#0f2a4a] font-bold text-2xl leading-snug mb-4" data-case-modal-title></h3>
+        <ul class="case-checks case-checks-row" data-case-modal-checks></ul>
+        <div class="case-modal-text" data-case-modal-text></div>
+        <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
+          class="mt-8 inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200">
+          Zoiets voor jouw bedrijf? Plan een gesprek
+          <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA BANNER — light gray, breaks back-to-back dark sections -->
   <section class="bg-[#F7F7F5] border-t border-black/[0.06] py-20 px-6">
-    <div class="max-w-2xl mx-auto text-center">
+    <div class="max-w-2xl mx-auto text-center" data-reveal>
       <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-4">Wil jij ook weer tijd voor<br>het échte werk?</h2>
       <p class="text-[#6b7aad] text-base mb-8">Plan een kennismakingsgesprek in. Geen verkooppraatje — we luisteren,
         verkennen samen waar de meeste winst zit en zeggen eerlijk of we een match zijn.</p>
@@ -939,6 +1233,212 @@
 
     </div>
   </footer>
+
+  <script>
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Inschuiven bij scrollen: elementen met data-reveal faden in zodra ze in beeld komen
+    (function () {
+      const items = document.querySelectorAll('[data-reveal]');
+      if (calm || !('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const delay = en.target.dataset.revealDelay;
+          if (delay) en.target.style.transitionDelay = delay + 'ms';
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      items.forEach((el) => io.observe(el));
+    })();
+
+    // Logo-carrousel: lijst één keer verdubbelen zodat de CSS-lus naadloos doorloopt
+    document.querySelectorAll('[data-marquee]').forEach((track) => {
+      [...track.children].forEach((item) => {
+        const copy = item.cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        track.appendChild(copy);
+      });
+    });
+
+    // Projecten-carrousel: loopt vanzelf door, pauzeert bij hover, pijlen en swipen werken
+    (function () {
+      const carousel = document.querySelector('[data-case-carousel]');
+      if (!carousel) return;
+      const track = carousel.querySelector('[data-case-track]');
+      const originals = [...track.children];
+      const SPEED = 28; // pixels per seconde
+      let setWidth = 0, x = 0, last = 0, hover = false, focusIn = false, anim = null;
+      let drag = null, suppressClick = false, inView = false;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([en]) => { inView = en.isIntersecting; }).observe(carousel);
+      } else inView = true;
+
+      function addSet() {
+        originals.forEach((card) => {
+          const copy = card.cloneNode(true);
+          copy.setAttribute('aria-hidden', 'true');
+          copy.tabIndex = -1;
+          track.appendChild(copy);
+        });
+      }
+      function measure() {
+        setWidth = track.children[originals.length].offsetLeft - track.children[0].offsetLeft;
+        while (track.scrollWidth < setWidth + carousel.clientWidth + 400) addSet();
+      }
+      addSet();
+      measure();
+
+      // Eerste kaart uitlijnen met de koppen erboven
+      const container = document.querySelector('#werk .max-w-6xl');
+      x = -(container.getBoundingClientRect().left - carousel.getBoundingClientRect().left + 24);
+
+      const step = () => originals[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 24);
+      const paused = () => !inView || hover || focusIn || drag || window.casemodalOpen || document.hidden;
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+      function render() {
+        const w = ((x % setWidth) + setWidth) % setWidth;
+        track.style.transform = `translate3d(${-w}px,0,0)`;
+      }
+      function frame(now) {
+        const dt = last ? Math.min((now - last) / 1000, 0.1) : 0;
+        last = now;
+        if (anim) {
+          const t = Math.min((now - anim.start) / anim.duration, 1);
+          x = anim.from + (anim.to - anim.from) * ease(t);
+          if (t === 1) anim = null;
+        } else if (!calm && !paused()) {
+          x += SPEED * dt;
+        }
+        render();
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+
+      function go(dir) {
+        const from = anim ? anim.to : x;
+        anim = { from: x, to: from + dir * step(), start: performance.now(), duration: 550 };
+      }
+      document.querySelector('[data-case-prev]').addEventListener('click', () => go(-1));
+      document.querySelector('[data-case-next]').addEventListener('click', () => go(1));
+
+      carousel.addEventListener('mouseenter', () => { hover = true; });
+      carousel.addEventListener('mouseleave', () => { hover = false; });
+      carousel.addEventListener('focusin', (e) => { focusIn = e.target.matches(':focus-visible'); });
+      carousel.addEventListener('focusout', () => { focusIn = false; });
+
+      // Slepen met muis of vinger
+      carousel.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        anim = null;
+        drag = { startX: e.clientX, startOffset: x, moved: false, id: e.pointerId };
+      });
+      carousel.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        const dx = e.clientX - drag.startX;
+        if (!drag.moved && Math.abs(dx) > 6) {
+          drag.moved = true;
+          carousel.classList.add('is-dragging');
+          carousel.setPointerCapture(drag.id);
+        }
+        if (drag.moved) x = drag.startOffset - dx;
+      });
+      function endDrag() {
+        if (!drag) return;
+        if (drag.moved) suppressClick = true;
+        carousel.classList.remove('is-dragging');
+        drag = null;
+        if (!hover) last = 0;
+      }
+      carousel.addEventListener('pointerup', endDrag);
+      carousel.addEventListener('pointercancel', endDrag);
+
+      // Klik of Enter op een kaart opent de case
+      track.addEventListener('click', (e) => {
+        if (suppressClick) { suppressClick = false; return; }
+        const card = e.target.closest('.case-card');
+        if (card) openCase(card);
+      });
+      track.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const card = e.target.closest('.case-card');
+        if (card) { e.preventDefault(); openCase(card); }
+      });
+
+      window.addEventListener('resize', () => { measure(); });
+    })();
+
+    // Case-venster
+    const TOOL_ICONS = {
+      Apify: 'apify.svg', Make: 'make.svg', OpenAI: 'openai.svg', Claude: 'claude.svg', Carerix: 'carerix.svg',
+      Vercel: 'vercel.svg', Salesforce: 'salesforce.svg', Notion: 'notion.svg',
+      Supabase: 'supabase.svg', Exact: 'exact.svg',
+    };
+    const caseModal = document.getElementById('case-modal');
+    let lastFocus = null;
+
+    function openCase(card) {
+      const tpl = document.getElementById('case-' + card.dataset.case);
+      if (!tpl) return;
+      const $ = (sel) => caseModal.querySelector(sel);
+      $('[data-case-modal-visual]').replaceChildren(card.querySelector('.case-visual').cloneNode(true));
+      $('[data-case-modal-sector]').textContent = card.querySelector('.case-sector').textContent;
+      $('[data-case-modal-title]').textContent = card.querySelector('.case-title').textContent;
+      $('[data-case-modal-checks]').replaceChildren(...[...card.querySelectorAll('.case-checks li')].map((li) => li.cloneNode(true)));
+      const text = $('[data-case-modal-text]');
+      text.replaceChildren(tpl.content.cloneNode(true));
+      const tools = text.querySelector('.case-tools');
+      if (tools) {
+        const label = document.createElement('span');
+        label.className = 'case-tools-label';
+        label.textContent = 'Gebouwd met';
+        tools.appendChild(label);
+        tools.dataset.tools.split(',').forEach((name) => {
+          const chip = document.createElement('span');
+          chip.className = 'tool';
+          const icon = TOOL_ICONS[name];
+          chip.innerHTML = icon
+            ? `<img src="logos/tools/${icon}" alt="" />`
+            : `<span class="tool-mono">${name[0]}</span>`;
+          chip.append(name);
+          tools.appendChild(chip);
+        });
+      }
+      lastFocus = document.activeElement;
+      window.casemodalOpen = true;
+      caseModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      $('.case-modal-panel').scrollTop = 0;
+      requestAnimationFrame(() => caseModal.classList.add('is-open'));
+      $('.case-modal-close').focus();
+    }
+
+    function closeCase() {
+      if (caseModal.hidden) return;
+      caseModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      window.casemodalOpen = false;
+      setTimeout(() => { caseModal.hidden = true; }, calm ? 0 : 300);
+      if (lastFocus) lastFocus.focus({ preventScroll: true });
+    }
+
+    caseModal.querySelectorAll('[data-case-close]').forEach((el) => el.addEventListener('click', closeCase));
+    document.addEventListener('keydown', (e) => {
+      if (caseModal.hidden) return;
+      if (e.key === 'Escape') closeCase();
+      if (e.key === 'Tab') {
+        const f = [...caseModal.querySelectorAll('button, a[href]')];
+        const first = f[0], lastEl = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+        else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+      }
+    });
+  </script>
 
 </body>
 
