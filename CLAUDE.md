@@ -11,7 +11,7 @@ Single-page Dutch-language marketing website for **Pareto Partners** — an AI &
 Take a Puppeteer screenshot for visual comparison:
 
 ```powershell
-node -e "const p=require('puppeteer');(async()=>{const b=await p.launch();const pg=await b.newPage();await pg.setViewport({width:1440,height:900});await pg.goto('file:///C:/Users/robro/Desktop/Pareto Partners Website/index.html');await pg.screenshot({path:'screenshot.png',fullPage:true});await b.close();})()"
+node -e "const p=require('puppeteer');(async()=>{const b=await p.launch();const pg=await b.newPage();await pg.setViewport({width:1440,height:900});await pg.goto('file:///C:/Users/robro/Desktop/Pareto Partners Website - V5 (nieuw ontwerp)/index.html');await pg.screenshot({path:'screenshot.png',fullPage:true});await b.close();})()"
 ```
 
 Always do **at least 2 comparison rounds** before stopping. Check spacing (px), font sizes/weights, colors (exact hex), alignment, border radii, shadows.
@@ -25,7 +25,8 @@ Always do **at least 2 comparison rounds** before stopping. Check spacing (px), 
 | Blue hover | `#1a4ee0` |
 | Muted blue (secondary text) | `#6b7aad` |
 | Icon blue | `#185FA5` / `#378ADD` |
-| Off-white section bg | `#F7F7F5` |
+| Off-white (chips, kleine vlakken) | `#F7F7F5` |
+| Lichte sectie-achtergrond | `#F1F3F7` |
 | Icon bg (light blue) | `#EBF3FF` |
 | Font | Inter (Google Fonts), weights 400–800 |
 
@@ -42,28 +43,45 @@ All images are in the project root — reference them by filename. Only assets a
 - `Sjef_En_Rob_cropped.png`, `Jilles_en_Rob_foto2.jpeg` — waren de foto's in de projectkaarten; sinds 2026-11-11 niet meer gebruikt (alle zes kaarten hebben een schermvoorbeeld in HTML/CSS)
 - `logos/` — klant- en partnerlogo's; `logos/tools/` — tool-iconen
 
-## Page sections (top → bottom)
+## Versie 2 (branch `v2-ontwerp`, map "Pareto Partners Website - V5 (nieuw ontwerp)")
 
-1. **Header/nav** — logo, nav links, "Contact" pill CTA
-2. **Hero** — full-viewport-height, centered headline + subtext + CTA button
-3. **Proof block** — 4-column trust signals with icons
-4. **Logo-carrousel** — "Opdrachtgevers & partners", doorlopende strip (CSS-animatie, lijst wordt in JS één keer verdubbeld via `data-marquee`). Logo's in `logos/`, als zwarte silhouetten via CSS-filter.
-5. **Aanpak (How it works)** — 4 dark navy cards + Skin in the Game callout
-6. **Wie wij zijn** — text left, photo right
-7. **Diensten (Services)** — light gray bg, 2×2 service cards + custom callout
-8. **Tools (`#tools`)** — "Waar wij mee bouwen", 4 groepen met tool-chips. Iconen in `logos/tools/` (Simple Icons of eigen site van de tool); zonder icoon een letterbadge (`.tool-mono`).
-9. **Projecten (`#werk`)** — dark navy, 6 cases in een doorlopende carrousel (JS, `data-case-carousel`): loopt vanzelf, pauzeert bij hover/focus/buiten beeld, pijlen en slepen/swipen. Klik op een kaart opent het case-venster (`#case-modal`); de volledige tekst staat per case in `<template id="case-…">`, de tools in `data-tools`. Cases zijn anoniem (sector + regio, geen klantnaam).
-10. **Contact** — CTA banner
-11. **Footer**
+Tweede versie van de site, gestart 2026-11-12, geïnspireerd op autogrowth.nl (speels en visueel), maar met onze huisstijl, inhoud en werkwijze. Basis was de live versie (`origin/main` @ 730e461). Niet live; niets pushen of live zetten zonder akkoord van Rob.
 
-Blokken schuiven in bij scrollen: zet `data-reveal` (optioneel `data-reveal-delay="100"`) op een element. Werkt alleen met JS (`.js`-class op `<html>`) en staat uit bij `prefers-reduced-motion`.
+Keuzes van Rob: geen prijsbedragen op de site (model uitleggen), cases anoniem, alleen Rob & Jilles als team, maatwerk hoog op de pagina.
 
-Several sections are commented out in the HTML (`<!-- ... -->`) and should remain commented unless the user asks to restore them.
+## Page sections (top → bottom) — stand na feedbackronde 1 (2026-11-12)
+
+1. **Header** — sticky, volledig wit; links Strategie · Maatwerk · Resultaten · Aanpak · Dataveiligheid · Wie wij zijn; CTA "Plan een kennismaking" (Calendly-popup).
+2. **Hero** — kop "Van groeiplan naar processen die zichzelf afhandelen." (Pareto-lijn onder het blauwe deel). Rechts **"Een week van je team"** (`data-week`, JS): weekagenda ma–vr × 4 blokken van 2 uur. Grijze handwerk-blokken (14 u) worden groen "✓ automatisch" (op één na: 80/20) en daarna blauwe tijd voor klanten en groei; teller 14 u handwerk → +12 uur terug per week. Fases Zo gaat het nu → Automatiseren → Tijd terug, lus van ±11,5 s, stopt buiten beeld (eindstand). Vervangt de Pareto-grafiek uit ronde 2 (was niet in één oogopslag te snappen). Labels "80/20" en "Betaald uit wat het oplevert" zweven erbij.
+3. **Logo-carrousel** — grijs silhouet, **kleur bij hover**: `.logo-swap` met `img.mono` + `img.color` (strip-*.png en `cijferwijs-kleur.png`); Vermeulen en Senss zijn `single` (filter valt weg); Fraanje is inline SVG en kleurt via CSS.
+4. **Strategie (`#strategie`)** — lichtgrijze achtergrond (`#F1F3F7`) om de witte bovenkant op te breken; kop + foto-placeholder; 3 tabbladen (Waar wil je naartoe? = het eerste gesprek / De 20% vinden / Eén dashboard) die vanzelf doorlopen: de Pareto-lijn in het tabblad loopt vol (7 s) en dan volgt het volgende. Klikken zet het doorlopen uit (`.is-manual`). Elk paneel heeft een eigen animatie (gespreksnotities van de kennismaking, uren-balken, dashboard dat optelt).
+5. **Maatwerk (`#maatwerk`)** — 4 kaarten + "Waar wij mee bouwen" (incl. Notion, Google Workspace, KvK API, Legalesign, Simplicate, MijnKantoor, Voys en de regel "Staat jouw pakket er niet tussen?"). Tool-iconen staan in `logos/tools/` en worden als zwart silhouet getoond (`filter: brightness(0)`), dus een icoon moet een transparante achtergrond hebben. Rob's kleurbestanden (`*_logo.*`, `Mijnkantoorlogo.png`) zijn de bron; `kvk.png`, `voys.png`, `mijnkantoor.png`, `legalesign.png` zijn daarvan afgeleid, `google.svg` komt van Simple Icons.
+6. **Resultaten (`#werk`)** — case-carrousel. Elke kaart: foto-placeholder bovenaan (zonder tekst; omschrijving staat in de HTML-opmerking `FOTO:`), groot cijfer onderaan (`.case-metric`). Het schermvoorbeeld (`.case-visual[data-mock]`) staat verborgen in de kaart en verschijnt in het case-venster onder "Wat we bouwden".
+7. **Aanpak (`#aanpak`)** — tijdlijn + skin in the game (ongewijzigd, Rob vond hem top).
+8. **Dataveiligheid (`#dataveiligheid`)** — 6 kaarten + link (dikgedrukt, `#1e5bff`) naar `zo-gaan-wij-met-jouw-data-om.pdf`.
+9. **Wie wij zijn (`#wie-wij-zijn`)** — foto + tekst + twee founder-kaartjes.
+10. **CTA** — navy kaart met foto-placeholder en "Na het eerste gesprek weet je…".
+11. **Footer**.
+
+Labels boven koppen zijn `.kicker` (hoofdletters + korte Pareto-lijn eronder), op navy `.kicker.dark`. Geen pil-labels meer.
+
+Foto-placeholders zijn `.ph`-vlakken met een omschrijving van de gewenste foto (zoek op `FOTO`). Vervang ze door `<img>` met `object-fit: cover`. Let op: cases zijn anoniem, dus geen herkenbare klant op de foto zonder toestemming.
+
+## Open punten vóór livegang
+
+- **Cijfers op de projectkaarten:** Rob twijfelt over de huidige grote cijfers (`.case-metric`) en levert zelf de cijfers aan. Tot die tijd ongewijzigd laten (jaarrekening staat nog op `[x] min`).
+- **Dataveiligheid, kaart Tweestapsverificatie:** klopt pas als Jilles 2FA aan heeft op Google, Make, GitHub, Vercel en Supabase (claim-checklist C04/C13). Anders de kaart weghalen.
+- **Datadocument-PDF:** is in de doelsituatie geschreven; open punten uit de claim-checklist eerst dichtzetten of de PDF aanpassen.
+- **Foto's:** 8 placeholders (6 cases, strategiesessie, kennismaking).
+
+Blokken schuiven in bij scrollen: zet `data-reveal` (optioneel `data-reveal-delay="100"`). Alle animaties staan uit bij `prefers-reduced-motion`.
+
+Sectie-achtergronden wisselen: wit → navy → wit → `#F1F3F7` → navy → wit → `#F1F3F7` → wit → `#F1F3F7` (met navy kaart) → navy footer.
 
 ## Rules
 
-- Do not add features, sections, or content not present in the reference image
-- Match the reference exactly — do not "improve" the design
+- Pas alleen de sectie aan waar het gesprek over gaat en toon het resultaat (screenshot) voordat je verder gaat.
+- Niet pushen of live zetten zonder akkoord van Rob. Deze branch heeft bewust geen upstream.
 - If the user provides CSS classes or style tokens, use them verbatim
 - Keep code clean but don't over-abstract — inline Tailwind classes are fine
 - When comparing screenshots, be specific about what's wrong (e.g., "heading is 32px but reference shows ~24px", "gap between cards is 16px but should be 24px")

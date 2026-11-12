@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pareto Partners — Weer tijd om te ondernemen | AI & Automatisering voor het MKB</title>
   <meta name="description"
-    content="Weer tijd om te ondernemen. Pareto Partners helpt MKB-ondernemers in en rondom Breda met AI, procesautomatisering en dashboards die het meest opleveren — een werkende oplossing binnen weken." />
+    content="Weer tijd om te ondernemen. Pareto Partners bouwt maatwerk-automatiseringen en AI voor MKB-bedrijven in en rondom Breda. De 20% die 80% van je tijd kost, opgelost binnen weken." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://paretopartners.nl/" />
@@ -30,44 +30,291 @@
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { navy: '#0f2a4a', blauw: '#1e5bff', muted: '#6b7aad', licht: '#F1F3F7', ijs: '#EBF3FF' },
         }
       }
     }
   </script>
   <style>
-    html {
-      scroll-behavior: smooth;
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body { background-color: #ffffff; color: #0f2a4a; font-family: 'Inter', Calibri, sans-serif; }
+
+    /* ── Basis: labels, koppen, knoppen ─────────────────────────────── */
+    .h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.1; text-wrap: balance; }
+    .lead { font-size: 17px; line-height: 1.65; color: #6b7aad; }
+    .btn { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: background-color .2s, border-color .2s, color .2s, transform .2s; }
+    .btn-primary { background: #1e5bff; color: #fff; padding: 8px 8px 8px 24px; }
+    .btn-primary:hover { background: #1a4ee0; }
+    .btn-primary .btn-arrow { width: 34px; height: 34px; border-radius: 50%; background: #fff; display: inline-flex; align-items: center; justify-content: center; transition: transform .2s; }
+    .btn-primary:hover .btn-arrow { transform: translateX(2px); }
+    .btn-ghost { border: 1.5px solid rgba(15,42,74,.15); color: #0f2a4a; padding: 13px 22px; }
+    .btn-ghost:hover { border-color: #1e5bff; color: #1e5bff; }
+    .btn-ghost-dark { border: 1.5px solid rgba(255,255,255,.2); color: #fff; padding: 13px 22px; }
+    .btn-ghost-dark:hover { border-color: #fff; }
+
+    /* ── Header ─────────────────────────────────────────────────────── */
+    .site-header { position: sticky; top: 0; z-index: 50; background: #ffffff; border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
+    .site-header.is-scrolled { border-color: rgba(15,42,74,.08); box-shadow: 0 8px 24px -18px rgba(15,42,74,.35); }
+
+    /* ── Hero ───────────────────────────────────────────────────────── */
+    .hero { position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(15,42,74,.10) 1px, transparent 1.2px); background-size: 24px 24px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%); pointer-events: none; }
+    .hero-h1 { font-size: clamp(38px, 5.2vw, 60px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; }
+    .hero-h1 .accent { color: #1e5bff; position: relative; white-space: nowrap; }
+    .hero-h1 .accent::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.1em; height: .1em; background: linear-gradient(90deg, #1e5bff 25%, #0f2a4a 25%); border-radius: 2px; transform-origin: left; animation: underline 1s .6s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .hero-check { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: rgba(15,42,74,.75); }
+    .hero-check svg { flex-shrink: 0; }
+    @keyframes heroFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .fade-1, .fade-2, .fade-3, .fade-4 { animation: heroFadeIn .6s ease-out both; }
+    .fade-2 { animation-delay: .1s; } .fade-3 { animation-delay: .2s; } .fade-4 { animation-delay: .3s; }
+
+    /* ── Maatwerk ───────────────────────────────────────────────────── */
+    .mw-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 22px; overflow: hidden; transition: transform .35s, box-shadow .35s, border-color .35s; }
+    .mw-card:hover { transform: translateY(-6px); border-color: rgba(30,91,255,.3); box-shadow: 0 30px 50px -28px rgba(15,42,74,.4); }
+    .mw-visual { height: 150px; background: #F1F3F7; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .mw-body { padding: 22px 22px 24px; }
+    .mw-num { font-size: 12px; font-weight: 700; color: #1e5bff; letter-spacing: .1em; }
+    .mw-title { font-size: 18px; font-weight: 700; line-height: 1.3; margin: 6px 0 8px; }
+    .mw-text { font-size: 14.5px; line-height: 1.6; color: #6b7aad; }
+    .chip-app { display: inline-flex; align-items: center; gap: 6px; background: #fff; border-radius: 10px; padding: 8px 11px; font-size: 11.5px; font-weight: 600; box-shadow: 0 8px 18px -10px rgba(15,42,74,.4); }
+    .chip-app i { width: 8px; height: 8px; border-radius: 3px; background: #1e5bff; }
+    .link-line { position: relative; width: 56px; height: 2px; background: rgba(30,91,255,.25); margin: 0 6px; overflow: visible; }
+    .link-line::after { content: ""; position: absolute; top: -3px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: #1e5bff; animation: travel 2.2s ease-in-out infinite; }
+    @keyframes travel { 0% { left: 0; } 50% { left: calc(100% - 8px); } 100% { left: 0; } }
+    .mini-app { width: 190px; height: 112px; background: #fff; border-radius: 12px; box-shadow: 0 12px 26px -14px rgba(15,42,74,.45); display: grid; grid-template-columns: 44px 1fr; overflow: hidden; }
+    .mini-app aside { background: #0f2a4a; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; }
+    .mini-app aside i { height: 5px; border-radius: 3px; background: rgba(255,255,255,.25); }
+    .mini-app aside i:first-child { background: #1e5bff; }
+    .mini-app main { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .mini-app main i { height: 7px; border-radius: 4px; background: #EBF3FF; }
+    .mini-app main .row { display: flex; gap: 5px; align-items: center; }
+    .mini-app main .row i { flex: 1; }
+    .mini-app main .row b { width: 22px; height: 7px; border-radius: 4px; background: rgba(22,163,74,.35); }
+    .ai-doc { display: flex; align-items: center; gap: 10px; }
+    .ai-doc .paper { width: 54px; height: 70px; background: #fff; border-radius: 7px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); padding: 9px 8px; display: flex; flex-direction: column; gap: 5px; }
+    .ai-doc .paper i { height: 4px; border-radius: 2px; background: rgba(15,42,74,.15); }
+    .ai-spark { width: 36px; height: 36px; border-radius: 50%; background: #1e5bff; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; animation: spark 2.4s ease-in-out infinite; }
+    @keyframes spark { 0%,100% { box-shadow: 0 0 0 0 rgba(30,91,255,.4); } 50% { box-shadow: 0 0 0 10px rgba(30,91,255,0); } }
+    .ai-doc .summary { width: 78px; background: #fff; border-radius: 9px; padding: 9px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); display: flex; flex-direction: column; gap: 6px; }
+    .ai-doc .summary i { height: 5px; border-radius: 3px; background: #1e5bff; opacity: .8; }
+    .ai-doc .summary i:nth-child(2) { width: 70%; opacity: .45; }
+    .ai-doc .summary i:nth-child(3) { width: 85%; opacity: .45; }
+    .plug { display: flex; align-items: center; gap: 0; }
+    .plug .side { width: 64px; height: 56px; border-radius: 12px; background: #fff; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #6b7aad; text-align: center; line-height: 1.2; }
+    .plug .bridge { width: 64px; height: 10px; background: repeating-linear-gradient(90deg, #1e5bff 0 8px, transparent 8px 13px); border-radius: 4px; animation: build 2.6s ease-in-out infinite; transform-origin: left; }
+    @keyframes build { 0% { transform: scaleX(.1); } 55%,100% { transform: scaleX(1); } }
+
+    .tools-band { border: 1px solid rgba(15,42,74,.08); border-radius: 24px; background: #fff; }
+
+    /* ── Aanpak-tijdlijn ────────────────────────────────────────────── */
+    .steps { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+    .steps-track, .steps-fill { position: absolute; background: rgba(15,42,74,.1); border-radius: 2px; }
+    .steps-fill { background: #1e5bff; transition: width 1.8s cubic-bezier(.2,.7,.2,1), height 1.8s cubic-bezier(.2,.7,.2,1); }
+    .step { position: relative; }
+    .step-dot { position: relative; z-index: 1; width: 52px; height: 52px; border-radius: 50%; background: #fff; border: 2px solid rgba(15,42,74,.12); color: #0f2a4a; font-weight: 800; font-size: 17px; display: flex; align-items: center; justify-content: center; transition: background-color .4s, border-color .4s, color .4s; }
+    .steps.is-visible .step-dot { background: #0f2a4a; border-color: #0f2a4a; color: #fff; }
+    .steps.is-visible .step:nth-of-type(2) .step-dot { transition-delay: .4s; }
+    .steps.is-visible .step:nth-of-type(3) .step-dot { transition-delay: .8s; }
+    .steps.is-visible .step:nth-of-type(4) .step-dot { transition-delay: 1.2s; background: #1e5bff; border-color: #1e5bff; }
+    .step-week { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1e5bff; background: #EBF3FF; border-radius: 999px; padding: 4px 10px; }
+    .step h3 { font-size: 19px; font-weight: 700; margin: 12px 0 8px; }
+    .step p { font-size: 14.5px; line-height: 1.65; color: #6b7aad; }
+    @media (min-width: 1024px) {
+      .steps { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+      /* lijn loopt van het midden van stap 1 tot het midden van stap 4: 3 kolommen + 3 gaten = 75% + 24px */
+      .steps-track, .steps-fill { top: 25px; left: 26px; height: 2px; }
+      .steps-track { width: calc(75% + 24px); }
+      .steps-fill { width: 0; }
+      .steps.is-visible .steps-fill { width: calc(75% + 24px); }
+      .step-body { margin-top: 22px; }
+    }
+    @media (max-width: 1023px) {
+      /* mobiel: lijnstuk per stap, van de bol naar de volgende bol */
+      .steps-track, .steps-fill { display: none; }
+      .step { display: grid; grid-template-columns: 52px 1fr; gap: 20px; }
+      .step:not(:last-child)::before { content: ""; position: absolute; left: 25px; top: 52px; bottom: -28px; width: 2px; background: rgba(15,42,74,.1); }
+      .steps.is-visible .step:not(:last-child)::before { background: #1e5bff; transition: background-color .6s; }
     }
 
-    body {
-      background-color: #ffffff;
-      color: #0f2a4a;
-      font-family: 'Inter', sans-serif;
+    /* ── Dataveiligheid ─────────────────────────────────────────────── */
+    .safe-card { background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 20px; padding: 24px; transition: transform .3s, box-shadow .3s, border-color .3s; }
+    .safe-card:hover { transform: translateY(-4px); border-color: rgba(30,91,255,.3); box-shadow: 0 24px 40px -26px rgba(15,42,74,.4); }
+    .safe-ico { width: 44px; height: 44px; border-radius: 12px; background: #EBF3FF; color: #1e5bff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .safe-card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
+    .safe-card p { font-size: 14.5px; line-height: 1.6; color: #6b7aad; }
+    .data-link { font-weight: 700; color: #1e5bff; font-size: 17px; display: inline-flex; align-items: center; gap: 8px; border-bottom: 2px solid rgba(30,91,255,.25); padding-bottom: 2px; transition: border-color .2s, gap .2s; }
+    .data-link:hover { border-color: #1e5bff; gap: 12px; }
+
+    /* ── Wie wij zijn ───────────────────────────────────────────────── */
+    .founder { background: #F1F3F7; border-radius: 18px; padding: 18px 20px; }
+    .founder b { display: block; font-size: 16px; }
+    .founder span { font-size: 13.5px; color: #6b7aad; line-height: 1.5; display: block; margin-top: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-1, .fade-2, .fade-3, .fade-4, .float-chip, .live i, .hero-h1 .accent::after, .feed-item.is-new, .link-line::after, .ai-spark, .plug .bridge, .diagram .flow, .diagram .jitter, .dpanel.is-active { animation: none !important; }
+      .steps-fill, .step-dot { transition: none !important; }
     }
 
-    .card-border {
-      border: 1px solid rgba(0, 0, 0, 0.08);
+    /* ── Kicker: label in Pareto-stijl met de gesplitste lijn ─────── */
+    .kicker { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #0f2a4a; }
+    .kicker::after { content: ""; width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #1e5bff 0 25%, #0f2a4a 25% 100%); }
+    .kicker.dark { color: #fff; }
+    .kicker.dark::after { background: linear-gradient(90deg, #1e5bff 0 25%, rgba(255,255,255,.85) 25% 100%); }
+
+    /* ── Foto-placeholders ─────────────────────────────────────────── */
+    .ph { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 18px 22px; background: repeating-linear-gradient(135deg, #EBF3FF 0 14px, #e4eeff 14px 28px); border: 2px dashed rgba(30,91,255,.35); color: #0f2a4a; overflow: hidden; }
+    .ph svg { color: #1e5bff; margin-bottom: 2px; }
+    .ph b { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #1e5bff; }
+    .ph span { font-size: 13px; line-height: 1.45; color: rgba(15,42,74,.7); max-width: 340px; }
+
+    /* ── Hero: een week van je team, vóór en na ───────────────────── */
+    .wk-card { position: relative; container: wk / inline-size; background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 24px; box-shadow: 0 50px 90px -40px rgba(15,42,74,.45), 0 2px 6px rgba(15,42,74,.04); overflow: hidden; }
+    .wk-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 34px 22px 18px; }
+    .wk-head p { font-size: 15px; font-weight: 700; }
+    .wk-head small { display: block; font-size: 12px; font-weight: 500; color: #6b7aad; margin-top: 2px; }
+    .wk-phase { flex-shrink: 0; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0f2a4a; background: #F1F3F7; border-radius: 999px; padding: 5px 11px; transition: background-color .4s, color .4s; }
+    .wk-phase[data-state="auto"] { color: #1e5bff; background: #EBF3FF; }
+    .wk-phase[data-state="done"] { color: #15803d; background: rgba(22,163,74,.12); }
+    .wk-grid { display: grid; grid-template-columns: 36px repeat(5, minmax(0, 1fr)); grid-template-rows: auto repeat(4, 42px); grid-auto-flow: column; gap: 6px; padding: 0 22px; transition: opacity .45s; }
+    .wk-card.is-reset .wk-grid { opacity: 0; }
+    .wk-day { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6b7aad; text-align: center; padding-bottom: 2px; }
+    .wk-time { font-size: 10px; font-weight: 600; color: rgba(15,42,74,.4); padding-top: 5px; font-variant-numeric: tabular-nums; }
+    .wk-b { position: relative; border-radius: 8px; border: 1px solid transparent; font-size: 11px; font-weight: 600; transition: background-color .45s, border-color .45s, color .45s, opacity .4s, transform .45s cubic-bezier(.2,.7,.2,1); }
+    .wk-b > span { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 8px; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity .35s; }
+    .wk-b .a, .wk-b .f { opacity: 0; }
+    .wk-b .a { align-items: center; padding: 0 3px; font-size: 13px; }
+    .wk-b .a em { font-style: normal; font-size: 9px; letter-spacing: .02em; }
+    .wk-b.o { background: #fff; border-color: rgba(15,42,74,.09); color: rgba(15,42,74,.42); }
+    .wk-b.h { background: #d5dbe6; border-color: #d5dbe6; color: #0f2a4a; }
+    .wk-b.is-auto { background: rgba(22,163,74,.1); border: 1px dashed rgba(22,163,74,.55); color: #15803d; }
+    .wk-b.is-auto .l { opacity: 0; }
+    .wk-b.is-auto .a { opacity: 1; }
+    .wk-b.is-free { background: #1e5bff; border: 1px solid #1e5bff; color: #fff; }
+    .wk-b.is-free .a { opacity: 0; }
+    .wk-b.is-free .f { opacity: 1; }
+    .wk-card.is-js .wk-b:not(.is-in) { opacity: 0; transform: scale(.82); }
+    .wk-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 16px 22px 0; font-size: 12px; font-weight: 600; color: #6b7aad; }
+    .wk-legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .wk-legend i { width: 12px; height: 12px; border-radius: 4px; background: #d5dbe6; }
+    .wk-legend i.free { background: #1e5bff; }
+    .wk-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; padding: 16px 22px 36px; background: #0f2a4a; color: #fff; }
+    .wk-foot p { font-size: 13px; font-weight: 600; line-height: 1.35; color: rgba(255,255,255,.75); }
+    .wk-foot b { font-size: 28px; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .wk-foot b .plus { color: #9db8ff; }
+    @container wk (max-width: 400px) {
+      .wk-head { padding-top: 18px; }
+      .wk-grid { grid-template-columns: 30px repeat(5, minmax(0, 1fr)); grid-template-rows: auto repeat(4, 36px); gap: 4px; padding: 0 14px; }
+      .wk-b { font-size: 9.5px; border-radius: 6px; }
+      .wk-b > span { padding: 0 5px; }
+      .wk-b .a em { display: none; }
+      .wk-legend { padding: 14px 14px 0; font-size: 11px; }
+      .wk-foot { padding: 14px 16px 16px; }
+      .wk-foot b { font-size: 24px; }
+    }
+    .float-chip { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 14px; padding: 10px 14px; font-size: 13px; font-weight: 600; box-shadow: 0 18px 36px -18px rgba(15,42,74,.45); animation: float 6s ease-in-out infinite; }
+    .float-chip.blue { background: #1e5bff; color: #fff; border-color: #1e5bff; animation-delay: -3s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    /* ── Logo's: grijs, in kleur bij hover ─────────────────────────── */
+    .logo-swap { display: grid; align-items: center; justify-items: center; }
+    .logo-swap img { grid-area: 1 / 1; transition: opacity .35s; }
+    .logo-item img.color { filter: none; opacity: 0; }
+    .logo-item:hover img.color { opacity: 1; }
+    .logo-item:hover img.mono { opacity: 0; }
+    .logo-item.single img { transition: filter .35s; }
+    .logo-item.single:hover img { filter: none; }
+    .logo-item:hover { opacity: 1; }
+    .logo-fraanje svg rect, .logo-fraanje span { transition: fill .35s, color .35s; }
+    .logo-fraanje:hover { color: #163028; }
+    .logo-fraanje:hover svg rect:first-child { fill: #ea6f2f; }
+
+    /* ── Strategie-tabs ────────────────────────────────────────────── */
+    .st-tab { position: relative; width: 100%; text-align: left; padding: 18px 20px 20px; border-radius: 18px; border: 1px solid rgba(15,42,74,.08); background: #fff; transition: border-color .3s, box-shadow .3s, background-color .3s; }
+    .st-tab:hover { border-color: rgba(30,91,255,.3); }
+    .st-tab[aria-selected="true"] { border-color: rgba(30,91,255,.35); box-shadow: 0 18px 34px -22px rgba(15,42,74,.45); }
+    .st-num { font-size: 12px; font-weight: 700; color: #1e5bff; letter-spacing: .08em; }
+    .st-title { display: block; font-size: 17px; font-weight: 700; margin-top: 4px; }
+    .st-sub { display: block; font-size: 13.5px; color: #6b7aad; margin-top: 2px; }
+    .st-bar { display: block; height: 3px; border-radius: 2px; background: rgba(15,42,74,.08); margin-top: 14px; overflow: hidden; }
+    /* de Pareto-lijn (25% blauw, 75% navy) wordt van links naar rechts zichtbaar */
+    .st-bar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #1e5bff 0 25%, #0f2a4a 25% 100%); clip-path: inset(0 100% 0 0); }
+    .st-tab[aria-selected="true"] .st-bar i { animation: stfill 7s linear forwards; }
+    .st-tabs.is-manual .st-tab[aria-selected="true"] .st-bar i, .st-tabs.is-calm .st-tab[aria-selected="true"] .st-bar i { animation: none; clip-path: inset(0 0 0 0); }
+    .st-tabs.is-paused .st-bar i { animation-play-state: paused !important; }
+    @keyframes stfill { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+    .st-panel { background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 26px; overflow: hidden; box-shadow: 0 30px 60px -44px rgba(15,42,74,.5); }
+    .st-panel[hidden] { display: none; }
+    .st-panel.is-active { animation: panelIn .45s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .st-visual { background: #F1F3F7; min-height: 300px; display: flex; align-items: center; justify-content: center; padding: 28px 22px; position: relative; }
+    .st-visual .vb { position: absolute; top: 14px; right: 14px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(15,42,74,.45); }
+    .st-panel .case-checks li { font-size: 14.5px; }
+    /* animaties starten pas als het paneel actief is */
+    .st-panel .anim { opacity: 0; transform: translateY(8px); }
+    .st-panel.is-active .anim { animation: stIn .55s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+    @keyframes stIn { to { opacity: 1; transform: none; } }
+    /* 1 · Gespreksnotities van de kennismaking */
+    .notes { width: 100%; max-width: 390px; background: #fff; border-radius: 16px; padding: 18px 20px 6px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); }
+    .notes-head { font-size: 12px; font-weight: 700; padding-bottom: 11px; margin-bottom: 2px; border-bottom: 1px solid rgba(15,42,74,.08); }
+    .notes-head span { font-weight: 500; color: #6b7aad; }
+    .note { display: grid; grid-template-columns: 100px 1fr; gap: 10px; align-items: start; padding: 12px 0; border-bottom: 1px dashed rgba(15,42,74,.12); }
+    .note:last-child { border-bottom: 0; }
+    .note > span { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6b7aad; padding-top: 2px; }
+    .note p { font-size: 13.5px; font-weight: 600; line-height: 1.4; color: #0f2a4a; }
+    .note.is-key > span { color: #1e5bff; }
+    .note.is-key p { position: relative; justify-self: start; padding-bottom: 7px; }
+    .note.is-key p::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #1e5bff 0 25%, #0f2a4a 25% 100%); transform: scaleX(0); transform-origin: left; }
+    .st-panel.is-active .note.is-key p::after { animation: noteLine .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--d, 0) * 1ms + 550ms); }
+    @keyframes noteLine { to { transform: scaleX(1); } }
+    @media (max-width: 420px) { .note { grid-template-columns: 1fr; gap: 3px; } }
+    /* 2 · De 20% vinden */
+    .scan { width: 100%; max-width: 400px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); }
+    .scan-row { display: grid; grid-template-columns: 118px 1fr 34px; align-items: center; gap: 10px; padding: 6px 0; font-size: 12px; font-weight: 600; }
+    .scan-row em { font-style: normal; color: #6b7aad; text-align: right; font-variant-numeric: tabular-nums; }
+    .scan-bar { height: 9px; border-radius: 5px; background: #EBF3FF; overflow: hidden; }
+    .scan-bar i { display: block; height: 100%; width: 0; border-radius: 5px; background: #c9d6ee; transition: width 1s cubic-bezier(.2,.7,.2,1), background-color .5s; }
+    .st-panel.is-active .scan-bar i { width: var(--w); }
+    .st-panel.is-active .scan-row.top .scan-bar i { background: #1e5bff; transition-delay: 0s, 1.2s; }
+    .scan-row.top span { color: #0f2a4a; }
+    .scan-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 12px; border-top: 1px solid rgba(15,42,74,.08); font-size: 12px; font-weight: 600; color: #6b7aad; }
+    .scan-note b { color: #fff; background: #1e5bff; border-radius: 999px; padding: 3px 10px; font-size: 11.5px; }
+    /* 3 · Dashboard */
+    .dash { width: 100%; max-width: 400px; background: #fff; border-radius: 16px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); padding: 16px; }
+    .dash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 14px; }
+    .dash-kpi { background: #F1F3F7; border-radius: 10px; padding: 9px; font-size: 10.5px; color: #6b7aad; font-weight: 600; }
+    .dash-kpi b { display: block; font-size: 17px; color: #0f2a4a; font-variant-numeric: tabular-nums; }
+    .dash-kpi em { font-style: normal; color: #15803d; font-size: 10px; }
+    .dash-bars { display: flex; align-items: flex-end; gap: 7px; height: 84px; }
+    .dash-bars i { flex: 1; height: 0; background: #EBF3FF; border-radius: 5px 5px 0 0; transition: height .9s cubic-bezier(.2,.7,.2,1); }
+    .dash-bars i:nth-child(n) { transition-delay: calc(var(--i, 0) * 80ms); }
+    .dash-bars i.on { background: #1e5bff; }
+    .st-panel.is-active .dash-bars i { height: var(--h); }
+
+    /* ── Projectkaarten: foto + groot cijfer ───────────────────────── */
+    .case-card .case-visual[data-mock] { display: none; }
+    .case-photo { aspect-ratio: 16 / 10; border: 0; border-bottom: 2px dashed rgba(30,91,255,.35); }
+    .case-modal-visual .case-photo { aspect-ratio: 16 / 7; }
+    @media (max-width: 640px) { .case-modal-visual .case-photo { aspect-ratio: 16 / 10; } }
+    .case-metric { margin-top: auto; padding-top: 18px; display: flex; gap: 22px; }
+    .case-metric + .case-foot { margin-top: 16px; }
+    .case-metric p { display: flex; flex-direction: column; }
+    .case-metric b { font-size: 34px; font-weight: 800; letter-spacing: -.035em; line-height: 1; color: #0f2a4a; }
+    .case-metric b em { font-style: normal; color: #1e5bff; }
+    .case-metric span { font-size: 12.5px; color: #6b7aad; margin-top: 6px; line-height: 1.35; max-width: 150px; }
+    .case-modal-body .case-metric { margin: 4px 0 6px; padding-top: 0; }
+    .case-mock-modal { margin: 14px 0 4px; border-radius: 16px; overflow: hidden; }
+    .case-mock-modal .case-visual { aspect-ratio: 16 / 8; border: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .float-chip, .st-panel.is-active, .st-panel.is-active .anim { animation: none !important; }
+      .st-panel .anim { opacity: 1; transform: none; }
+      .wk-b, .wk-b > span, .wk-grid, .scan-bar i, .dash-bars i { transition: none !important; }
+      .st-panel.is-active .note.is-key p::after { animation: none !important; }
+      .note.is-key p::after { transform: none; }
     }
 
-    @keyframes heroFadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-fade-in {
-      animation: heroFadeIn 0.5s ease-out both;
-    }
-
-    .hero-fade-in-delay-1 {
-      animation: heroFadeIn 0.5s ease-out both;
-      animation-delay: 0.1s;
-    }
-
-    .hero-fade-in-delay-2 {
-      animation: heroFadeIn 0.5s ease-out both;
-      animation-delay: 0.2s;
-    }
-
+    /* ── Hergebruikt uit de live site: reveal, logo's, tools, cases, case-venster ── */
     /* Inschuiven bij scrollen (alleen als JS draait, anders blijft alles zichtbaar) */
     .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
     .js [data-reveal].is-visible { opacity: 1; transform: none; }
@@ -89,7 +336,8 @@
     .tool-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
     .tool { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(0,0,0,.07); background: #F7F7F5; border-radius: 999px; padding: 6px 12px 6px 9px; font-size: 13px; font-weight: 500; color: #0f2a4a; }
     .tool img { height: 16px; width: 16px; object-fit: contain; filter: brightness(0); opacity: .8; }
-        .tool-mono { width: 16px; height: 16px; border-radius: 4px; background: #0f2a4a; color: #fff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; opacity: .85; }
+    .tool img.wide { width: auto; height: 10px; }
+    .tool-mono { width: 16px; height: 16px; border-radius: 4px; background: #0f2a4a; color: #fff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; opacity: .85; }
 
     /* Projecten-carrousel */
     .case-carousel { overflow: hidden; touch-action: pan-y; cursor: grab; padding: 12px 0 24px; }
@@ -191,62 +439,51 @@
       .logo-track [aria-hidden="true"] { display: none; }
       .case-card, .case-modal-panel, .case-modal-backdrop { transition: none; }
     }
+    .case-carousel { padding-top: 4px; }
   </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="antialiased">
 
-  <!-- NAVIGATION -->
-  <header id="top" class="bg-white">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+  <!-- ═══ NAVIGATIE ═══ -->
+  <header id="top" class="site-header">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-[72px]">
       <a href="#top" class="flex-shrink-0">
         <img src="Pareto Partners Cropped Logo Image.png" alt="Pareto Partners" style="height:36px;width:auto;" />
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm text-[#6b7aad]">
-        <a href="#aanpak" class="hover:text-[#0f2a4a] transition-colors">Aanpak</a>
-        <a href="#wie-wij-zijn" class="hover:text-[#0f2a4a] transition-colors">Wie wij zijn</a>
-        <a href="#diensten" class="hover:text-[#0f2a4a] transition-colors">Diensten</a>
+      <nav class="hidden lg:flex items-center gap-7 text-[14px] font-medium text-[#6b7aad]">
+        <a href="#strategie" class="hover:text-[#0f2a4a] transition-colors">Strategie</a>
+        <a href="#maatwerk" class="hover:text-[#0f2a4a] transition-colors">Maatwerk</a>
         <a href="#werk" class="hover:text-[#0f2a4a] transition-colors">Resultaten</a>
+        <a href="#aanpak" class="hover:text-[#0f2a4a] transition-colors">Aanpak</a>
+        <a href="#dataveiligheid" class="hover:text-[#0f2a4a] transition-colors">Dataveiligheid</a>
+        <a href="#wie-wij-zijn" class="hover:text-[#0f2a4a] transition-colors">Wie wij zijn</a>
       </nav>
 
-      <a href="#contact"
-        class="hidden md:inline-flex items-center gap-2.5 pl-5 pr-1.5 py-1.5 rounded-full bg-[#1e5bff] text-sm font-medium text-white hover:bg-[#1a4ee0] transition-all duration-200">
-        Contact
-        <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </span>
+      <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
+        class="hidden lg:inline-flex btn btn-primary !text-sm !py-1.5 !pl-5 !pr-1.5">
+        Plan een kennismaking
+        <span class="btn-arrow !w-7 !h-7"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
       </a>
 
-      <button id="menu-btn" class="md:hidden p-2 text-[#6b7aad] hover:text-[#0f2a4a]" aria-label="Menu openen">
-        <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+      <button id="menu-btn" class="lg:hidden p-2 -mr-2 text-[#0f2a4a]" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
     </div>
 
-    <div id="mobile-menu"
-      class="hidden md:hidden border-t border-black/[0.06] px-6 py-4 flex flex-col gap-4 text-sm text-[#6b7aad]">
-      <a href="#aanpak" class="hover:text-[#0f2a4a] transition-colors" onclick="closeMobileMenu()">Aanpak</a>
-      <a href="#wie-wij-zijn" class="hover:text-[#0f2a4a] transition-colors" onclick="closeMobileMenu()">Wie wij zijn</a>
-      <a href="#diensten" class="hover:text-[#0f2a4a] transition-colors" onclick="closeMobileMenu()">Diensten</a>
-      <a href="#werk" class="hover:text-[#0f2a4a] transition-colors" onclick="closeMobileMenu()">Resultaten</a>
-      <a href="#contact" onclick="closeMobileMenu()"
-        class="inline-flex items-center gap-2.5 pl-5 pr-1.5 py-1.5 rounded-full bg-[#1e5bff] text-white text-sm font-medium w-fit hover:bg-[#1a4ee0] transition-all duration-200">
-        Contact
-        <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </span>
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-black/[0.06] bg-white px-6 py-5 flex flex-col gap-4 text-[15px] font-medium text-[#0f2a4a]">
+      <a href="#strategie" data-close-menu>Strategie</a>
+      <a href="#maatwerk" data-close-menu>Maatwerk</a>
+      <a href="#werk" data-close-menu>Resultaten</a>
+      <a href="#aanpak" data-close-menu>Aanpak</a>
+      <a href="#dataveiligheid" data-close-menu>Dataveiligheid</a>
+      <a href="#wie-wij-zijn" data-close-menu>Wie wij zijn</a>
+      <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)" class="btn btn-primary w-fit mt-1">
+        Plan een kennismaking
+        <span class="btn-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
       </a>
     </div>
   </header>
@@ -254,149 +491,106 @@
   <script>
     const CALENDLY_URL = 'https://calendly.com/rob-paretopartners/kennismakingsgesprek';
     function openCalendly(event) {
+      if (!window.Calendly) return; // valt terug op de gewone link
       event.preventDefault();
       Calendly.initPopupWidget({ url: CALENDLY_URL });
     }
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    function closeMobileMenu() {
-      menu.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
-    }
-    btn.addEventListener('click', () => {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) { closeMobileMenu(); }
-      else {
-        menu.classList.remove('hidden');
-        iconOpen.classList.add('hidden');
-        iconClose.classList.remove('hidden');
-      }
-    });
-    function toggleServiceDetail(id, btn) {
-      const detail = document.getElementById(id);
-      const isOpen = detail.classList.contains('grid-rows-[1fr]');
-      detail.classList.toggle('grid-rows-[0fr]', isOpen);
-      detail.classList.toggle('grid-rows-[1fr]', !isOpen);
-      btn.querySelector('svg').style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-    }
-    // Service cards: equalize height per row-pair (not globally across all 4) so the
-    // "In de praktijk" button lines up with its row-mate, without inheriting whitespace
-    // from the other row. Measured before expansion, same reasoning as cardGroups above.
-    function equalizeServiceCardPairs() {
-      const cards = document.querySelectorAll('.service-card');
-      cards.forEach(c => { c.style.minHeight = ''; });
-      const isWide = window.matchMedia('(min-width: 640px)').matches;
-      if (!isWide) return;
-      for (let i = 0; i < cards.length; i += 2) {
-        const a = cards[i], b = cards[i + 1];
-        if (!b) break;
-        const maxHeight = Math.max(a.offsetHeight, b.offsetHeight);
-        a.style.minHeight = maxHeight + 'px';
-        b.style.minHeight = maxHeight + 'px';
-      }
-    }
-    window.addEventListener('load', equalizeServiceCardPairs);
-    window.addEventListener('resize', equalizeServiceCardPairs);
   </script>
 
-  <!-- HERO — navy, full viewport height below nav -->
-  <section class="flex items-center justify-center px-6 pt-16 pb-16 text-center"
-    style="min-height: calc(100vh - 64px); background: radial-gradient(ellipse at center, #1d4170 0%, #0f2a4a 60%);">
-    <div class="max-w-4xl mx-auto mt-16 sm:mt-20 md:mt-24">
-        <h1 class="hero-fade-in text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6"
-          style="text-wrap: balance; line-height: 1.15;">
-          Procesverbetering door automatisering, de 20% die 80% van je tijd kost.
-        </h1>
-        <p class="hero-fade-in-delay-1 text-lg sm:text-xl text-white/70 font-medium mb-10 max-w-xl mx-auto leading-relaxed">
-          Voor bedrijven in en rondom Breda die vastlopen op handmatig werk en losse systemen. Wij bouwen een
-          werkende oplossing binnen weken — betaald uit wat het oplevert.
+  <main>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero bg-white px-6 pt-12 pb-16 lg:pt-20 lg:pb-24">
+    <div class="relative max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-12 items-center">
+      <div>
+        <p class="fade-1 kicker mb-7">Strategie &amp; automatisering · Breda</p>
+        <h1 class="fade-2 hero-h1 mb-7">Van groeiplan naar processen die <span class="accent">zichzelf afhandelen</span>.</h1>
+        <p class="fade-3 lead !text-[18px] max-w-xl mb-8">
+          We vinden samen de 20% die 80% oplevert, vertalen dat naar KPI's en bouwen de automatisering zelf.
+          Geen overdracht. Betaald uit wat het oplevert.
         </p>
-        <div class="hero-fade-in-delay-2 flex items-center justify-center">
-          <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
-            class="inline-flex items-center gap-3 pl-8 pr-2.5 py-3 rounded-full bg-[#1e5bff] text-white text-base font-semibold hover:bg-[#1a4ee0] transition-all duration-200">
-            Plan een kennismakingsgesprek
-            <span class="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
+        <div class="fade-4 flex flex-wrap items-center gap-3 mb-9">
+          <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)" class="btn btn-primary">
+            Plan een kennismaking
+            <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
           </a>
+          <a href="#werk" class="btn btn-ghost">Bekijk wat we bouwden</a>
         </div>
+        <ul class="fade-4 flex flex-wrap gap-x-6 gap-y-2">
+          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Vaste prijs vooraf</li>
+          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Werkend binnen weken</li>
+          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Wie bedenkt, bouwt</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- PROOF BLOCK — 4-column trust signals, continuous with hero (white bg, spacing only) -->
-    <div class="bg-[#F7F7F5] border-t border-black/[0.06] pt-16 pb-16 px-6">
-      <div class="max-w-5xl mx-auto">
-        <div class="flex flex-col gap-8 md:flex-row md:gap-0 md:divide-x md:divide-black/[0.08]">
-
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="0">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
-              style="background:#ffffff;">
-              <img src="blue_icon_location.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <div>
-              <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">Lokaal en Persoonlijk</p>
-              <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">Koffie aan de keukentafel, korte
-                lijnen. Zo helpen we ondernemend Breda en omstreken écht groeien.</p>
-            </div>
+      <!-- Een week van je team: handwerk eruit, tijd terug (voorbeeld) -->
+      <div class="relative fade-3 lg:pl-6">
+        <div class="float-chip hidden sm:inline-flex -top-5 left-6 lg:left-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+          80/20: alleen wat het meest oplevert
+        </div>
+        <div class="wk-card" data-week role="img" aria-label="Voorbeeld: een werkweek met 14 uur handwerk. Na automatisering komt 12 uur per week terug voor klanten en groei.">
+          <div class="wk-head">
+            <p>Een week van je team <small>Voorbeeld · elk blok is 2 uur</small></p>
+            <span class="wk-phase" data-wk-phase>Zo gaat het nu</span>
           </div>
-
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="100">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
-              style="background:#ffffff;">
-              <img src="blue_icon_target.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <div>
-              <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">80/20 filter</p>
-              <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">We automatiseren niet alles. We
-                pakken juist die 20% van je processen die 80% van het resultaat opleveren.</p>
-            </div>
+          <div class="wk-grid" aria-hidden="true">
+            <span></span>
+            <span class="wk-time">9:00</span>
+            <span class="wk-time">11:00</span>
+            <span class="wk-time">13:00</span>
+            <span class="wk-time">15:00</span>
+            <span class="wk-day">ma</span>
+            <div class="wk-b h"><span class="l">Offertes</span><span class="a">✓<em>automatisch</em></span><span class="f">Klanten</span></div>
+            <div class="wk-b o"><span class="l">Overleg</span></div>
+            <div class="wk-b h"><span class="l">Orders</span><span class="a">✓<em>automatisch</em></span><span class="f">Groei</span></div>
+            <div class="wk-b o"><span class="l">Mail</span></div>
+            <span class="wk-day">di</span>
+            <div class="wk-b o"><span class="l">Team</span></div>
+            <div class="wk-b h"><span class="l">Offertes</span><span class="a">✓<em>automatisch</em></span><span class="f">Klanten</span></div>
+            <div class="wk-b o"><span class="l">Overleg</span></div>
+            <div class="wk-b h"><span class="l">Leads</span><span class="a">✓<em>automatisch</em></span><span class="f">Groei</span></div>
+            <span class="wk-day">wo</span>
+            <div class="wk-b h"><span class="l">Orders</span><span class="a">✓<em>automatisch</em></span><span class="f">Klanten</span></div>
+            <div class="wk-b o"><span class="l">Mail</span></div>
+            <div class="wk-b o"><span class="l">Planning</span></div>
+            <div class="wk-b o"><span class="l">Overleg</span></div>
+            <span class="wk-day">do</span>
+            <div class="wk-b o"><span class="l">Team</span></div>
+            <div class="wk-b h"><span class="l">Offertes</span><span class="a">✓<em>automatisch</em></span><span class="f">Groei</span></div>
+            <div class="wk-b o"><span class="l">Mail</span></div>
+            <div class="wk-b h" data-keep><span class="l">Rapport</span></div>
+            <span class="wk-day">vr</span>
+            <div class="wk-b o"><span class="l">Overleg</span></div>
+            <div class="wk-b o"><span class="l">Planning</span></div>
+            <div class="wk-b o"><span class="l">Mail</span></div>
+            <div class="wk-b o"><span class="l">Team</span></div>
           </div>
-
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="200">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
-              style="background:#ffffff;">
-              <img src="blue_icon_people.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <div>
-              <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">Strategie én uitvoering</p>
-              <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">Bij ons is de strateeg ook de
-                bouwer. Wat we samen bedenken, bouwen we zelf — zonder overdracht, zonder informatieverlies.</p>
-            </div>
+          <div class="wk-legend" aria-hidden="true"><span><i></i>Handwerk</span><span><i class="free"></i>Tijd voor klanten en groei</span></div>
+          <div class="wk-foot" aria-hidden="true">
+            <p data-wk-label>Handwerk deze week</p>
+            <b><span class="plus" data-wk-plus hidden>+</span><span data-wk-count>14</span> uur</b>
           </div>
-
-          <div class="flex flex-row items-start gap-4 text-left md:flex-col md:items-center md:text-center md:gap-0 md:flex-1 md:px-6" data-reveal data-reveal-delay="300">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 md:mb-[0.875rem]"
-              style="background:#ffffff;">
-              <img src="blue_icon_analysis.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <div>
-              <p class="text-[#0f2a4a] font-medium mb-[0.4rem]" style="font-size:15px;">Meetbaar resultaat</p>
-              <p class="text-[#6b7aad]" style="font-size:12.5px;line-height:1.55;">Meten, dashboarden en bijsturen bij
-                elke automatisering. Zo baseer je je beslissingen op data, niet op onderbuikgevoel.</p>
-            </div>
-          </div>
-
+        </div>
+        <div class="float-chip blue hidden sm:inline-flex -bottom-5 right-2 lg:-right-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Betaald uit wat het oplevert
         </div>
       </div>
     </div>
+  </section>
 
-  <!-- LOGO-CARROUSEL — opdrachtgevers en partners, doorlopend -->
-  <div class="bg-white border-y border-black/[0.06] py-10 mb-14" aria-label="Opdrachtgevers en partners">
-    <p class="text-center text-[11px] text-[#0f2a4a]/45 uppercase tracking-[0.18em] font-medium mb-7 px-6">Opdrachtgevers &amp; partners</p>
+  <!-- ═══ LOGO-CARROUSEL ═══ -->
+  <div class="bg-white border-y border-black/[0.06] py-9" aria-label="Opdrachtgevers en partners">
+    <p class="text-center text-[11px] text-[#0f2a4a]/45 uppercase tracking-[0.18em] font-medium mb-6 px-6">Opdrachtgevers &amp; partners</p>
     <div class="logo-strip">
       <ul class="logo-track" data-marquee>
-        <li class="logo-item"><img src="logos/beter-ondernemen.png" alt="Beter Ondernemen" style="height:30px" /></li>
-        <li class="logo-item"><img src="logos/silverspas.svg" alt="Silverspas" style="height:24px" /></li>
-        <li class="logo-item"><img src="logos/vermeulen.png" alt="Vermeulen Groep" style="height:38px" /></li>
-        <li class="logo-item"><img src="logos/cijferwijs.png" alt="Cijferwijs" style="height:26px" /></li>
-        <li class="logo-item logo-text"><img src="logos/senss.png" alt="" style="height:32px;filter:none" /><span>Senss Branding</span></li>
-        <li class="logo-item logo-text">
+        <li class="logo-item"><span class="logo-swap"><img class="mono" src="logos/beter-ondernemen.png" alt="Beter Ondernemen" style="height:30px" /><img class="color" src="logos/strip-beter-ondernemen.png" alt="" style="height:30px" /></span></li>
+        <li class="logo-item"><span class="logo-swap"><img class="mono" src="logos/silverspas.svg" alt="Silverspas" style="height:24px" /><img class="color" src="logos/strip-silverspas.png" alt="" style="height:24px" /></span></li>
+        <li class="logo-item single"><img src="logos/vermeulen.png" alt="Vermeulen Groep" style="height:38px" /></li>
+        <li class="logo-item"><span class="logo-swap"><img class="mono" src="logos/cijferwijs.png" alt="Cijferwijs" style="height:26px" /><img class="color" src="logos/cijferwijs-kleur.png" alt="" style="height:26px" /></span></li>
+        <li class="logo-item single logo-text"><img src="logos/senss.png" alt="" style="height:32px" /><span>Senss Branding</span></li>
+        <li class="logo-item logo-text logo-fraanje">
           <svg viewBox="0 0 108 66" style="height:20px;width:auto" aria-hidden="true" fill="currentColor"><rect x="78" y="0" width="30" height="30" transform="rotate(12 93 15)" /><rect x="0" y="36" width="30" height="30" /><rect x="36" y="36" width="30" height="30" /><rect x="72" y="36" width="30" height="30" /></svg>
           <span class="tracking-tight" style="font-weight:700">fraanje <span style="font-weight:500">software</span></span>
         </li>
@@ -404,435 +598,255 @@
     </div>
   </div>
 
-  <!-- HOW IT WORKS — moved up, now follows proof block -->
-  <section id="aanpak" class="bg-white pt-10 pb-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">In vier stappen van gesprek naar<br
-            class="hidden sm:block" /> meetbaar resultaat.</h2>
-        <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-[#6b7aad] text-base max-w-xl mx-auto">Geen open einde, geen verrassingen.<br />Vooraf weet je
-          wat het kost, wat het oplevert en wanneer het klaar is.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6" id="aanpak-cards">
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="0">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
-              style="background:#1e5bff;">1</span>
-            <span class="text-xs text-white/75 bg-white/10 rounded-full px-3 py-1">Fase 1</span>
-          </div>
-          <h3 class="text-white font-semibold text-base mb-2">Kennismaking</h3>
-          <p class="text-white/65 text-sm leading-relaxed">In dit gesprek bespreken we waar je tegenaan loopt en of
-            wij iets voor je kunnen betekenen. Geen verplichtingen, geen verkooppraatjes — gewoon kijken of er een
-            match is.</p>
+  <!-- ═══ STRATEGIE — tabbladen lopen vanzelf door (Pareto-lijn als voortgang) ═══ -->
+  <section id="strategie" class="bg-[#F1F3F7] px-6 py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center mb-14">
+        <div data-reveal>
+          <p class="kicker mb-7">Strategie</p>
+          <h2 class="h2 mb-5">Eerst weten waar het om draait. Dan pas bouwen.</h2>
+          <p class="lead">Strategie zonder uitvoering blijft een goede intentie. Daarom beginnen we bij je groeiambitie
+            en je cijfers, en pas daarna bij de techniek. Zo bouwen we alleen wat jouw bedrijf echt verder helpt.</p>
         </div>
-
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="100">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
-              style="background:#1e5bff;">2</span>
-            <span class="text-xs text-white/75 bg-white/10 rounded-full px-3 py-1">Fase 2</span>
-          </div>
-          <h3 class="text-white font-semibold text-base mb-2">Bedrijfsscan</h3>
-          <p class="text-white/65 text-sm leading-relaxed">We duiken een dag in jouw processen en zoeken de 20% waar
-            automatisering het meest oplevert. Binnen een week ligt er een concreet verbetervoorstel op tafel,
-            inclusief prijs, tijdlijn en verwacht rendement.</p>
-        </div>
-
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="200">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
-              style="background:#1e5bff;">3</span>
-            <span class="text-xs text-white/75 bg-white/10 rounded-full px-3 py-1">Fase 3</span>
-          </div>
-          <h3 class="text-white font-semibold text-base mb-2">Implementatie</h3>
-          <p class="text-white/65 text-sm leading-relaxed">We bouwen de automatisering, koppelen 'm aan je bestaande
-            systemen en nemen je team stap voor stap mee in het gebruik. Prijs staat vooraf vast, geen
-            uurtje-factuurtje.</p>
-        </div>
-
-        <div class="rounded-3xl p-6 bg-[#0f2a4a]" data-reveal data-reveal-delay="300">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium text-white"
-              style="background:#1e5bff;">4</span>
-            <span class="text-xs text-white/75 bg-white/10 rounded-full px-3 py-1">Fase 4</span>
-          </div>
-          <h3 class="text-white font-semibold text-base mb-2">Meten & meegroeien</h3>
-          <p class="text-white/65 text-sm leading-relaxed">We stoppen niet bij livegang: we meten het resultaat,
-            sturen bij tot de doelen zijn behaald en blijven meedenken over je volgende groeistap.</p>
+        <!-- FOTO: strategiesessie -->
+        <div class="ph rounded-[24px] aspect-[4/3]" data-reveal data-reveal-delay="100">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg>
+          <b>Foto · strategiesessie</b>
+          <span>Rob en Jilles met een klant aan tafel: whiteboard of laptop met cijfers, echt in gesprek. Laat zien dat we eerst samen nadenken.</span>
         </div>
       </div>
 
-      <!-- Skin in the Game — separate layer, own breathing room -->
-      <div class="mt-16 sm:mt-20">
-        <div class="rounded-2xl p-6 bg-[#0f2a4a] flex items-start gap-4" data-reveal>
-          <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#1e5bff;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <!-- pillar -->
-              <line x1="12" y1="6" x2="12" y2="19" />
-              <!-- base -->
-              <line x1="8" y1="19" x2="16" y2="19" />
-              <!-- beam -->
-              <line x1="4" y1="9" x2="20" y2="9" />
-              <!-- left chain + pan -->
-              <line x1="4" y1="9" x2="4" y2="14" />
-              <line x1="2" y1="14" x2="6" y2="14" />
-              <!-- right chain + pan -->
-              <line x1="20" y1="9" x2="20" y2="14" />
-              <line x1="18" y1="14" x2="22" y2="14" />
-            </svg>
-          </span>
+      <div class="grid lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 items-start" data-reveal>
+        <div class="st-tabs grid gap-3" role="tablist" aria-label="Zo pakken we strategie aan" data-st-tabs>
+          <button type="button" class="st-tab" role="tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="true">
+            <span class="st-num">01</span>
+            <span class="st-title">Waar wil je naartoe?</span>
+            <span class="st-sub">Strategie begint in het eerste gesprek</span>
+            <span class="st-bar" aria-hidden="true"><i></i></span>
+          </button>
+          <button type="button" class="st-tab" role="tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false" tabindex="-1">
+            <span class="st-num">02</span>
+            <span class="st-title">De 20% vinden</span>
+            <span class="st-sub">Waar lekt de meeste tijd weg?</span>
+            <span class="st-bar" aria-hidden="true"><i></i></span>
+          </button>
+          <button type="button" class="st-tab" role="tab" id="st-tab-3" aria-controls="st-panel-3" aria-selected="false" tabindex="-1">
+            <span class="st-num">03</span>
+            <span class="st-title">Eén dashboard</span>
+            <span class="st-sub">Sturen op cijfers, elke dag</span>
+            <span class="st-bar" aria-hidden="true"><i></i></span>
+          </button>
+        </div>
+
+        <div>
+          <!-- 1 · Het eerste gesprek -->
+          <div class="st-panel is-active" role="tabpanel" id="st-panel-1" aria-labelledby="st-tab-1">
+            <div class="grid md:grid-cols-2">
+              <div class="p-7 sm:p-9">
+                <h3 class="text-[23px] font-bold leading-tight mb-4">Strategie begint al in het eerste gesprek.</h3>
+                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">In de kennismaking vragen we waar je over een paar jaar wilt staan, wat je nu tegenhoudt en waar je team de meeste tijd aan kwijt is. Na een half uur weten we allebei of, en waar, wij het verschil maken. Ook als er geen match is, ga je weg met een scherper beeld.</p>
+                <ul class="case-checks !mb-0">
+                  <li>30 minuten, kosteloos en vrijblijvend</li>
+                  <li>Ambitie, knelpunten en kansen op een rij</li>
+                </ul>
+              </div>
+              <div class="st-visual">
+                <span class="vb">Voorbeeld</span>
+                <div class="notes anim" style="--d:0">
+                  <p class="notes-head">Gespreksnotities <span>· kennismaking</span></p>
+                  <div class="note anim" style="--d:350"><span>Ambitie</span><p>Tweede vestiging, met hetzelfde team</p></div>
+                  <div class="note anim" style="--d:1150"><span>Knelpunt</span><p>Offertes kosten 2 dagen per week</p></div>
+                  <div class="note is-key anim" style="--d:1950"><span>Grootste kans</span><p>Het offerteproces automatiseren</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 · De 20% vinden -->
+          <div class="st-panel" role="tabpanel" id="st-panel-2" aria-labelledby="st-tab-2" hidden>
+            <div class="grid md:grid-cols-2">
+              <div class="p-7 sm:p-9">
+                <h3 class="text-[23px] font-bold leading-tight mb-4">Waar lekt de meeste tijd weg?</h3>
+                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">We duiken een dag in jouw processen en brengen in kaart waar de tijd naartoe gaat. De 20% die 80% kost, pakken we als eerste aan. Binnen een week ligt er een concreet verbetervoorstel, met prijs en verwacht rendement.</p>
+                <ul class="case-checks !mb-0">
+                  <li>Eén dag meekijken in je processen</li>
+                  <li>Verbetervoorstel binnen een week</li>
+                </ul>
+              </div>
+              <div class="st-visual">
+                <span class="vb">Voorbeeld</span>
+                <div class="scan anim" style="--d:0">
+                  <div class="scan-row top"><span>Offertes maken</span><span class="scan-bar"><i style="--w:100%"></i></span><em>16 u</em></div>
+                  <div class="scan-row top"><span>Orders overtypen</span><span class="scan-bar"><i style="--w:81%"></i></span><em>13 u</em></div>
+                  <div class="scan-row"><span>Facturen checken</span><span class="scan-bar"><i style="--w:12%"></i></span><em>2 u</em></div>
+                  <div class="scan-row"><span>Planning</span><span class="scan-bar"><i style="--w:10%"></i></span><em>1,5 u</em></div>
+                  <div class="scan-row"><span>Rapportages</span><span class="scan-bar"><i style="--w:7%"></i></span><em>1 u</em></div>
+                  <div class="scan-note"><span>2 van de 10 taken</span><b>20% → 80% van de tijd</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 · Eén dashboard -->
+          <div class="st-panel" role="tabpanel" id="st-panel-3" aria-labelledby="st-tab-3" hidden>
+            <div class="grid md:grid-cols-2">
+              <div class="p-7 sm:p-9">
+                <h3 class="text-[23px] font-bold leading-tight mb-4">Eén overzicht dat je team echt opent.</h3>
+                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">We zetten je KPI's in een dashboard dat iedereen begrijpt en dagelijks gebruikt: omzet, productiviteit en jaardoelen in samenhang. Altijd actueel, zonder handmatig exporteren.</p>
+                <ul class="case-checks !mb-0">
+                  <li>Gekoppeld aan je eigen systemen</li>
+                  <li>Elke automatisering krijgt een meting</li>
+                </ul>
+              </div>
+              <div class="st-visual">
+                <span class="vb">Voorbeeld</span>
+                <div class="dash anim" style="--d:0">
+                  <p class="text-[12px] font-bold">Dashboard <span class="font-medium text-[#6b7aad]">· deze maand</span></p>
+                  <div class="dash-kpis">
+                    <div class="dash-kpi">Omzet<b data-count-to="184" data-prefix="€ " data-suffix="k">€ 184k</b><em>▲ 8%</em></div>
+                    <div class="dash-kpi">Declarabel<b data-count-to="78" data-suffix="%">78%</b><em>▲ 3%</em></div>
+                    <div class="dash-kpi">Jaardoel<b data-count-to="64" data-suffix="%">64%</b><em>op koers</em></div>
+                  </div>
+                  <div class="dash-bars"><i style="--h:40%;--i:0"></i><i style="--h:55%;--i:1"></i><i style="--h:48%;--i:2"></i><i style="--h:66%;--i:3"></i><i style="--h:72%;--i:4"></i><i class="on" style="--h:86%;--i:5"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAATWERK ═══ -->
+  <section id="maatwerk" class="bg-white px-6 py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-14" data-reveal>
+        <div>
+          <p class="kicker mb-7">Maatwerk</p>
+          <h2 class="h2">Geen standaardpakket. Wij bouwen wat jouw situatie vraagt.</h2>
+        </div>
+        <p class="lead">We beginnen bij je proces, niet bij een tool. Soms is de oplossing een koppeling, soms een eigen
+          portaal, soms AI, en soms helemaal geen AI. Je betaalt voor wat werkt, niet voor een pakket vol functies die je
+          nooit gebruikt.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="mw-card" data-reveal>
+          <div class="mw-visual">
+            <span class="chip-app"><i></i>CRM</span><span class="link-line"></span><span class="chip-app"><i style="background:#0f2a4a"></i>Boekhouding</span>
+          </div>
+          <div class="mw-body">
+            <p class="mw-num">01</p>
+            <h3 class="mw-title">Koppelen wat je al hebt</h3>
+            <p class="mw-text">Je CRM, boekhouding en mail gaan met elkaar praten. Eén keer invoeren, overal actueel. Geen nieuw pakket waar je team aan moet wennen.</p>
+          </div>
+        </article>
+        <article class="mw-card" data-reveal data-reveal-delay="100">
+          <div class="mw-visual">
+            <div class="mini-app"><aside><i></i><i></i><i></i><i></i></aside><main><i style="width:60%"></i><div class="row"><i></i><b></b></div><div class="row"><i></i><b></b></div><div class="row"><i></i><b style="background:rgba(30,91,255,.35)"></b></div></main></div>
+          </div>
+          <div class="mw-body">
+            <p class="mw-num">02</p>
+            <h3 class="mw-title">Een eigen portaal of app</h3>
+            <p class="mw-text">Past geen enkel pakket? Dan bouwen we een eigen omgeving voor jouw werkwijze, zoals een contractportaal of een uren-app voor op de bouwplaats.</p>
+          </div>
+        </article>
+        <article class="mw-card" data-reveal data-reveal-delay="200">
+          <div class="mw-visual">
+            <div class="ai-doc"><div class="paper"><i></i><i></i><i style="width:70%"></i><i></i><i style="width:55%"></i></div><span class="ai-spark">AI</span><div class="summary"><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="mw-body">
+            <p class="mw-num">03</p>
+            <h3 class="mw-title">AI waar het echt iets oplevert</h3>
+            <p class="mw-text">AI die leest, samenvat en voorbereidt, in jouw tone of voice. Alleen waar het tijd scheelt. Soms is de beste oplossing helemaal geen AI.</p>
+          </div>
+        </article>
+        <article class="mw-card" data-reveal data-reveal-delay="300">
+          <div class="mw-visual">
+            <div class="plug"><span class="side">Jouw<br>systeem</span><span class="bridge"></span><span class="side">Geen<br>API</span></div>
+          </div>
+          <div class="mw-body">
+            <p class="mw-num">04</p>
+            <h3 class="mw-title">Geen koppeling? Dan bouwen we die</h3>
+            <p class="mw-text">Heeft een systeem geen API, dan bouwen we zelf de verbinding. Zo lukt het koppelen alsnog, zonder dat je van pakket hoeft te wisselen.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Waar wij mee bouwen -->
+      <div class="tools-band mt-8 p-6 sm:p-8" data-reveal>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
           <div>
-            <p class="text-white font-bold text-base mb-0.5">Skin in the game: wij verdienen alleen als jij verdient</p>
-            <p class="text-base" style="color:rgba(255,255,255,0.75);">Onze prijs is nooit een los uurtarief. Hij is
-              gekoppeld aan wat de oplossing jou oplevert. Wij denken in impact, niet in uren.</p>
+            <h3 class="text-[20px] font-bold">Waar wij mee bouwen</h3>
+            <p class="text-[#6b7aad] text-[14.5px] mt-1">We kiezen de techniek die bij jouw vraag past, en koppelen aan de systemen die je al gebruikt.</p>
           </div>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div>
+            <p class="tool-group-label">AI</p>
+            <ul class="tool-list">
+              <li class="tool"><img src="logos/tools/claude.svg" alt="" /><span>Claude</span></li>
+              <li class="tool"><img src="logos/tools/openai.svg" alt="" /><span>OpenAI</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tool-group-label">Cloud &amp; data</p>
+            <ul class="tool-list">
+              <li class="tool"><img src="logos/tools/microsoftazure.svg" alt="" /><span>Azure</span></li>
+              <li class="tool"><img src="logos/tools/supabase.svg" alt="" /><span>Supabase</span></li>
+              <li class="tool"><img src="logos/tools/vercel.svg" alt="" /><span>Vercel</span></li>
+              <li class="tool"><img src="logos/tools/notion.svg" alt="" /><span>Notion</span></li>
+              <li class="tool"><img src="logos/tools/google.svg" alt="" /><span>Google Workspace</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tool-group-label">Automatisering &amp; data ophalen</p>
+            <ul class="tool-list">
+              <li class="tool"><img src="logos/tools/make.svg" alt="" /><span>Make</span></li>
+              <li class="tool"><img src="logos/tools/n8n.svg" alt="" /><span>n8n</span></li>
+              <li class="tool"><img src="logos/tools/apify.svg" alt="" /><span>Apify</span></li>
+              <li class="tool"><img class="wide" src="logos/tools/kvk.png" alt="" /><span>KvK API</span></li>
+              <li class="tool"><img src="logos/tools/legalesign.png" alt="" /><span>Legalesign</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tool-group-label">CRM, ERP &amp; boekhouding</p>
+            <ul class="tool-list">
+              <li class="tool"><img src="logos/tools/salesforce.svg" alt="" /><span>Salesforce</span></li>
+              <li class="tool"><img src="logos/tools/exact.svg" alt="" /><span>Exact Online</span></li>
+              <li class="tool"><img src="logos/tools/carerix.svg" alt="" /><span>Carerix</span></li>
+              <li class="tool"><img src="logos/tools/simplicate_logo.png" alt="" /><span>Simplicate</span></li>
+              <li class="tool"><img src="logos/tools/mijnkantoor.png" alt="" /><span>MijnKantoor</span></li>
+              <li class="tool"><img src="logos/tools/voys.png" alt="" /><span>Voys</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-7 pt-6 border-t border-black/[0.06] text-[15px] text-[#0f2a4a]"><b>Staat jouw pakket er niet tussen?</b>
+          <span class="text-[#6b7aad]">Heeft het een API, dan koppelen we het. Zo niet, dan bouwen we de verbinding zelf.</span></p>
       </div>
     </div>
   </section>
 
-  <!-- HERKEN JE DIT — temporarily removed from page
-  <section id="probleem" class="bg-white py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Herken je dit?</h2>
-        <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-[#6b7aad] text-base max-w-xl mx-auto">Elke ondernemer herkent het: keihard werken, maar een groot
-          deel van je tijd gaat op aan dingen die ook een machine kan doen.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="card-border rounded-2xl p-6 bg-white">
-          <div class="w-7 h-0.5 bg-[#1e5bff] mb-5"></div>
-          <h3 class="text-[#0f2a4a] font-semibold mb-2 text-sm leading-snug">Systemen die niet met elkaar praten</h3>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Data is verspreid over verschillende systemen. Dubbele
-            invoer, geen single source of truth, en workflows die aan elkaar hangen met plakband.</p>
-        </div>
-
-        <div class="card-border rounded-2xl p-6 bg-white">
-          <div class="w-7 h-0.5 bg-[#1e5bff] mb-5"></div>
-          <h3 class="text-[#0f2a4a] font-semibold mb-2 text-sm leading-snug">Acquisitie is handmatig en onvoorspelbaar
-          </h3>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Van handmatige prospecting tot verspreide follow-up en losse
-            CRM-updates: er is geen schaalbare leadflow — alleen ad-hoc inspanning.</p>
-        </div>
-
-        <div class="card-border rounded-2xl p-6 bg-white">
-          <div class="w-7 h-0.5 bg-[#1e5bff] mb-5"></div>
-          <h3 class="text-[#0f2a4a] font-semibold mb-2 text-sm leading-snug">Te veel tijd aan repetitieve taken</h3>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Offertes maken, rapporten opstellen, e-mails beantwoorden —
-            werk dat weinig oplevert maar veel tijd kost.</p>
-        </div>
-
-        <div class="card-border rounded-2xl p-6 bg-white">
-          <div class="w-7 h-0.5 bg-[#1e5bff] mb-5"></div>
-          <h3 class="text-[#0f2a4a] font-semibold mb-2 text-sm leading-snug">Gebrek aan overzicht en controle</h3>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Gefragmenteerde KPI's, een onduidelijke strategie,
-            beslissingen op gevoel — groei zonder kompas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- WIE WIJ ZIJN — white, between aanpak and diensten -->
-  <section id="wie-wij-zijn" class="bg-white py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col-reverse md:flex-row md:items-stretch gap-12 md:gap-16">
-
-        <!-- Left: text (~60%) -->
-        <div class="md:flex-[3]" data-reveal>
-          <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3 leading-tight">WIE WIJ ZIJN</h2>
-          <div class="w-8 h-0.5 bg-[#1e5bff] mb-5"></div>
-          <p class="text-[#0f2a4a] text-lg font-semibold mb-5">Wij zijn Jilles en Rob.</p>
-          <p class="text-[#6b7aad] text-base leading-relaxed">Twee ondernemers uit Breda die geloven dat het MKB dé
-            motor van Nederland kan zijn — zodra ondernemers weer de tijd krijgen om te ondernemen. Wij zien te vaak
-            dat die tijd wegvreet aan losse systemen, repetitief werk en beslissingen op onderbuikgevoel, omdat data
-            verspreid ligt over vijf plekken.</p>
-          <p class="text-[#6b7aad] text-base leading-relaxed mt-4">Rob bouwde in New York zijn eerste
-            automatiseringen voor bedrijven. Jilles werkte als zelfstandig strategisch consultant en helpt ondernemers
-            hun groeiambitie te vertalen naar concrete KPI's en actiepunten. Toen we voor dezelfde opdrachtgever aan
-            een project werkten, kwamen die twee werelden bij elkaar: strategie zonder uitvoering blijft een goede
-            intentie — en die uitvoering bouw je door slimme automatisering in de dagelijkse processen te weven.
-            Vanaf dat moment sloegen we de handen ineen.</p>
-          <p class="text-[#6b7aad] text-base leading-relaxed mt-4">Vandaar Pareto Partners: één plek waar strategie
-            en uitvoering samenvallen. We beginnen aan de keukentafel, bouwen slimme automatiseringen achter de
-            schermen, en blijven meten wat het oplevert. Van eerste gesprek, tot laatste meetpunt. Wij geloven dat een
-            organisatie pas écht vooruitgaat wanneer bedrijfsprocessen automatisch en efficiënt verlopen. Zo ontstaat
-            ruimte voor groei, innovatie en ondernemerschap.</p>
-          <p class="text-[#6b7aad] text-base leading-relaxed mt-4">Lokaal in Breda. Betrokken vanaf dag één.</p>
-        </div>
-
-        <!-- Right: photo (~40%), height matched to text column -->
-        <div class="md:flex-[2]" data-reveal data-reveal-delay="150">
-          <div class="w-full h-full rounded-2xl overflow-hidden aspect-[3/4] md:aspect-auto">
-            <img src="Jilles_en_Rob_Foto.jpeg" alt="Jilles en Rob, oprichters van Pareto Partners"
-              class="w-full h-full object-cover" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES SECTION — light gray -->
-  <section id="diensten" class="bg-[#F7F7F5] py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Waar wij mee helpen.</h2>
-        <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-[#6b7aad] text-base max-w-xl mx-auto">Elk traject begint bij jouw grootste bottleneck. Pas daarna
-          bepalen we of automatisering de juiste oplossing is.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 items-start">
-
-        <!-- Card 1: Strategie & dashboarding -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="0">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-              style="background:#F7F7F5;">
-              <img src="blue_icon_analysis.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">Strategie & dashboarding</h3>
-          </div>
-          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">Van vage groeiambitie naar concrete borging.
-            Samen met jou en je team scherpen we missie, visie en strategie aan — niet in een rapport dat wij
-            opleveren, maar in gesprek. Die richting vertalen we naar KPI's die écht kloppen voor jouw bedrijf, en
-            verwerken we in een dashboard dat iedereen begrijpt en dagelijks gebruikt.</p>
-          <div class="border-t border-black/[0.06] pt-4">
-            <button type="button" onclick="toggleServiceDetail('service-detail-1', this)"
-              class="flex items-center gap-1.5 text-[#1e5bff] text-xs font-semibold">
-              <span>In de praktijk</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div id="service-detail-1" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-              <div class="overflow-hidden">
-                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Één overzicht dat je team elke ochtend
-                  opent, met omzet, productiviteit en jaardoelen in samenhang. Altijd actueel, zonder handmatig
-                  exporteren.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: CRM & procesautomatisering -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="100">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-              style="background:#F7F7F5;">
-              <img src="blue_icon_crm.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">CRM & procesautomatisering</h3>
-          </div>
-          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">Processen die zichzelf afhandelen, van intake
-            tot facturatie. Wij halen de routine uit handen zodat jij en je team meer tijd hebben voor wat
-            automatisering nooit kan: écht persoonlijk contact met je klanten. Minder handmatig werk, minder fouten
-            — meer ruimte voor het werk dat er toe doet.</p>
-          <div class="border-t border-black/[0.06] pt-4">
-            <button type="button" onclick="toggleServiceDetail('service-detail-2', this)"
-              class="flex items-center gap-1.5 text-[#1e5bff] text-xs font-semibold">
-              <span>In de praktijk</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div id="service-detail-2" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-              <div class="overflow-hidden">
-                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Van eerste klantcontact tot verstuurde
-                  factuur volledig geautomatiseerd, inclusief koppelingen tussen alle tools die je al gebruikt.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Leadgeneratie -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="0">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-              style="background:#F7F7F5;">
-              <img src="blue_icon_Leadgen.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">Leadgeneratie</h3>
-          </div>
-          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">Van handmatige acquisitie naar een
-            voorspelbare stroom nieuwe klanten. Scraping, outreach, follow-up en automatische CRM-updates lopen op de
-            achtergrond — jij ziet alleen het resultaat. Automatisering betekent bij ons niet 'kille bot': onze
-            outreach klinkt zoals jij hem zou schrijven, met karakter, warmte en de tone of voice van je merk.</p>
-          <div class="border-t border-black/[0.06] pt-4">
-            <button type="button" onclick="toggleServiceDetail('service-detail-3', this)"
-              class="flex items-center gap-1.5 text-[#1e5bff] text-xs font-semibold">
-              <span>In de praktijk</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div id="service-detail-3" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-              <div class="overflow-hidden">
-                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Elke ochtend een lijst met tien tot
-                  vijftien gekwalificeerde prospects in je CRM, klaar om op te bellen.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: AI-collega's -->
-        <div class="service-card rounded-2xl p-7 bg-white flex flex-col" data-reveal data-reveal-delay="100">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-              style="background:#F7F7F5;">
-              <img src="blue_icon_AIcolleague.png" alt="" style="width:28px; height:28px; object-fit:contain;" />
-            </div>
-            <h3 class="text-[#0f2a4a] font-semibold text-xl leading-snug">AI-assistenten</h3>
-          </div>
-          <p class="text-[#6b7aad] text-sm leading-relaxed mb-4 flex-1">AI-assistenten die opereren als
-            een extra teamlid. Voor klantvragen, interne kennisontsluiting, sales-ondersteuning of documentwerk.
-            Altijd in jouw tone of voice en zoals jouw beste medewerker het zou aanpakken.</p>
-          <div class="border-t border-black/[0.06] pt-4">
-            <button type="button" onclick="toggleServiceDetail('service-detail-4', this)"
-              class="flex items-center gap-1.5 text-[#1e5bff] text-xs font-semibold">
-              <span>In de praktijk</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.2s;">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div id="service-detail-4" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
-              <div class="overflow-hidden">
-                <p class="text-xs text-[#0f2a4a]/40 leading-relaxed pt-3">Een AI-assistent op WhatsApp die
-                  klantvragen beantwoordt in jullie stijl, plus een interne assistent die kennis vindt die anders in
-                  mailboxen en hoofden verstopt zit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Custom solutions callout -->
-      <div class="rounded-2xl p-7 bg-[#0f2a4a] flex flex-col sm:flex-row sm:items-center gap-6" data-reveal>
-        <div class="flex-1">
-          <p class="text-white font-semibold text-base mb-2">Niet zeker of we jou kunnen helpen?</p>
-          <p class="text-white/65 text-sm leading-relaxed">Dat weten wij ook niet zonder kennismaking. In een kort
-            gesprek ontdekken we waar de grootste kansen liggen en of Pareto Partners daarbij kan helpen. Daarna is
-            de keuze aan jou.</p>
-        </div>
-        <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
-          class="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200 flex-shrink-0">
-          Plan een kennismakingsgesprek
-          <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TOOLS — waar wij mee bouwen -->
-  <section id="tools" class="bg-white py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14" data-reveal>
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-3">Waar wij mee bouwen.</h2>
-        <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto mb-5"></div>
-        <p class="text-[#6b7aad] text-base max-w-xl mx-auto">We kiezen de techniek die bij jouw vraag past, en koppelen aan
-          de systemen die je al gebruikt. Geen nieuw pakket waar je team aan moet wennen.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="tool-group" data-reveal>
-          <p class="tool-group-label">AI</p>
-          <p class="tool-group-text">Taalmodellen die lezen, samenvatten en beslissen, ingebouwd in je processen.</p>
-          <ul class="tool-list">
-            <li class="tool"><img src="logos/tools/claude.svg" alt="" /><span>Claude</span></li>
-            <li class="tool"><img src="logos/tools/openai.svg" alt="" /><span>OpenAI</span></li>
-          </ul>
-        </div>
-
-        <div class="tool-group" data-reveal data-reveal-delay="100">
-          <p class="tool-group-label">Cloud &amp; data</p>
-          <p class="tool-group-text">Beveiligde portalen, databases en hosting die met je meegroeien.</p>
-          <ul class="tool-list">
-            <li class="tool"><img src="logos/tools/microsoftazure.svg" alt="" /><span>Azure</span></li>
-            <li class="tool"><img src="logos/tools/supabase.svg" alt="" /><span>Supabase</span></li>
-            <li class="tool"><img src="logos/tools/vercel.svg" alt="" /><span>Vercel</span></li>
-          </ul>
-        </div>
-
-        <div class="tool-group" data-reveal data-reveal-delay="200">
-          <p class="tool-group-label">Automatisering &amp; data ophalen</p>
-          <p class="tool-group-text">De verbindingen tussen je systemen, en data van buiten naar binnen.</p>
-          <ul class="tool-list">
-            <li class="tool"><img src="logos/tools/make.svg" alt="" /><span>Make</span></li>
-            <li class="tool"><img src="logos/tools/n8n.svg" alt="" /><span>n8n</span></li>
-            <li class="tool"><img src="logos/tools/apify.svg" alt="" /><span>Apify</span></li>
-          </ul>
-        </div>
-
-        <div class="tool-group" data-reveal data-reveal-delay="300">
-          <p class="tool-group-label">CRM, ERP &amp; boekhouding</p>
-          <p class="tool-group-text">Koppelingen met de pakketten waar je bedrijf op draait.</p>
-          <ul class="tool-list">
-            <li class="tool"><img src="logos/tools/salesforce.svg" alt="" /><span>Salesforce</span></li>
-            <li class="tool"><img src="logos/tools/exact.svg" alt="" /><span>Exact Online</span></li>
-            <li class="tool"><img src="logos/tools/carerix.svg" alt="" /><span>Carerix</span></li>
-            <li class="tool"><span class="tool-mono">S</span><span>Simplicate</span></li>
-            <li class="tool"><span class="tool-mono">M</span><span>MijnKantoor</span></li>
-            <li class="tool"><span class="tool-mono">V</span><span>Voys</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-10 rounded-2xl p-7 bg-[#F7F7F5] grid gap-6 md:grid-cols-3 md:gap-8" data-reveal>
-        <div>
-          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Altijd de beste oplossing voor jouw situatie</p>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">We beginnen niet bij een pakket, maar bij je proces. Daarna
-            kiezen we de route die het meest oplevert.</p>
-        </div>
-        <div>
-          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Eigen platform of verder bouwen</p>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Soms is een eigen omgeving of portaal de beste keus, soms bouwen
-            we verder op de systemen die je al hebt. Wij kunnen allebei.</p>
-        </div>
-        <div>
-          <p class="text-[#0f2a4a] font-semibold text-base mb-2">Geen koppeling? Dan bouwen we die</p>
-          <p class="text-[#6b7aad] text-sm leading-relaxed">Heeft een systeem geen API, dan bouwen we zelf de verbinding.
-            Zo lukt het koppelen alsnog.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTEN — dark navy, doorlopende carrousel, kaart opent een case-venster -->
-  <section id="werk" class="bg-[#0f2a4a] py-24 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12" data-reveal>
-        <div class="text-center md:text-left">
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">Wat we al hebben opgeleverd</h2>
-          <div class="w-8 h-0.5 bg-[#1e5bff] mx-auto md:mx-0 mb-5"></div>
-          <p class="text-white/50 text-base max-w-xl">Deze ondernemers hebben weer tijd voor het échte werk. Klik op een
+  <!-- ═══ RESULTATEN — navy, carrousel uit de live site ═══ -->
+  <section id="werk" class="bg-[#0f2a4a] py-24 lg:py-28 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6" style="max-width:1200px">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10" data-reveal>
+        <div class="max-w-2xl">
+          <p class="kicker dark mb-7">Resultaten</p>
+          <h2 class="h2 text-white mb-4">Wat we al hebben opgeleverd.</h2>
+          <p class="text-white/55 text-[17px] leading-relaxed">Deze ondernemers hebben weer tijd voor het échte werk. Klik op een
             project voor de hele case: waar ze tegenaan liepen, wat we bouwden en wat het oplevert.</p>
         </div>
-        <div class="flex items-center justify-center gap-3 flex-shrink-0">
-          <button type="button" class="case-nav w-11 h-11 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-prev aria-label="Vorig project">
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <button type="button" class="case-nav w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-prev aria-label="Vorig project">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
           </button>
-          <button type="button" class="case-nav w-11 h-11 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-next aria-label="Volgend project">
+          <button type="button" class="case-nav w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#0f2a4a] transition-colors" data-case-next aria-label="Volgend project">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
           </button>
         </div>
       </div>
+
     </div>
 
     <div class="case-carousel" data-case-carousel data-reveal>
@@ -840,7 +854,8 @@
 
         <!-- Case 1: Vacaturescrapers -->
         <article class="case-card" data-case="scrapers" tabindex="0" role="button" aria-label="Bekijk de case: Nooit meer handmatig zoeken naar opdrachten">
-          <div class="case-visual mock">
+          <div class="case-photo ph"><!-- FOTO: Interim-consultant aan de telefoon, laptop met het overzicht van nieuwe opdrachten open. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock">
             <div class="mock-window">
               <div class="mock-bar"><i></i><i></i><i></i><span>Nieuwe opdrachten vandaag</span></div>
               <div class="mock-rows">
@@ -854,10 +869,10 @@
             <p class="case-sector">Interim finance · Breda</p>
             <h3 class="case-title">Nooit meer handmatig zoeken naar opdrachten.</h3>
             <ul class="case-checks">
-              <li>±10 gekwalificeerde leads per week</li>
-              <li>±2 uur per dag bespaard</li>
+              <li>Inclusief contactpersoon, klaar om te bellen</li>
               <li>Consultant focust op bellen, niet op zoeken</li>
             </ul>
+            <div class="case-metric"><p><b>±10</b><span>gekwalificeerde leads per week</span></p><p><b>±2<em> u</em></b><span>per dag terug voor gesprekken</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Leadgeneratie</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -867,7 +882,8 @@
 
         <!-- Case 2: Jaarrapportagetool -->
         <article class="case-card" data-case="jaarrekening" tabindex="0" role="button" aria-label="Bekijk de case: Van jaarrekening naar gespreksklaar advies in minuten">
-          <div class="case-visual mock mock-h">
+          <div class="case-photo ph"><!-- FOTO: Accountant en ondernemer aan tafel, met de onepager op papier of tablet tussen hen in. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock mock-h">
             <div class="mock-file">
               <svg width="22" height="26" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2 2h12l6 6v16H2z" /><path d="M14 2v6h6" /></svg>
               <span>PDF</span>
@@ -896,6 +912,7 @@
               <li>Omzet, kosten en resultaat direct in beeld</li>
               <li>Gespreksklaar én commercieel inzetbaar</li>
             </ul>
+            <div class="case-metric"><!-- TODO Rob/Jilles: echte doorlooptijd invullen --><p><b>[x]<em> min</em></b><span>van PDF naar gespreksklare onepager</span></p></div>
             <div class="case-foot">
               <span class="case-tag">AI-assistenten</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -905,7 +922,8 @@
 
         <!-- Case 3: Contractportaal -->
         <article class="case-card" data-case="contracten" tabindex="0" role="button" aria-label="Bekijk de case: Van plaatsing naar getekend contract, zonder overtypen">
-          <div class="case-visual mock">
+          <div class="case-photo ph"><!-- FOTO: Close-up van handen die een contract digitaal ondertekenen op tablet of laptop. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock">
             <div class="mock-window">
               <div class="mock-bar"><i></i><i></i><i></i><span>Contractportaal</span></div>
               <div class="mock-rows">
@@ -924,6 +942,7 @@
               <li>Digitaal getekend, automatisch terug in het CRM</li>
               <li>Status van elk contract in één overzicht</li>
             </ul>
+            <div class="case-metric"><p><b>0<em>×</em></b><span>overtypen per contract, van CRM tot handtekening</span></p></div>
             <div class="case-foot">
               <span class="case-tag">CRM-koppeling</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -933,7 +952,8 @@
 
         <!-- Case 4: Salesautomatisering -->
         <article class="case-card" data-case="sales" tabindex="0" role="button" aria-label="Bekijk de case: Geen showroombezoek meer zonder opvolging">
-          <div class="case-visual mock">
+          <div class="case-photo ph"><!-- FOTO: Showroom met een massagebad, verkoper in gesprek met een stel (niet herkenbaar, of met toestemming). --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock">
             <div class="mock-flow">
               <div class="flow-step"><span class="flow-dot">1</span>Showroombezoek</div>
               <div class="flow-step"><span class="flow-dot">2</span>Gesprekken &amp; mails verzameld</div>
@@ -949,6 +969,7 @@
               <li>AI vat gesprekken en mails samen</li>
               <li>Telefoongesprekken direct bij de juiste lead</li>
             </ul>
+            <div class="case-metric"><!-- TODO bevestigen --><p><b>100<em>%</em></b><span>van de showroombezoeken krijgt een opvolgtaak</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Salesautomatisering</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -958,7 +979,8 @@
 
         <!-- Case 5: Leadpijplijn -->
         <article class="case-card" data-case="leads" tabindex="0" role="button" aria-label="Bekijk de case: Elke week een verse lijst ondernemers uit de regio">
-          <div class="case-visual mock">
+          <div class="case-photo ph"><!-- FOTO: Zzp'er of kleine ondernemer in de eigen werkplaats of winkel, regio Breda. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock">
             <div class="mock-funnel">
               <div class="funnel-bar" style="width:100%"><span>Profielen in de regio</span></div>
               <div class="funnel-bar" style="width:80%"><span>Filter op doelgroep</span></div>
@@ -974,6 +996,7 @@
               <li>Rechtsvorm en regio geverifieerd via de KVK</li>
               <li>Opvolging per lead in een eigen portaal</li>
             </ul>
+            <div class="case-metric"><!-- TODO bevestigen --><p><b>75</b><span>nieuwe leads per week, KVK-gecheckt</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Leadgeneratie</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -983,7 +1006,8 @@
 
         <!-- Case 6: Urenportaal -->
         <article class="case-card" data-case="uren" tabindex="0" role="button" aria-label="Bekijk de case: Uren schrijven op de bouwplaats, direct in de boekhouding">
-          <div class="case-visual mock">
+          <div class="case-photo ph"><!-- FOTO: Vakman op de bouwplaats die zijn uren invoert op de telefoon (kans: Vermeulen-fotoshoot 20 nov). --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div data-mock class="case-visual mock">
             <span class="mock-label">In ontwikkeling</span>
             <div class="mock-phone">
               <p class="phone-head">Week 46</p>
@@ -1009,6 +1033,7 @@
               <li>Goedkeuren in twee stappen</li>
               <li>Goedgekeurde uren direct naar Exact Online</li>
             </ul>
+            <div class="case-metric"><p><b>1<em>×</em></b><span>uren invoeren, van bouwplaats tot boekhouding</span></p></div>
             <div class="case-foot">
               <span class="case-tag">ERP-koppeling</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -1122,6 +1147,7 @@
         <p class="case-sector" data-case-modal-sector></p>
         <h3 id="case-modal-title" class="text-[#0f2a4a] font-bold text-2xl leading-snug mb-4" data-case-modal-title></h3>
         <ul class="case-checks case-checks-row" data-case-modal-checks></ul>
+        <div data-case-modal-metric></div>
         <div class="case-modal-text" data-case-modal-text></div>
         <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
           class="mt-8 inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200">
@@ -1134,28 +1160,200 @@
     </div>
   </div>
 
-  <!-- CTA BANNER — light gray, breaks back-to-back dark sections -->
-  <section class="bg-[#F7F7F5] border-t border-black/[0.06] py-20 px-6">
-    <div class="max-w-2xl mx-auto text-center" data-reveal>
-      <h2 class="text-3xl sm:text-4xl font-bold text-[#0f2a4a] mb-4">Wil jij ook weer tijd voor<br>het échte werk?</h2>
-      <p class="text-[#6b7aad] text-base mb-8">Plan een kennismakingsgesprek in. Geen verkooppraatje — we luisteren,
-        verkennen samen waar de meeste winst zit en zeggen eerlijk of we een match zijn.</p>
-      <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)"
-        class="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#1e5bff] text-white text-sm font-semibold hover:bg-[#1a4ee0] transition-all duration-200">
-        Plan een kennismakingsgesprek
-        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </span>
-      </a>
-      <p class="text-[#0f2a4a]/30 text-xs mt-4">Geen verplichtingen. Aan het einde van het gesprek weet je wat er
-        mogelijk is. De keuze is aan jou.</p>
+  <!-- ═══ AANPAK — tijdlijn ═══ -->
+  <section id="aanpak" class="bg-white px-6 py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-16" data-reveal>
+        <div>
+          <p class="kicker mb-7">Aanpak</p>
+          <h2 class="h2">Vooraf weet je wat het kost en wat het oplevert.</h2>
+        </div>
+        <p class="lead">Geen open einde, geen verrassingen. In vier stappen van gesprek naar meetbaar resultaat, met de
+          eerste werkende automatisering binnen weken.</p>
+      </div>
+
+      <div class="steps" data-steps role="list">
+        <span class="steps-track" aria-hidden="true"></span>
+        <span class="steps-fill" aria-hidden="true"></span>
+        <div class="step" role="listitem">
+          <span class="step-dot">1</span>
+          <div class="step-body">
+            <span class="step-week">Week 0</span>
+            <h3>Kennismaking</h3>
+            <p>In dit gesprek bespreken we waar je tegenaan loopt en of wij iets voor je kunnen betekenen. Geen verplichtingen, geen verkooppraatjes — gewoon kijken of er een match is.</p>
+          </div>
+        </div>
+        <div class="step" role="listitem">
+          <span class="step-dot">2</span>
+          <div class="step-body">
+            <span class="step-week">Week 1</span>
+            <h3>Bedrijfsscan</h3>
+            <p>We duiken een dag in jouw processen en zoeken de 20% waar automatisering het meest oplevert. Binnen een week ligt er een concreet verbetervoorstel op tafel, inclusief prijs, tijdlijn en verwacht rendement.</p>
+          </div>
+        </div>
+        <div class="step" role="listitem">
+          <span class="step-dot">3</span>
+          <div class="step-body">
+            <span class="step-week">Week 2–4</span>
+            <h3>Implementatie</h3>
+            <p>We bouwen de automatisering, koppelen 'm aan je bestaande systemen en nemen je team stap voor stap mee in het gebruik. Prijs staat vooraf vast, geen uurtje-factuurtje.</p>
+          </div>
+        </div>
+        <div class="step" role="listitem">
+          <span class="step-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+          </span>
+          <div class="step-body">
+            <span class="step-week">Doorlopend</span>
+            <h3>Meten &amp; meegroeien</h3>
+            <p>We stoppen niet bij livegang: we meten het resultaat, sturen bij tot de doelen zijn behaald en blijven meedenken over je volgende groeistap.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skin in the game -->
+      <div class="mt-16 rounded-[28px] bg-[#0f2a4a] text-white p-7 sm:p-10 grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-center" data-reveal>
+        <div>
+          <span class="w-12 h-12 rounded-2xl bg-[#1e5bff] flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 6a3 3 0 005 0L4 7zM20 7l-2.5 6a3 3 0 005 0L20 7z"/></svg>
+          </span>
+          <h3 class="text-[24px] sm:text-[28px] font-bold leading-tight mb-3">Skin in the game: wij verdienen alleen als jij verdient</h3>
+          <p class="text-white/60 text-[15.5px] leading-relaxed">Onze prijs is nooit een los uurtarief. Hij is gekoppeld aan wat de oplossing jou oplevert. Wij denken in impact, niet in uren.</p>
+        </div>
+        <ol class="grid gap-3">
+          <li class="flex gap-4 items-start rounded-2xl bg-white/[0.05] border border-white/10 p-4">
+            <span class="w-8 h-8 rounded-full bg-white text-[#0f2a4a] font-bold text-sm flex items-center justify-center flex-shrink-0">1</span>
+            <p class="text-[15px] leading-relaxed"><b>We rekenen samen uit wat het oplevert.</b> <span class="text-white/60">In uren, fouten of extra omzet per jaar.</span></p>
+          </li>
+          <li class="flex gap-4 items-start rounded-2xl bg-white/[0.05] border border-white/10 p-4">
+            <span class="w-8 h-8 rounded-full bg-white text-[#0f2a4a] font-bold text-sm flex items-center justify-center flex-shrink-0">2</span>
+            <p class="text-[15px] leading-relaxed"><b>Daar leiden we een vaste projectprijs van af.</b> <span class="text-white/60">Je weet vooraf waar je aan toe bent.</span></p>
+          </li>
+          <li class="flex gap-4 items-start rounded-2xl bg-white/[0.05] border border-white/10 p-4">
+            <span class="w-8 h-8 rounded-full bg-[#1e5bff] text-white font-bold text-sm flex items-center justify-center flex-shrink-0">3</span>
+            <p class="text-[15px] leading-relaxed"><b>Je ziet het resultaat terug in een meting.</b> <span class="text-white/60">Bij elke automatisering, zodat je ons niet op ons woord hoeft te geloven.</span></p>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER — dark navy -->
+  <!-- ═══ DATAVEILIGHEID ═══
+       Alleen claims die nu kloppen volgens Pareto Partners/Dataveiligheid/claim-checklist-intern.md
+       (C06, C15, C19 + de laagrisico-zinnen uit het datadocument). De 2FA-kaart (C04/C13) klopt pas als Jilles 2FA overal aan heeft. -->
+  <section id="dataveiligheid" class="bg-[#F1F3F7] px-6 py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-14" data-reveal>
+        <div>
+          <p class="kicker mb-7">Dataveiligheid</p>
+          <h2 class="h2">AI gebruiken zonder de regie over je data kwijt te raken.</h2>
+        </div>
+        <p class="lead">Jouw gegevens, jouw regie. We zijn eerlijk over wat waar staat, ook als het antwoord minder mooi
+          klinkt dan je zou willen horen.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="safe-card" data-reveal>
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>
+          <h3>Versleuteld onderweg</h3>
+          <p>Al het verkeer tussen jouw systemen en onze oplossingen loopt via een versleutelde verbinding (HTTPS).</p>
+        </div>
+        <div class="safe-card" data-reveal data-reveal-delay="100">
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9h6v6H9z"/><path d="M4 4l16 16"/></svg></span>
+          <h3>Geen training op jouw data</h3>
+          <p>We gebruiken geen AI-diensten die jouw gegevens inzetten om hun eigen modellen te trainen.</p>
+        </div>
+        <div class="safe-card" data-reveal data-reveal-delay="200">
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M3 21L21 3"/></svg></span>
+          <h3>Wat we niet opslaan, kan niet lekken</h3>
+          <p>Waar het kan, halen we gegevens live uit jouw eigen systeem op in plaats van er een kopie van te bewaren.</p>
+        </div>
+        <div class="safe-card" data-reveal>
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></span>
+          <h3>Jouw data blijft van jou</h3>
+          <p>Het zijn en blijven jouw gegevens. Je kunt ze altijd opvragen, meenemen in een gangbaar formaat of laten verwijderen.</p>
+        </div>
+        <div class="safe-card" data-reveal data-reveal-delay="100">
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="14" width="4" height="6"/></svg></span>
+          <h3>In jouw eigen omgeving</h3>
+          <p>Heb je al een plek waar je gegevens wilt laten staan, zoals je eigen Microsoft Azure-omgeving? Dan gebruiken wij die.</p>
+        </div>
+        <div class="safe-card" data-reveal data-reveal-delay="200">
+          <!-- LET OP: klopt pas als Jilles 2FA aan heeft op Google, Make, GitHub, Vercel en Supabase (claim-checklist C04/C13). Anders vóór livegang weghalen. -->
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 6h4"/><path d="M9.5 13.5l2 2 3.5-4"/></svg></span>
+          <h3>Tweestapsverificatie</h3>
+          <p>Iedereen die bij jouw gegevens kan, logt in met een persoonlijk account en tweestapsverificatie.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6" data-reveal>
+        <a href="zo-gaan-wij-met-jouw-data-om.pdf" target="_blank" rel="noopener" class="data-link">
+          Lees hoe wij met jouw data omgaan
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="text-[#6b7aad] text-[14px]">PDF, 3 pagina's</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WIE WIJ ZIJN ═══ -->
+  <section id="wie-wij-zijn" class="bg-white px-6 py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-center">
+      <div class="relative" data-reveal>
+        <img src="Jilles_en_Rob_Foto.jpeg" alt="Jilles en Rob, oprichters van Pareto Partners" class="w-full rounded-[28px] object-cover aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
+        <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 bg-white rounded-2xl px-4 py-3 shadow-[0_18px_36px_-18px_rgba(15,42,74,.5)] flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-[#EBF3FF] flex items-center justify-center"><img src="blue_icon_location.png" alt="" class="w-5 h-5 object-contain" /></span>
+          <span class="text-[13.5px] leading-tight"><b class="block">Lokaal in Breda</b><span class="text-[#6b7aad]">Betrokken vanaf dag één</span></span>
+        </div>
+      </div>
+      <div data-reveal data-reveal-delay="100">
+        <p class="kicker mb-7">Wie wij zijn</p>
+        <h2 class="h2 mb-6">Wij zijn Jilles en Rob.</h2>
+        <div class="space-y-4 text-[#4c5b84] text-[16px] leading-[1.7]">
+          <p>Twee ondernemers uit Breda die geloven dat het MKB dé motor van Nederland kan zijn — zodra ondernemers weer de tijd krijgen om te ondernemen. Wij zien te vaak dat die tijd wegvreet aan losse systemen, repetitief werk en beslissingen op onderbuikgevoel, omdat data verspreid ligt over vijf plekken.</p>
+          <p>Toen we voor dezelfde opdrachtgever aan een project werkten, kwamen twee werelden bij elkaar: strategie zonder uitvoering blijft een goede intentie — en die uitvoering bouw je door slimme automatisering in de dagelijkse processen te weven. Vanaf dat moment sloegen we de handen ineen.</p>
+          <p>Vandaar Pareto Partners: één plek waar strategie en uitvoering samenvallen. Van eerste gesprek, tot laatste meetpunt.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3 mt-8">
+          <div class="founder"><b>Jilles Verbeek</b><span>Was zelfstandig strategisch consultant. Vertaalt groeiambitie naar concrete KPI's en actiepunten.</span></div>
+          <div class="founder"><b>Rob Rokx</b><span>Bouwde in New York zijn eerste automatiseringen voor bedrijven. Zorgt dat het plan ook echt draait.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="bg-[#F1F3F7] px-4 sm:px-6 py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto rounded-[32px] bg-[#0f2a4a] text-white px-7 py-12 sm:px-12 sm:py-14 grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center relative overflow-hidden" data-reveal>
+      <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full border-[28px] border-white/[0.04]" aria-hidden="true"></div>
+      <div class="relative">
+        <p class="kicker dark mb-7">Kennismaking</p>
+        <h2 class="h2 mb-5">Wil jij ook weer tijd voor het échte werk?</h2>
+        <p class="text-white/60 text-[17px] leading-relaxed mb-8 max-w-lg">Plan een kennismakingsgesprek in. Geen verkooppraatje — we luisteren, verkennen samen waar de meeste winst zit en zeggen eerlijk of we een match zijn.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)" class="btn btn-primary">
+            Plan een kennismakingsgesprek
+            <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+          </a>
+        </div>
+      </div>
+      <div class="relative flex flex-col gap-4">
+        <div class="ph rounded-3xl aspect-[16/9] !bg-none !bg-white/[0.04] !border-white/25 !text-white"><!-- FOTO --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg><b class="!text-[#9db8ff]">Foto · kennismaking</b><span class="!text-white/70">Rob en Jilles aan de keukentafel bij een klant, koffie erbij. Past bij "lokaal en persoonlijk".</span></div>
+      <div class="relative rounded-3xl bg-white text-[#0f2a4a] p-6 sm:p-7 shadow-[0_30px_60px_-30px_rgba(0,0,0,.6)]">
+          <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#1e5bff] mb-4">Na het eerste gesprek weet je</p>
+          <ul class="case-checks !mb-5 !gap-3">
+            <li class="!text-[15px]">Waar in je processen de meeste tijd weglekt</li>
+            <li class="!text-[15px]">Of automatisering daar het juiste antwoord op is</li>
+            <li class="!text-[15px]">Wat een eerste stap ongeveer kan opleveren</li>
+          </ul>
+          <p class="text-[13px] text-[#6b7aad] border-t border-black/[0.06] pt-4">Geen verplichtingen. Aan het einde van het gesprek weet je wat er mogelijk is. De keuze is aan jou.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
   <footer id="contact" class="bg-[#0f2a4a] px-6 pt-20 pb-10">
     <div class="max-w-6xl mx-auto">
 
@@ -1211,10 +1409,12 @@
 
         <!-- Right: nav links -->
         <nav class="flex flex-col gap-3">
-          <a href="#aanpak" class="text-white/45 hover:text-white transition-colors text-base">Aanpak</a>
-          <a href="#wie-wij-zijn" class="text-white/45 hover:text-white transition-colors text-base">Wie wij zijn</a>
-          <a href="#diensten" class="text-white/45 hover:text-white transition-colors text-base">Diensten</a>
+          <a href="#strategie" class="text-white/45 hover:text-white transition-colors text-base">Strategie</a>
+          <a href="#maatwerk" class="text-white/45 hover:text-white transition-colors text-base">Maatwerk</a>
           <a href="#werk" class="text-white/45 hover:text-white transition-colors text-base">Resultaten</a>
+          <a href="#aanpak" class="text-white/45 hover:text-white transition-colors text-base">Aanpak</a>
+          <a href="#dataveiligheid" class="text-white/45 hover:text-white transition-colors text-base">Dataveiligheid</a>
+          <a href="#wie-wij-zijn" class="text-white/45 hover:text-white transition-colors text-base">Wie wij zijn</a>
         </nav>
 
       </div>
@@ -1225,6 +1425,7 @@
           <img src="Pareto Partners Cropped Logo Image.png" alt="Pareto Partners" style="height:30px;width:auto;" />
         </a>
         <div class="flex items-center gap-6 justify-self-start sm:justify-self-center">
+          <a href="zo-gaan-wij-met-jouw-data-om.pdf" target="_blank" rel="noopener" class="text-white/30 hover:text-white/55 transition-colors text-xs">Dataveiligheid</a>
           <a href="privacy-policy.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Privacyverklaring</a>
           <a href="terms-of-service.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Algemene voorwaarden</a>
         </div>
@@ -1377,7 +1578,8 @@
     const TOOL_ICONS = {
       Apify: 'apify.svg', Make: 'make.svg', OpenAI: 'openai.svg', Claude: 'claude.svg', Carerix: 'carerix.svg',
       Vercel: 'vercel.svg', Salesforce: 'salesforce.svg', Notion: 'notion.svg',
-      Supabase: 'supabase.svg', Exact: 'exact.svg',
+      Supabase: 'supabase.svg', Exact: 'exact.svg', Voys: 'voys.png', 'KVK API': 'kvk.png', Legalesign: 'legalesign.png',
+      Simplicate: 'simplicate_logo.png', MijnKantoor: 'mijnkantoor.png', 'Google Workspace': 'google.svg',
     };
     const caseModal = document.getElementById('case-modal');
     let lastFocus = null;
@@ -1386,7 +1588,7 @@
       const tpl = document.getElementById('case-' + card.dataset.case);
       if (!tpl) return;
       const $ = (sel) => caseModal.querySelector(sel);
-      $('[data-case-modal-visual]').replaceChildren(card.querySelector('.case-visual').cloneNode(true));
+      $('[data-case-modal-visual]').replaceChildren(card.querySelector('.case-photo').cloneNode(true));
       $('[data-case-modal-sector]').textContent = card.querySelector('.case-sector').textContent;
       $('[data-case-modal-title]').textContent = card.querySelector('.case-title').textContent;
       $('[data-case-modal-checks]').replaceChildren(...[...card.querySelectorAll('.case-checks li')].map((li) => li.cloneNode(true)));
@@ -1403,7 +1605,7 @@
           chip.className = 'tool';
           const icon = TOOL_ICONS[name];
           chip.innerHTML = icon
-            ? `<img src="logos/tools/${icon}" alt="" />`
+            ? `<img${icon === 'kvk.png' ? ' class="wide"' : ''} src="logos/tools/${icon}" alt="" />`
             : `<span class="tool-mono">${name[0]}</span>`;
           chip.append(name);
           tools.appendChild(chip);
@@ -1438,6 +1640,191 @@
         else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
       }
     });
+  </script>
+
+  <script>
+    // ── Header: rand bij scrollen + mobiel menu ──
+    (function () {
+      const header = document.querySelector('.site-header');
+      const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+      function setMenu(open) {
+        menu.classList.toggle('hidden', !open);
+        iconOpen.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+      }
+      btn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+      menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    })();
+
+    // ── Hero: een week van je team (zo gaat het nu → automatiseren → tijd terug) ──
+    (function () {
+      const card = document.querySelector('[data-week]');
+      if (!card) return;
+      const blocks = [...card.querySelectorAll('.wk-b')];
+      const hand = blocks.filter((b) => b.classList.contains('h'));
+      const auto = hand.filter((b) => !b.hasAttribute('data-keep'));
+      const phase = card.querySelector('[data-wk-phase]');
+      const label = card.querySelector('[data-wk-label]');
+      const plus = card.querySelector('[data-wk-plus]');
+      const count = card.querySelector('[data-wk-count]');
+      const HAND = hand.length * 2, SAVED = auto.length * 2;   // elk blok is 2 uur
+
+      let raf;
+      function countTo(from, to, ms) {
+        cancelAnimationFrame(raf);
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(Math.max((now - start) / ms, 0), 1);
+          count.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - t, 3)));
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      }
+      const setPhase = (text, state) => { phase.textContent = text; phase.dataset.state = state; };
+      function endState() {
+        cancelAnimationFrame(raf);
+        card.classList.remove('is-reset');
+        blocks.forEach((b) => b.classList.add('is-in'));
+        auto.forEach((b) => b.classList.add('is-auto', 'is-free'));
+        setPhase('Tijd terug', 'done');
+        label.textContent = 'Terug per week, voor klanten en groei';
+        plus.hidden = false;
+        count.textContent = SAVED;
+      }
+      if (calm) { endState(); return; }
+      card.classList.add('is-js');
+
+      const timers = [];
+      const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+      function run() {
+        timers.splice(0).forEach(clearTimeout);
+        cancelAnimationFrame(raf);
+        blocks.forEach((b) => b.classList.remove('is-in', 'is-auto', 'is-free'));
+        card.classList.remove('is-reset');
+        setPhase('Zo gaat het nu', 'now');
+        label.textContent = 'Handwerk deze week';
+        plus.hidden = true;
+        count.textContent = '0';
+        // 1 · de week vult zich
+        blocks.forEach((b, i) => at(150 + i * 45, () => b.classList.add('is-in')));
+        at(150, () => countTo(0, HAND, 1100));
+        // 2 · het handwerk wordt geautomatiseerd (op één na: we doen alleen wat het meest oplevert)
+        at(2900, () => { setPhase('Automatiseren', 'auto'); countTo(HAND, HAND - SAVED, 1700); });
+        auto.forEach((b, k) => at(2900 + k * 280, () => b.classList.add('is-auto')));
+        // 3 · de vrijgekomen tijd gaat naar klanten en groei
+        at(5900, () => { setPhase('Tijd terug', 'done'); label.textContent = 'Terug per week, voor klanten en groei'; plus.hidden = false; countTo(0, SAVED, 1400); });
+        auto.forEach((b, k) => at(5900 + k * 200, () => b.classList.add('is-free')));
+        // 4 · even laten staan, dan opnieuw
+        at(11000, () => card.classList.add('is-reset'));
+        at(11500, run);
+      }
+      let running = false;
+      new IntersectionObserver(([en]) => {
+        if (en.isIntersecting && !running) { running = true; run(); }
+        else if (!en.isIntersecting && running) { running = false; timers.splice(0).forEach(clearTimeout); endState(); }
+      }, { threshold: 0.3 }).observe(card);
+    })();
+
+    // ── Strategie: tabbladen die vanzelf doorlopen ──
+    (function () {
+      const list = document.querySelector('[data-st-tabs]');
+      if (!list) return;
+      const tabs = [...list.querySelectorAll('[role="tab"]')];
+      if (calm) list.classList.add('is-calm');
+
+      function countUp(panel) {
+        panel.querySelectorAll('[data-count-to]').forEach((el) => {
+          const to = +el.dataset.countTo, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+          if (calm) { el.textContent = pre + to + suf; return; }
+          const start = performance.now();
+          const tick = (now) => {
+            const t = Math.min(Math.max((now - start) / 1200, 0), 1);
+            el.textContent = pre + Math.round(to * (1 - Math.pow(1 - t, 3))) + suf;
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      }
+      function select(tab, focus) {
+        tabs.forEach((t) => {
+          const on = t === tab;
+          t.setAttribute('aria-selected', String(on));
+          t.tabIndex = on ? 0 : -1;
+          const panel = document.getElementById(t.getAttribute('aria-controls'));
+          panel.classList.remove('is-active');
+          panel.hidden = !on;
+          if (on) { void panel.offsetWidth; panel.classList.add('is-active'); countUp(panel); }
+        });
+        if (focus) tab.focus();
+      }
+      const manual = () => list.classList.add('is-manual');
+      tabs.forEach((t, i) => {
+        t.addEventListener('click', () => { manual(); select(t); });
+        t.addEventListener('keydown', (e) => {
+          const dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+          if (!dir) return;
+          e.preventDefault(); manual();
+          select(tabs[(i + dir + tabs.length) % tabs.length], true);
+        });
+        // vanzelf door naar de volgende zodra de Pareto-lijn vol is
+        t.querySelector('.st-bar i').addEventListener('animationend', () => {
+          if (list.classList.contains('is-manual') || t.getAttribute('aria-selected') !== 'true') return;
+          select(tabs[(i + 1) % tabs.length]);
+        });
+      });
+      // pauzeren buiten beeld; pas starten als de sectie in beeld komt
+      list.classList.add('is-paused');
+      new IntersectionObserver(([en]) => {
+        list.classList.toggle('is-paused', !en.isIntersecting);
+        if (en.isIntersecting && !list.dataset.started) {
+          list.dataset.started = '1';
+          select(tabs[0]);
+        }
+      }, { threshold: 0.35 }).observe(list.parentElement);
+    })();
+
+    // ── Projectkaarten: groot cijfer en schermvoorbeeld ook in het case-venster ──
+    (function () {
+      const modal = document.getElementById('case-modal');
+      const origOpen = window.openCase;
+      window.openCase = function (card) {
+        origOpen(card);
+        const metricSlot = modal.querySelector('[data-case-modal-metric]');
+        const metric = card.querySelector('.case-metric');
+        metricSlot.replaceChildren(...(metric ? [metric.cloneNode(true)] : []));
+        const mock = card.querySelector('.case-visual[data-mock]');
+        const text = modal.querySelector('[data-case-modal-text]');
+        const built = [...text.querySelectorAll('h4')].find((h) => /^Wat we bouw/.test(h.textContent));
+        if (mock && built && built.nextElementSibling) {
+          const wrap = document.createElement('div');
+          wrap.className = 'case-mock-modal';
+          const clone = mock.cloneNode(true);
+          clone.removeAttribute('data-mock');
+          wrap.appendChild(clone);
+          built.nextElementSibling.after(wrap);
+        }
+      };
+    })();
+
+    // ── Aanpak: tijdlijn loopt vol zodra hij in beeld komt ──
+    (function () {
+      const steps = document.querySelector('[data-steps]');
+      if (!steps) return;
+      if (calm || !('IntersectionObserver' in window)) { steps.classList.add('is-visible'); return; }
+      const io = new IntersectionObserver(([en]) => {
+        if (en.isIntersecting) { steps.classList.add('is-visible'); io.disconnect(); }
+      }, { threshold: .35 });
+      io.observe(steps);
+    })();
   </script>
 
 </body>
