@@ -4,37 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pareto Partners — Weer tijd om te ondernemen | AI & Automatisering voor het MKB</title>
-  <meta name="description"
-    content="Weer tijd om te ondernemen. Pareto Partners bouwt maatwerk-automatiseringen en AI voor MKB-bedrijven in en rondom Breda. De 20% die 80% van je tijd kost, opgelost binnen weken." />
+  <title>Pareto Partners | Strategie en automatisering voor het MKB in Breda</title>
+  <meta name="description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
+  <link rel="canonical" href="https://paretopartners.nl/" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:site_name" content="Pareto Partners" />
   <meta property="og:url" content="https://paretopartners.nl/" />
-  <meta property="og:title" content="Pareto Partners — Weer tijd om te ondernemen" />
-  <meta property="og:description"
-    content="Pareto Partners helpt MKB-ondernemers in en rondom Breda met AI, procesautomatisering en dashboards die het meest opleveren — een werkende oplossing binnen weken." />
+  <meta property="og:title" content="Pareto Partners | Strategie en automatisering voor het MKB in Breda" />
+  <meta property="og:description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
   <meta property="og:image" content="https://paretopartners.nl/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pareto Partners: strategie én automatisering, door dezelfde mensen" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pareto Partners — Weer tijd om te ondernemen" />
-  <meta name="twitter:description"
-    content="Pareto Partners helpt MKB-ondernemers in en rondom Breda met AI, procesautomatisering en dashboards die het meest opleveren." />
+  <meta name="twitter:title" content="Pareto Partners | Strategie en automatisering voor het MKB in Breda" />
+  <meta name="twitter:description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
   <meta name="twitter:image" content="https://paretopartners.nl/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: { navy: '#0f2a4a', blauw: '#1e5bff', muted: '#6b7aad', licht: '#F1F3F7', ijs: '#EBF3FF' },
-        }
-      }
-    }
-  </script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 72px; }
     body { background-color: #ffffff; color: #0f2a4a; font-family: 'Inter', Calibri, sans-serif; }
@@ -296,13 +284,16 @@
     .case-photo { aspect-ratio: 16 / 10; border: 0; border-bottom: 2px dashed rgba(30,91,255,.35); }
     .case-modal-visual .case-photo { aspect-ratio: 16 / 7; }
     @media (max-width: 640px) { .case-modal-visual .case-photo { aspect-ratio: 16 / 10; } }
-    .case-metric { margin-top: auto; padding-top: 18px; display: flex; gap: 22px; }
+    .case-metric { margin-top: auto; display: block; padding: 4px 16px; background: #F1F3F7; border-radius: 14px; }
+    .case-checks + .case-metric { margin-top: auto; }
+    .case-card .case-body > .case-checks { margin-bottom: 18px; }
     .case-metric + .case-foot { margin-top: 16px; }
-    .case-metric p { display: flex; flex-direction: column; }
-    .case-metric b { font-size: 34px; font-weight: 800; letter-spacing: -.035em; line-height: 1; color: #0f2a4a; }
+    .case-metric p { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 0; }
+    .case-metric p + p { border-top: 1px solid rgba(15,42,74,.1); }
+    .case-metric b { font-size: 32px; font-weight: 800; letter-spacing: -.035em; line-height: 1; color: #0f2a4a; white-space: nowrap; }
     .case-metric b em { font-style: normal; color: #1e5bff; }
-    .case-metric span { font-size: 12.5px; color: #6b7aad; margin-top: 6px; line-height: 1.35; max-width: 150px; }
-    .case-modal-body .case-metric { margin: 4px 0 6px; padding-top: 0; }
+    .case-metric span { font-size: 13px; font-weight: 500; color: rgba(15,42,74,.72); line-height: 1.35; }
+    .case-modal-body .case-metric { margin: 16px 0 6px; }
     .case-mock-modal { margin: 14px 0 4px; border-radius: 16px; overflow: hidden; }
     .case-mock-modal .case-visual { aspect-ratio: 16 / 8; border: 0; }
 
@@ -441,6 +432,8 @@
     }
     .case-carousel { padding-top: 4px; }
   </style>
+  <!-- Gebouwd met `npm run build:css` (zie CLAUDE.md). Staat bewust ná de eigen stijlen, net als de oude CDN. -->
+  <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -490,10 +483,33 @@
 
   <script>
     const CALENDLY_URL = 'https://calendly.com/rob-paretopartners/kennismakingsgesprek';
+    // Calendly laadt pas bij hover, focus of klik op een afspraakknop: zonder klik gaat er geen bezoekersdata naar Calendly.
+    let calendlyLoading = null;
+    function loadCalendly() {
+      if (window.Calendly) return Promise.resolve();
+      if (calendlyLoading) return calendlyLoading;
+      calendlyLoading = new Promise((resolve, reject) => {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(css);
+        const js = document.createElement('script');
+        js.src = 'https://assets.calendly.com/assets/external/widget.js';
+        js.async = true;
+        js.onload = () => resolve();
+        js.onerror = () => { calendlyLoading = null; reject(new Error('Calendly niet geladen')); };
+        document.head.appendChild(js);
+      });
+      return calendlyLoading;
+    }
+    ['pointerover', 'focusin', 'touchstart'].forEach((type) => document.addEventListener(type, (e) => {
+      if (e.target.closest && e.target.closest('a[onclick*="openCalendly"]')) loadCalendly().catch(() => {});
+    }, { passive: true }));
     function openCalendly(event) {
-      if (!window.Calendly) return; // valt terug op de gewone link
       event.preventDefault();
-      Calendly.initPopupWidget({ url: CALENDLY_URL });
+      loadCalendly()
+        .then(() => Calendly.initPopupWidget({ url: CALENDLY_URL }))
+        .catch(() => { if (!window.open(CALENDLY_URL, '_blank', 'noopener')) window.location.assign(CALENDLY_URL); }); // terugval: gewone pagina
     }
   </script>
 
@@ -872,7 +888,7 @@
               <li>Inclusief contactpersoon, klaar om te bellen</li>
               <li>Consultant focust op bellen, niet op zoeken</li>
             </ul>
-            <div class="case-metric"><p><b>±10</b><span>gekwalificeerde leads per week</span></p><p><b>±2<em> u</em></b><span>per dag terug voor gesprekken</span></p></div>
+            <div class="case-metric"><p><b>±20</b><span>gekwalificeerde leads per week</span></p><p><b>±2<em> u</em></b><span>per dag terug voor gesprekken</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Leadgeneratie</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -908,11 +924,11 @@
             <p class="case-sector">Accountancy · Breda</p>
             <h3 class="case-title">Van jaarrekening naar gespreksklaar advies in minuten.</h3>
             <ul class="case-checks">
-              <li>Eerste analyse zonder de PDF te openen</li>
-              <li>Omzet, kosten en resultaat direct in beeld</li>
+              <li>Omzet, kosten en resultaat direct in beeld, zonder de PDF te openen</li>
+              <li>Gericht advies, met de kennis van een accountant ingebouwd</li>
               <li>Gespreksklaar én commercieel inzetbaar</li>
             </ul>
-            <div class="case-metric"><!-- TODO Rob/Jilles: echte doorlooptijd invullen --><p><b>[x]<em> min</em></b><span>van PDF naar gespreksklare onepager</span></p></div>
+            <div class="case-metric"><p><b>5<em> min</em></b><span>van PDF naar gespreksklare onepager</span></p></div>
             <div class="case-foot">
               <span class="case-tag">AI-assistenten</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -938,11 +954,12 @@
             <p class="case-sector">Interim finance · Breda</p>
             <h3 class="case-title">Van plaatsing naar getekend contract, zonder overtypen.</h3>
             <ul class="case-checks">
-              <li>Contract opgesteld uit CRM-data</li>
-              <li>Digitaal getekend, automatisch terug in het CRM</li>
+              <li>Contract uit CRM-data, digitaal getekend en automatisch terug in het CRM</li>
+              <li>Persoonlijke stukken via het portaal uitgevraagd, automatisch in het CRM</li>
               <li>Status van elk contract in één overzicht</li>
+              <li>Professionelere, soepelere communicatie met interimmer, opdrachtgever en andere partijen</li>
             </ul>
-            <div class="case-metric"><p><b>0<em>×</em></b><span>overtypen per contract, van CRM tot handtekening</span></p></div>
+            <div class="case-metric"><p><b>2–3<em> u</em></b><span>bespaard per plaatsing</span></p></div>
             <div class="case-foot">
               <span class="case-tag">CRM-koppeling</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -969,7 +986,7 @@
               <li>AI vat gesprekken en mails samen</li>
               <li>Telefoongesprekken direct bij de juiste lead</li>
             </ul>
-            <div class="case-metric"><!-- TODO bevestigen --><p><b>100<em>%</em></b><span>van de showroombezoeken krijgt een opvolgtaak</span></p></div>
+            <div class="case-metric"><p><b>0</b><span>leads uit het oog verloren</span></p><p><b>1,5<em> u</em></b><span>per dag bespaard op verslagen en administratie</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Salesautomatisering</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -996,7 +1013,7 @@
               <li>Rechtsvorm en regio geverifieerd via de KVK</li>
               <li>Opvolging per lead in een eigen portaal</li>
             </ul>
-            <div class="case-metric"><!-- TODO bevestigen --><p><b>75</b><span>nieuwe leads per week, KVK-gecheckt</span></p></div>
+            <div class="case-metric"><p><b>75</b><span>gekwalificeerde, KvK-gecheckte leads per week</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Leadgeneratie</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -1029,11 +1046,11 @@
             <p class="case-sector">Vastgoedonderhoud · West-Brabant</p>
             <h3 class="case-title">Uren schrijven op de bouwplaats, direct in de boekhouding.</h3>
             <ul class="case-checks">
-              <li>Uren per project op de telefoon</li>
-              <li>Goedkeuren in twee stappen</li>
-              <li>Goedgekeurde uren direct naar Exact Online</li>
+              <li>Uren per project op de telefoon, in twee stappen goedgekeurd</li>
+              <li>Direct naar Exact Online, projectadministratie op orde</li>
+              <li>Minder fouten en veel minder administratieve rommel</li>
             </ul>
-            <div class="case-metric"><p><b>1<em>×</em></b><span>uren invoeren, van bouwplaats tot boekhouding</span></p></div>
+            <div class="case-metric"><!-- TODO vóór livegang: urenportaal is nog in ontwikkeling; resultaat pas tonen als het zo draait. Bevestigen: 1 u per week per medewerker of in totaal? --><p><b>1<em> u</em></b><span>per week bespaard</span></p></div>
             <div class="case-foot">
               <span class="case-tag">ERP-koppeling</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -1054,7 +1071,7 @@
         contactpersoon op één plek klaarzetten. De consultant hoeft alleen nog contact op te nemen: hét werk waar hij
         goed in is.</p>
       <h4>Resultaat</h4>
-      <p>Zo'n tien gekwalificeerde leads per week en ongeveer twee uur per dag terug voor gesprekken in plaats van
+      <p>Zo'n twintig gekwalificeerde leads per week en ongeveer twee uur per dag terug voor gesprekken in plaats van
         zoekwerk.</p>
       <div class="case-tools" data-tools="Apify,Make"></div>
     </template>
@@ -1068,8 +1085,9 @@
         bedrijfsprofiel, kerncijfers, pluspunten, aandachtspunten en concrete adviespunten. In de huisstijl van het
         kantoor, klaar om als gespreksstarter of commercieel instrument in te zetten.</p>
       <h4>Resultaat</h4>
-      <p>De eerste analyse ligt klaar zonder dat iemand de PDF hoeft te openen. Accountants beginnen het gesprek met
-        de cijfers al op een rij.</p>
+      <p>In 5 minuten van PDF naar een gespreksklare onepager, zonder dat iemand de PDF hoeft te openen. De kennis van
+        een accountant zit in de tool ingebouwd, dus het advies is gericht en direct bruikbaar. Accountants beginnen het
+        gesprek met de cijfers al op een rij.</p>
       <div class="case-tools" data-tools="OpenAI,Make"></div>
     </template>
 
@@ -1080,12 +1098,13 @@
         handwerk dat per contract veel tijd kostte.</p>
       <h4>Wat we bouwden</h4>
       <p>Een beveiligd portaal dat de gegevens van een plaatsing rechtstreeks uit het CRM (Carerix) haalt. Ontbrekende
-        gegevens worden automatisch uitgevraagd, het contract wordt in de eigen huisstijl als PDF opgesteld en met één
+        gegevens en persoonlijke stukken worden via het portaal uitgevraagd en komen automatisch terug in het CRM, het contract wordt in de eigen huisstijl als PDF opgesteld en met één
         klik digitaal ter ondertekening verstuurd. Zodra alle partijen getekend hebben, staat het contract automatisch
         terug in het CRM en krijgt iedereen bericht.</p>
       <h4>Resultaat</h4>
-      <p>Contracten zonder overtypen, één vaste werkwijze voor het hele team en altijd zicht op welk contract waar
-        staat.</p>
+      <p>Per plaatsing 2 tot 3 uur minder handwerk, contracten zonder overtypen en professionelere, soepelere
+        communicatie met interimmer, opdrachtgever en andere partijen. Eén vaste werkwijze voor het hele team en altijd
+        zicht op welk contract waar staat.</p>
       <div class="case-tools" data-tools="Carerix,Make,Vercel"></div>
     </template>
 
@@ -1099,7 +1118,9 @@
         en afspraken), schrijft een korte samenvatting en zet een opvolgtaak met het juiste belmoment klaar voor de
         verkoper. Komt een klant opnieuw langs, dan wordt de bestaande taak bijgewerkt in plaats van verdubbeld.</p>
       <h4>Resultaat</h4>
-      <p>Geen showroombezoek meer zonder opvolging, en een verkoper die elk gesprek begint met de context al voor zich.</p>
+      <p>Geen showroombezoek meer zonder opvolging: er gaat geen lead meer verloren. Het team bespaart ongeveer
+        anderhalf uur per dag aan verslagen en administratie, en een verkoper begint elk gesprek met de context al voor
+        zich.</p>
       <div class="case-tools" data-tools="Salesforce,Voys,Claude,Make"></div>
     </template>
 
@@ -1113,8 +1134,8 @@
         inschrijfdatum). Dubbele contacten worden herkend. Elke week komt een nieuwe lichting vrij in een eigen
         leadportaal, waar de opvolging per lead wordt bijgehouden.</p>
       <h4>Resultaat</h4>
-      <p>Een voorspelbare stroom van precies de doelgroep, zonder handmatig zoekwerk en met overzicht over wie al
-        benaderd is.</p>
+      <p>Elke week 75 gekwalificeerde, KvK-gecheckte leads uit precies de doelgroep, zonder handmatig zoekwerk en met
+        overzicht over wie al benaderd is.</p>
       <div class="case-tools" data-tools="Apify,KVK API,Make,Notion"></div>
     </template>
 
@@ -1123,14 +1144,15 @@
       <p>Een onderhoudsbedrijf met vaste ploegen en zzp'ers op wisselende projecten. Uren kwamen binnen via briefjes,
         appjes en lijstjes en moesten daarna met de hand worden verwerkt in de boekhouding. Zicht op de voortgang per
         project ontbrak.</p>
-      <h4>Wat we bouwen</h4>
+      <h4>Wat we bouwden</h4>
       <p>Een app voor op de telefoon waarin medewerkers per dag hun uren op een project schrijven. Voormannen en
         directie keuren in twee stappen goed. Per project zie je het team, de uren, de voortgang en een logboek met
         foto's. Goedgekeurde uren gaan rechtstreeks als boeking naar Exact Online, op het juiste project. Iedere rol
         ziet alleen wat nodig is.</p>
       <h4>Resultaat</h4>
-      <p>Uren die kloppen en op tijd binnen zijn, projectkosten die actueel in de boekhouding staan en geen overtypwerk
-        meer. Dit project is in ontwikkeling.</p>
+      <p>Een uur per week minder met uren bezig, minder fouten en veel minder administratieve rommel. De
+        projectadministratie staat direct op orde: uren die kloppen, projectkosten die actueel in de boekhouding staan en
+        geen overtypwerk meer.</p>
       <div class="case-tools" data-tools="Supabase,Vercel,Exact"></div>
     </template>
   </section>

@@ -4,7 +4,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Single-page Dutch-language marketing website for **Pareto Partners** — an AI & automation consultancy based in Breda, Netherlands (founders: Rob & Jilles). The entire site lives in `index.html` using Tailwind CSS via CDN.
+Single-page Dutch-language marketing website for **Pareto Partners** — an AI & automation consultancy based in Breda, Netherlands (founders: Rob & Jilles). The entire site lives in `index.html` (eigen `<style>` en `<script>` voor animaties en interacties) plus Tailwind-klassen uit het gebouwde `styles.css`.
+
+## CSS bouwen (belangrijk)
+
+Tailwind laadt **niet meer van een CDN**. `styles.css` wordt gebouwd en moet mee in git (GitHub Pages bouwt niets).
+
+- Eenmalig: `npm install`
+- Na elke wijziging aan klassen of tekst in een pagina: `npm run build:css` (of `npm run watch:css` tijdens het werken)
+- Bron: `src/tailwind.css` (Inter-`@font-face` + Tailwind-lagen), config: `tailwind.config.js` (kleuren, `content` = de drie pagina's)
+- `styles.css` staat bewust ná de eigen `<style>` in de `<head>`, zoals de CDN vroeger deed. Niet verplaatsen.
+- Alle animaties en interacties zitten in de pagina zelf, niet in Tailwind.
+- Inter wordt zelf gehost (`fonts/`, OFL-licentie erbij). Geen Google Fonts meer (AVG).
+- Calendly laadt pas bij hover, focus of klik op een afspraakknop (`loadCalendly` in `index.html`); terugval is de gewone Calendly-pagina.
+- Deelplaatje opnieuw maken: pas `og/og.html` aan en draai `npm run build:og` (schrijft `og-image.png`). Doe dit weer na de copy-ronde als de hero-tekst verandert.
 
 ## Screenshot workflow
 
@@ -28,7 +41,7 @@ Always do **at least 2 comparison rounds** before stopping. Check spacing (px), 
 | Off-white (chips, kleine vlakken) | `#F7F7F5` |
 | Lichte sectie-achtergrond | `#F1F3F7` |
 | Icon bg (light blue) | `#EBF3FF` |
-| Font | Inter (Google Fonts), weights 400–800 |
+| Font | Inter (zelf gehost, variabel, `fonts/`), weights 400–800 |
 
 ## Local assets
 
@@ -69,9 +82,12 @@ Foto-placeholders zijn `.ph`-vlakken met een omschrijving van de gewenste foto (
 
 ## Open punten vóór livegang
 
-- **Cijfers op de projectkaarten:** Rob twijfelt over de huidige grote cijfers (`.case-metric`) en levert zelf de cijfers aan. Tot die tijd ongewijzigd laten (jaarrekening staat nog op `[x] min`).
+- **Cijfers op de projectkaarten** (`.case-metric`: grijs vlak met per KPI een rij, cijfer links en uitleg rechts; kwalitatieve punten staan als vinkjes in `.case-checks`) zijn op 2026-11-13 door Rob aangeleverd: showroom 0 leads verloren en 1,5 u per dag; leads 75 per week; uren 1 u per week; scrapers ±20 leads per week (was ±10) en ±2 u per dag; jaarrekening 5 min; contracten 2–3 u per plaatsing. Cijfers komen van Rob, niet uit het portaal.
+- **Uren-case (Vermeulen) vóór livegang:** het urenportaal is nog in ontwikkeling, maar kaart en case-venster staan als behaald resultaat (Rob's keuze, site nog niet online). Pas live zetten als het zo draait, of de tekst terugzetten naar verwachting. Bevestigen of "1 u per week" per medewerker of in totaal is (TODO-opmerking bij de kaart).
 - **Dataveiligheid, kaart Tweestapsverificatie:** klopt pas als Jilles 2FA aan heeft op Google, Make, GitHub, Vercel en Supabase (claim-checklist C04/C13). Anders de kaart weghalen.
-- **Datadocument-PDF:** is in de doelsituatie geschreven; open punten uit de claim-checklist eerst dichtzetten of de PDF aanpassen.
+- **Datadocument-PDF:** `zo-gaan-wij-met-jouw-data-om.pdf` is op 2026-11-14 vervangen door de nieuwste website-versie uit `Pareto Partners/Dataveiligheid/` (met de alinea "AI-koppelingen met een rem"). Rob: de claims staan zo en worden pas bij livegang gemaakt; 2FA is volgens Rob bij Jilles aan.
+- **Privacyverklaring en voorwaarden:** voorstellen voor aanpassing staan klaar, nog niet toegepast (juridische tekst eerst door Rob en Jilles).
+- **Nog te doen later:** Lighthouse, Safari en echte telefoon; titel/beschrijving en deelplaatje na de copy-ronde nalopen. FAQ en klantcitaten: bewust niet (bezoekers kennen ons al).
 - **Foto's:** 8 placeholders (6 cases, strategiesessie, kennismaking).
 
 Blokken schuiven in bij scrollen: zet `data-reveal` (optioneel `data-reveal-delay="100"`). Alle animaties staan uit bij `prefers-reduced-motion`.

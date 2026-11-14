@@ -5,19 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Algemene Voorwaarden | Pareto Partners</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-        }
-      }
-    }
-  </script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     body {
       background-color: #ffffff;
@@ -25,6 +13,8 @@
       font-family: 'Inter', sans-serif;
     }
   </style>
+  <!-- Gebouwd met `npm run build:css` (zie CLAUDE.md). Staat bewust ná de eigen stijlen, net als de oude CDN. -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body class="antialiased">

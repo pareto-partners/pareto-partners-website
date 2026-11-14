@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<!-- Bron van og-image.png (1200×630). Opnieuw maken: npm run build:og -->
+<style>
+  @font-face { font-family: 'Inter'; font-weight: 100 900; src: url('../fonts/inter-latin-wght-normal.woff2') format('woff2-variations'); }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: #fff; color: #0f2a4a; font-family: 'Inter', sans-serif; position: relative; overflow: hidden; }
+  .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(15,42,74,.12) 1.4px, transparent 1.6px); background-size: 28px 28px; -webkit-mask-image: radial-gradient(ellipse 60% 70% at 88% 20%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse 60% 70% at 88% 20%, #000 10%, transparent 70%); }
+  .wrap { position: absolute; inset: 0; padding: 72px 84px; display: flex; flex-direction: column; justify-content: space-between; }
+  .logo { display: inline-block; font-size: 40px; font-weight: 800; letter-spacing: -.02em; }
+  .logo b { color: #1e5bff; font-weight: 800; }
+  .logo i { display: block; height: 5px; margin-top: 8px; width: 100%; background: linear-gradient(90deg, #1e5bff 25%, #0f2a4a 25%); border-radius: 3px; }
+  h1 { font-size: 92px; font-weight: 800; letter-spacing: -.04em; line-height: 1.02; }
+  h1 span { color: #1e5bff; }
+  .foot { display: flex; align-items: center; gap: 18px; font-size: 26px; font-weight: 600; color: rgba(15,42,74,.7); }
+  .foot::before { content: ""; width: 56px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, #1e5bff 25%, #0f2a4a 25%); }
+</style>
+</head>
+<body>
+  <div class="dots"></div>
+  <div class="wrap">
+    <div><span class="logo">Pareto <b>Partners</b><i></i></span></div>
+    <h1>Strategie én automatisering.<br /><span>Door dezelfde mensen.</span></h1>
+    <p class="foot">MKB in en rond Breda · paretopartners.nl</p>
+  </div>
+</body>
+</html>
