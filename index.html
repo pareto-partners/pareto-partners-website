@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pareto Partners | Strategie en automatisering voor het MKB in Breda</title>
+  <title>Pareto Partners | Strategie en automatisering in Breda</title>
   <meta name="description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
   <link rel="canonical" href="https://paretopartners.nl/" />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -12,14 +12,14 @@
   <meta property="og:locale" content="nl_NL" />
   <meta property="og:site_name" content="Pareto Partners" />
   <meta property="og:url" content="https://paretopartners.nl/" />
-  <meta property="og:title" content="Pareto Partners | Strategie en automatisering voor het MKB in Breda" />
+  <meta property="og:title" content="Pareto Partners | Strategie en automatisering in Breda" />
   <meta property="og:description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
   <meta property="og:image" content="https://paretopartners.nl/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Pareto Partners: strategie én automatisering, door dezelfde mensen" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pareto Partners | Strategie en automatisering voor het MKB in Breda" />
+  <meta name="twitter:title" content="Pareto Partners | Strategie en automatisering in Breda" />
   <meta name="twitter:description" content="We vinden de 20% van je processen die 80% van je tijd kost en bouwen de automatisering zelf. Strategie en uitvoering door dezelfde mensen, in en rond Breda." />
   <meta name="twitter:image" content="https://paretopartners.nl/og-image.png" />
   <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -29,7 +29,7 @@
 
     /* ── Basis: labels, koppen, knoppen ─────────────────────────────── */
     .h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.1; text-wrap: balance; }
-    .lead { font-size: 17px; line-height: 1.65; color: #6b7aad; }
+    .lead { font-size: 17px; line-height: 1.65; color: #5d6c9c; }
     .btn { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: background-color .2s, border-color .2s, color .2s, transform .2s; }
     .btn-primary { background: #1e5bff; color: #fff; padding: 8px 8px 8px 24px; }
     .btn-primary:hover { background: #1a4ee0; }
@@ -62,36 +62,90 @@
     .mw-card:hover { transform: translateY(-6px); border-color: rgba(30,91,255,.3); box-shadow: 0 30px 50px -28px rgba(15,42,74,.4); }
     .mw-visual { height: 150px; background: #F1F3F7; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .mw-body { padding: 22px 22px 24px; }
-    .mw-num { font-size: 12px; font-weight: 700; color: #1e5bff; letter-spacing: .1em; }
+    .mw-tag { font-size: 12px; font-weight: 700; color: #1e5bff; letter-spacing: .1em; text-transform: uppercase; }
     .mw-title { font-size: 18px; font-weight: 700; line-height: 1.3; margin: 6px 0 8px; }
-    .mw-text { font-size: 14.5px; line-height: 1.6; color: #6b7aad; }
-    .chip-app { display: inline-flex; align-items: center; gap: 6px; background: #fff; border-radius: 10px; padding: 8px 11px; font-size: 11.5px; font-weight: 600; box-shadow: 0 8px 18px -10px rgba(15,42,74,.4); }
-    .chip-app i { width: 8px; height: 8px; border-radius: 3px; background: #1e5bff; }
-    .link-line { position: relative; width: 56px; height: 2px; background: rgba(30,91,255,.25); margin: 0 6px; overflow: visible; }
-    .link-line::after { content: ""; position: absolute; top: -3px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: #1e5bff; animation: travel 2.2s ease-in-out infinite; }
-    @keyframes travel { 0% { left: 0; } 50% { left: calc(100% - 8px); } 100% { left: 0; } }
-    .mini-app { width: 190px; height: 112px; background: #fff; border-radius: 12px; box-shadow: 0 12px 26px -14px rgba(15,42,74,.45); display: grid; grid-template-columns: 44px 1fr; overflow: hidden; }
-    .mini-app aside { background: #0f2a4a; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; }
-    .mini-app aside i { height: 5px; border-radius: 3px; background: rgba(255,255,255,.25); }
-    .mini-app aside i:first-child { background: #1e5bff; }
-    .mini-app main { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
-    .mini-app main i { height: 7px; border-radius: 4px; background: #EBF3FF; }
-    .mini-app main .row { display: flex; gap: 5px; align-items: center; }
-    .mini-app main .row i { flex: 1; }
-    .mini-app main .row b { width: 22px; height: 7px; border-radius: 4px; background: rgba(22,163,74,.35); }
-    .ai-doc { display: flex; align-items: center; gap: 10px; }
-    .ai-doc .paper { width: 54px; height: 70px; background: #fff; border-radius: 7px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); padding: 9px 8px; display: flex; flex-direction: column; gap: 5px; }
-    .ai-doc .paper i { height: 4px; border-radius: 2px; background: rgba(15,42,74,.15); }
-    .ai-spark { width: 36px; height: 36px; border-radius: 50%; background: #1e5bff; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; animation: spark 2.4s ease-in-out infinite; }
-    @keyframes spark { 0%,100% { box-shadow: 0 0 0 0 rgba(30,91,255,.4); } 50% { box-shadow: 0 0 0 10px rgba(30,91,255,0); } }
-    .ai-doc .summary { width: 78px; background: #fff; border-radius: 9px; padding: 9px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); display: flex; flex-direction: column; gap: 6px; }
-    .ai-doc .summary i { height: 5px; border-radius: 3px; background: #1e5bff; opacity: .8; }
-    .ai-doc .summary i:nth-child(2) { width: 70%; opacity: .45; }
-    .ai-doc .summary i:nth-child(3) { width: 85%; opacity: .45; }
-    .plug { display: flex; align-items: center; gap: 0; }
-    .plug .side { width: 64px; height: 56px; border-radius: 12px; background: #fff; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #6b7aad; text-align: center; line-height: 1.2; }
-    .plug .bridge { width: 64px; height: 10px; background: repeating-linear-gradient(90deg, #1e5bff 0 8px, transparent 8px 13px); border-radius: 4px; animation: build 2.6s ease-in-out infinite; transform-origin: left; }
-    @keyframes build { 0% { transform: scaleX(.1); } 55%,100% { transform: scaleX(1); } }
+    .mw-text { font-size: 14.5px; line-height: 1.6; color: #5d6c9c; }
+    /* Maatwerk kaart 1: vier systemen, één bron van waarheid. 6 s lus, alleen CSS. Basisstand = eindstand (reduced motion). */
+    .sot { position: relative; width: 240px; height: 130px; flex-shrink: 0; }
+    .sot-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .sot-lines line { stroke: rgba(30,91,255,.28); stroke-width: 1.5; }
+    .sot-chip { position: absolute; z-index: 1; display: inline-flex; align-items: center; gap: 5px; width: 88px; height: 28px; padding: 0 9px; background: #fff; border-radius: 9px; font-size: 10px; font-weight: 600; white-space: nowrap; box-shadow: 0 8px 18px -10px rgba(15,42,74,.4); animation: sotChip 6s ease-in-out infinite; }
+    .sot-chip:not(.src) { animation: none; }
+    .sot-chip i { width: 7px; height: 7px; border-radius: 3px; background: #1e5bff; flex-shrink: 0; }
+    .sot-chip::after { content: "\2713"; position: absolute; top: -6px; right: -6px; width: 15px; height: 15px; border-radius: 50%; background: #16a34a; color: #fff; font-size: 9px; font-weight: 800; line-height: 15px; text-align: center; animation: sotTick 6s ease-in-out infinite; }
+    .sot-hub { position: absolute; z-index: 2; left: 88px; top: 45px; width: 64px; height: 40px; border-radius: 11px; background: #0f2a4a; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 9.5px; font-weight: 700; letter-spacing: .02em; animation: sotHub 6s ease-in-out infinite; }
+    .sot-hub svg { opacity: .85; }
+    .sot-dot { position: absolute; z-index: 1; width: 8px; height: 8px; border-radius: 50%; background: #1e5bff; opacity: 0; box-shadow: 0 0 0 3px rgba(30,91,255,.18); }
+    .sot-in { animation: sotIn 6s ease-in-out infinite; }
+    .sot-out { animation: sotOut 6s ease-in-out infinite; }
+    @keyframes sotIn { 0%, 8% { opacity: 0; transform: none; } 10% { opacity: 1; } 28% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 30%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+    @keyframes sotOut { 0%, 33% { opacity: 0; transform: none; } 35% { opacity: 1; } 52% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 54%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+    @keyframes sotHub { 0%, 27% { box-shadow: 0 0 0 0 rgba(30,91,255,0); } 29% { box-shadow: 0 0 0 0 rgba(30,91,255,.5); } 40%, 100% { box-shadow: 0 0 0 14px rgba(30,91,255,0); } }
+    @keyframes sotChip { 0%, 3% { box-shadow: 0 8px 18px -10px rgba(15,42,74,.4); } 5%, 27% { box-shadow: 0 0 0 2px #1e5bff, 0 8px 18px -10px rgba(15,42,74,.4); } 31%, 100% { box-shadow: 0 8px 18px -10px rgba(15,42,74,.4); } }
+    @keyframes sotTick { 0%, 52% { opacity: 0; transform: scale(.4); } 57% { opacity: 1; transform: scale(1.18); } 61%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; transform: scale(.4); } }
+    /* Maatwerk kaart 2: klikken door "jouw portaal". 10 s lus. Basisstand = scherm 1 (reduced motion). */
+    .por { position: relative; width: 240px; height: 122px; background: #fff; border-radius: 12px; box-shadow: 0 12px 26px -14px rgba(15,42,74,.45); overflow: hidden; display: grid; grid-template-columns: 62px 1fr; flex-shrink: 0; }
+    .por aside { background: #0f2a4a; padding: 8px 6px; display: flex; flex-direction: column; gap: 3px; }
+    .por aside b { display: block; height: 12px; line-height: 12px; margin-bottom: 6px; font-size: 7.5px; font-weight: 700; color: #fff; letter-spacing: .02em; white-space: nowrap; }
+    .por aside span { display: block; height: 18px; line-height: 18px; padding: 0 6px; border-radius: 5px; font-size: 8.5px; font-weight: 600; color: rgba(255,255,255,.6); background: transparent; animation: porNav 10s ease-in-out infinite; }
+    .por aside span:nth-of-type(1) { background: #1e5bff; color: #fff; }
+    .por-screen { position: absolute; left: 62px; right: 0; top: 0; bottom: 0; padding: 9px 10px; display: flex; flex-direction: column; gap: 4px; opacity: 0; animation: porScr 10s ease-in-out infinite; }
+    .por-screen.on { opacity: 1; }
+    .por-screen h4 { font-size: 9.5px; font-weight: 700; margin: 0 0 3px; color: #0f2a4a; }
+    .por-screen p { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin: 0; height: 20px; padding: 0 6px; border-radius: 5px; background: #F1F3F7; font-size: 8px; font-weight: 600; color: #0f2a4a; white-space: nowrap; }
+    .por-screen p em { font-style: normal; font-size: 7px; font-weight: 700; padding: 1px 5px; border-radius: 6px; background: rgba(22,163,74,.15); color: #15803d; }
+    .por-screen p em.b { background: rgba(30,91,255,.14); color: #1e5bff; }
+    .por-screen p em.g { background: rgba(15,42,74,.1); color: #5d6c9c; }
+    .por-cur { position: absolute; left: 0; top: 0; z-index: 3; transform: translate(34px, 37px); animation: porCur 10s ease-in-out infinite; filter: drop-shadow(0 2px 2px rgba(15,42,74,.25)); }
+    @keyframes porNav { 0%, 24% { background: #1e5bff; color: #fff; } 27%, 100% { background: transparent; color: rgba(255,255,255,.6); } }
+    @keyframes porScr { 0% { opacity: 0; transform: translateY(4px); } 3%, 23% { opacity: 1; transform: none; } 26%, 100% { opacity: 0; transform: none; } }
+    @keyframes porCur {
+      0%, 19% { transform: translate(34px, 37px) scale(1); }
+      22% { transform: translate(34px, 58px) scale(1); }
+      24.5% { transform: translate(34px, 58px) scale(.8); }
+      26%, 44% { transform: translate(34px, 58px) scale(1); }
+      47% { transform: translate(34px, 79px) scale(1); }
+      49.5% { transform: translate(34px, 79px) scale(.8); }
+      51%, 69% { transform: translate(34px, 79px) scale(1); }
+      72% { transform: translate(34px, 100px) scale(1); }
+      74.5% { transform: translate(34px, 100px) scale(.8); }
+      76%, 94% { transform: translate(34px, 100px) scale(1); }
+      100% { transform: translate(34px, 37px) scale(1); }
+    }
+
+    /* Maatwerk kaart 3: een binnenkomende mail wordt gelezen, het AI-paneel levert samenvatting, taak en concept. 9 s lus. Basisstand = alle drie klaar (reduced motion). */
+    .asst { display: flex; align-items: stretch; gap: 8px; width: 240px; height: 112px; flex-shrink: 0; }
+    .asst-mail { position: relative; width: 92px; flex-shrink: 0; background: #fff; border-radius: 9px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); padding: 8px; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+    .asst-mail small { display: block; font-size: 7px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #5d6c9c; margin-bottom: 1px; }
+    .asst-from { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+    .asst-from u { width: 13px; height: 13px; border-radius: 50%; background: #93aef5; flex-shrink: 0; }
+    .asst-from i { flex: 1; height: 4px; }
+    .asst-mail i { height: 3px; border-radius: 2px; background: rgba(15,42,74,.16); }
+    .asst-mail i.s { width: 62%; }
+    .asst-scan { position: absolute; left: 4px; right: 4px; top: 32px; height: 9px; border-radius: 3px; background: rgba(30,91,255,.26); opacity: 0; animation: asstScan 9s ease-in-out infinite; }
+    .asst-panel { position: relative; flex: 1; background: #fff; border-radius: 9px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+    .asst-head { margin: 0; display: flex; align-items: center; gap: 4px; margin-bottom: 1px; font-size: 8.5px; font-weight: 700; color: #1e5bff; }
+    .asst-head svg { animation: asstSpark 9s ease-in-out infinite; transform-origin: center; }
+    .asst-row { display: flex; align-items: center; gap: 6px; height: 25px; padding: 0 6px; border-radius: 6px; background: #F4F7FD; }
+    .asst-row em { width: 12px; height: 12px; flex-shrink: 0; border-radius: 50%; background: #16a34a; color: #fff; font-style: normal; font-size: 7.5px; font-weight: 800; line-height: 12px; text-align: center; }
+    .asst-row div { min-width: 0; line-height: 1.25; }
+    .asst-row b { display: block; font-size: 8px; font-weight: 700; color: #0f2a4a; white-space: nowrap; }
+    .asst-row span { display: block; font-size: 7px; font-weight: 500; color: #5d6c9c; white-space: nowrap; }
+    .asst-row:nth-of-type(1) { animation: asstR1 9s ease-in-out infinite; }
+    .asst-row:nth-of-type(2) { animation: asstR2 9s ease-in-out infinite; }
+    .asst-row:nth-of-type(3) { animation: asstR3 9s ease-in-out infinite; }
+    .asst-row:nth-of-type(1) em { animation: asstC1 9s ease-in-out infinite; }
+    .asst-row:nth-of-type(2) em { animation: asstC2 9s ease-in-out infinite; }
+    .asst-row:nth-of-type(3) em { animation: asstC3 9s ease-in-out infinite; }
+    @keyframes asstScan { 0% { opacity: 0; top: 32px; } 3% { opacity: 1; top: 32px; } 26% { opacity: 1; top: 82px; } 29%, 100% { opacity: 0; top: 82px; } }
+    @keyframes asstSpark { 0%, 2%, 30%, 100% { transform: scale(1); opacity: 1; } 9% { transform: scale(1.3); opacity: .6; } 16% { transform: scale(1); opacity: 1; } 23% { transform: scale(1.3); opacity: .6; } }
+    @keyframes asstR1 { 0%, 29% { opacity: 0; transform: translateY(5px); } 33%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes asstR2 { 0%, 45% { opacity: 0; transform: translateY(5px); } 49%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes asstR3 { 0%, 61% { opacity: 0; transform: translateY(5px); } 65%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes asstC1 { 0%, 33% { transform: scale(.3); } 38% { transform: scale(1.25); } 41%, 100% { transform: scale(1); } }
+    @keyframes asstC2 { 0%, 49% { transform: scale(.3); } 54% { transform: scale(1.25); } 57%, 100% { transform: scale(1); } }
+    @keyframes asstC3 { 0%, 65% { transform: scale(.3); } 70% { transform: scale(1.25); } 73%, 100% { transform: scale(1); } }
+
 
     .tools-band { border: 1px solid rgba(15,42,74,.08); border-radius: 24px; background: #fff; }
 
@@ -107,7 +161,7 @@
     .steps.is-visible .step:nth-of-type(4) .step-dot { transition-delay: 1.2s; background: #1e5bff; border-color: #1e5bff; }
     .step-week { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1e5bff; background: #EBF3FF; border-radius: 999px; padding: 4px 10px; }
     .step h3 { font-size: 19px; font-weight: 700; margin: 12px 0 8px; }
-    .step p { font-size: 14.5px; line-height: 1.65; color: #6b7aad; }
+    .step p { font-size: 14.5px; line-height: 1.65; color: #5d6c9c; }
     @media (min-width: 1024px) {
       .steps { grid-template-columns: repeat(4, 1fr); gap: 32px; }
       /* lijn loopt van het midden van stap 1 tot het midden van stap 4: 3 kolommen + 3 gaten = 75% + 24px */
@@ -130,17 +184,17 @@
     .safe-card:hover { transform: translateY(-4px); border-color: rgba(30,91,255,.3); box-shadow: 0 24px 40px -26px rgba(15,42,74,.4); }
     .safe-ico { width: 44px; height: 44px; border-radius: 12px; background: #EBF3FF; color: #1e5bff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
     .safe-card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
-    .safe-card p { font-size: 14.5px; line-height: 1.6; color: #6b7aad; }
+    .safe-card p { font-size: 14.5px; line-height: 1.6; color: #5d6c9c; }
     .data-link { font-weight: 700; color: #1e5bff; font-size: 17px; display: inline-flex; align-items: center; gap: 8px; border-bottom: 2px solid rgba(30,91,255,.25); padding-bottom: 2px; transition: border-color .2s, gap .2s; }
     .data-link:hover { border-color: #1e5bff; gap: 12px; }
 
     /* ── Wie wij zijn ───────────────────────────────────────────────── */
     .founder { background: #F1F3F7; border-radius: 18px; padding: 18px 20px; }
     .founder b { display: block; font-size: 16px; }
-    .founder span { font-size: 13.5px; color: #6b7aad; line-height: 1.5; display: block; margin-top: 2px; }
+    .founder span { font-size: 13.5px; color: #5d6c9c; line-height: 1.5; display: block; margin-top: 2px; }
 
     @media (prefers-reduced-motion: reduce) {
-      .fade-1, .fade-2, .fade-3, .fade-4, .float-chip, .live i, .hero-h1 .accent::after, .feed-item.is-new, .link-line::after, .ai-spark, .plug .bridge, .diagram .flow, .diagram .jitter, .dpanel.is-active { animation: none !important; }
+      .fade-1, .fade-2, .fade-3, .fade-4, .float-chip, .live i, .hero-h1 .accent::after, .feed-item.is-new, .sot-chip, .sot-chip::after, .sot-hub, .sot-dot, .por *, .asst *, .fup *, .fup::before, .lp-wrap *, .pr-wrap *, .jr-wrap *, .sc-wrap *, .pr-wrap *::before, .pr-wrap *::after, .jr-wrap *::before, .jr-wrap *::after, .diagram .flow, .diagram .jitter, .dpanel.is-active { animation: none !important; }
       .steps-fill, .step-dot { transition: none !important; }
     }
 
@@ -160,13 +214,13 @@
     .wk-card { position: relative; container: wk / inline-size; background: #fff; border: 1px solid rgba(15,42,74,.08); border-radius: 24px; box-shadow: 0 50px 90px -40px rgba(15,42,74,.45), 0 2px 6px rgba(15,42,74,.04); overflow: hidden; }
     .wk-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 34px 22px 18px; }
     .wk-head p { font-size: 15px; font-weight: 700; }
-    .wk-head small { display: block; font-size: 12px; font-weight: 500; color: #6b7aad; margin-top: 2px; }
+    .wk-head small { display: block; font-size: 12px; font-weight: 500; color: #5d6c9c; margin-top: 2px; }
     .wk-phase { flex-shrink: 0; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0f2a4a; background: #F1F3F7; border-radius: 999px; padding: 5px 11px; transition: background-color .4s, color .4s; }
     .wk-phase[data-state="auto"] { color: #1e5bff; background: #EBF3FF; }
     .wk-phase[data-state="done"] { color: #15803d; background: rgba(22,163,74,.12); }
     .wk-grid { display: grid; grid-template-columns: 36px repeat(5, minmax(0, 1fr)); grid-template-rows: auto repeat(4, 42px); grid-auto-flow: column; gap: 6px; padding: 0 22px; transition: opacity .45s; }
     .wk-card.is-reset .wk-grid { opacity: 0; }
-    .wk-day { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6b7aad; text-align: center; padding-bottom: 2px; }
+    .wk-day { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #5d6c9c; text-align: center; padding-bottom: 2px; }
     .wk-time { font-size: 10px; font-weight: 600; color: rgba(15,42,74,.4); padding-top: 5px; font-variant-numeric: tabular-nums; }
     .wk-b { position: relative; border-radius: 8px; border: 1px solid transparent; font-size: 11px; font-weight: 600; transition: background-color .45s, border-color .45s, color .45s, opacity .4s, transform .45s cubic-bezier(.2,.7,.2,1); }
     .wk-b > span { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 8px; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity .35s; }
@@ -182,7 +236,7 @@
     .wk-b.is-free .a { opacity: 0; }
     .wk-b.is-free .f { opacity: 1; }
     .wk-card.is-js .wk-b:not(.is-in) { opacity: 0; transform: scale(.82); }
-    .wk-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 16px 22px 0; font-size: 12px; font-weight: 600; color: #6b7aad; }
+    .wk-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 16px 22px 0; font-size: 12px; font-weight: 600; color: #5d6c9c; }
     .wk-legend span { display: inline-flex; align-items: center; gap: 7px; }
     .wk-legend i { width: 12px; height: 12px; border-radius: 4px; background: #d5dbe6; }
     .wk-legend i.free { background: #1e5bff; }
@@ -223,7 +277,7 @@
     .st-tab[aria-selected="true"] { border-color: rgba(30,91,255,.35); box-shadow: 0 18px 34px -22px rgba(15,42,74,.45); }
     .st-num { font-size: 12px; font-weight: 700; color: #1e5bff; letter-spacing: .08em; }
     .st-title { display: block; font-size: 17px; font-weight: 700; margin-top: 4px; }
-    .st-sub { display: block; font-size: 13.5px; color: #6b7aad; margin-top: 2px; }
+    .st-sub { display: block; font-size: 13.5px; color: #5d6c9c; margin-top: 2px; }
     .st-bar { display: block; height: 3px; border-radius: 2px; background: rgba(15,42,74,.08); margin-top: 14px; overflow: hidden; }
     /* de Pareto-lijn (25% blauw, 75% navy) wordt van links naar rechts zichtbaar */
     .st-bar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #1e5bff 0 25%, #0f2a4a 25% 100%); clip-path: inset(0 100% 0 0); }
@@ -245,10 +299,10 @@
     /* 1 · Gespreksnotities van de kennismaking */
     .notes { width: 100%; max-width: 390px; background: #fff; border-radius: 16px; padding: 18px 20px 6px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); }
     .notes-head { font-size: 12px; font-weight: 700; padding-bottom: 11px; margin-bottom: 2px; border-bottom: 1px solid rgba(15,42,74,.08); }
-    .notes-head span { font-weight: 500; color: #6b7aad; }
+    .notes-head span { font-weight: 500; color: #5d6c9c; }
     .note { display: grid; grid-template-columns: 100px 1fr; gap: 10px; align-items: start; padding: 12px 0; border-bottom: 1px dashed rgba(15,42,74,.12); }
     .note:last-child { border-bottom: 0; }
-    .note > span { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6b7aad; padding-top: 2px; }
+    .note > span { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5d6c9c; padding-top: 2px; }
     .note p { font-size: 13.5px; font-weight: 600; line-height: 1.4; color: #0f2a4a; }
     .note.is-key > span { color: #1e5bff; }
     .note.is-key p { position: relative; justify-self: start; padding-bottom: 7px; }
@@ -259,36 +313,56 @@
     /* 2 · De 20% vinden */
     .scan { width: 100%; max-width: 400px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); }
     .scan-row { display: grid; grid-template-columns: 118px 1fr 34px; align-items: center; gap: 10px; padding: 6px 0; font-size: 12px; font-weight: 600; }
-    .scan-row em { font-style: normal; color: #6b7aad; text-align: right; font-variant-numeric: tabular-nums; }
+    .scan-row em { font-style: normal; color: #5d6c9c; text-align: right; font-variant-numeric: tabular-nums; }
     .scan-bar { height: 9px; border-radius: 5px; background: #EBF3FF; overflow: hidden; }
     .scan-bar i { display: block; height: 100%; width: 0; border-radius: 5px; background: #c9d6ee; transition: width 1s cubic-bezier(.2,.7,.2,1), background-color .5s; }
     .st-panel.is-active .scan-bar i { width: var(--w); }
     .st-panel.is-active .scan-row.top .scan-bar i { background: #1e5bff; transition-delay: 0s, 1.2s; }
     .scan-row.top span { color: #0f2a4a; }
-    .scan-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 12px; border-top: 1px solid rgba(15,42,74,.08); font-size: 12px; font-weight: 600; color: #6b7aad; }
+    .scan-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 12px; border-top: 1px solid rgba(15,42,74,.08); font-size: 12px; font-weight: 600; color: #5d6c9c; }
     .scan-note b { color: #fff; background: #1e5bff; border-radius: 999px; padding: 3px 10px; font-size: 11.5px; }
     /* 3 · Dashboard */
     .dash { width: 100%; max-width: 400px; background: #fff; border-radius: 16px; box-shadow: 0 14px 30px -18px rgba(15,42,74,.4); padding: 16px; }
     .dash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 14px; }
-    .dash-kpi { background: #F1F3F7; border-radius: 10px; padding: 9px; font-size: 10.5px; color: #6b7aad; font-weight: 600; }
+    .dash-kpi { background: #F1F3F7; border-radius: 10px; padding: 9px; font-size: 10.5px; color: #5d6c9c; font-weight: 600; }
     .dash-kpi b { display: block; font-size: 17px; color: #0f2a4a; font-variant-numeric: tabular-nums; }
     .dash-kpi em { font-style: normal; color: #15803d; font-size: 10px; }
     .dash-bars { display: flex; align-items: flex-end; gap: 7px; height: 84px; }
-    .dash-bars i { flex: 1; height: 0; background: #EBF3FF; border-radius: 5px 5px 0 0; transition: height .9s cubic-bezier(.2,.7,.2,1); }
+    .dash-bars i { flex: 1; height: 0; background: #D6E2FF; border-radius: 5px 5px 0 0; transition: height .9s cubic-bezier(.2,.7,.2,1); }
     .dash-bars i:nth-child(n) { transition-delay: calc(var(--i, 0) * 80ms); }
     .dash-bars i.on { background: #1e5bff; }
     .st-panel.is-active .dash-bars i { height: var(--h); }
+    .dash-cap { font-size: 10.5px; font-weight: 600; color: #5d6c9c; margin-bottom: 8px; }
+    .dash-chart { position: relative; }
+    .dash-goal { position: absolute; left: 0; right: 0; bottom: 71%; border-top: 1.5px dashed rgba(15,42,74,.4); pointer-events: none; }
+    .dash-goal em { position: absolute; right: 0; top: -17px; font-style: normal; font-size: 10px; font-weight: 600; color: #5d6c9c; background: #fff; padding-left: 4px; }
+    .dash-flag { position: absolute; left: 58.3%; bottom: calc(50% + 6px); width: 64px; margin-left: -32px; text-align: center; font-size: 9.5px; font-weight: 700; color: #1e5bff; background: #EBF3FF; border-radius: 999px; padding: 2px 0; pointer-events: none; }
+    .dash-weeks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; margin-top: 6px; font-size: 9.5px; font-weight: 600; color: rgba(15,42,74,.4); text-align: center; }
 
     /* ── Projectkaarten: foto + groot cijfer ───────────────────────── */
     .case-card .case-visual[data-mock] { display: none; }
+    /* Zolang er nog geen foto is: toon het schermpje van de oplossing in plaats van het fotovlak. Met foto (zonder .use-mock) blijft het schermpje verborgen. */
+    .case-card.use-mock > .case-photo.ph { display: none; }
+    .case-card.use-mock > .case-visual[data-mock] { display: flex; }
+    .case-card .mock-label { display: none; }
     .case-photo { aspect-ratio: 16 / 10; border: 0; border-bottom: 2px dashed rgba(30,91,255,.35); }
     .case-modal-visual .case-photo { aspect-ratio: 16 / 7; }
+    .case-photo.has-img { border: 0; padding: 0; background: #F1F3F7; }
+    .case-photo.has-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
     @media (max-width: 640px) { .case-modal-visual .case-photo { aspect-ratio: 16 / 10; } }
     .case-metric { margin-top: auto; display: block; padding: 4px 16px; background: #F1F3F7; border-radius: 14px; }
     .case-checks + .case-metric { margin-top: auto; }
     .case-card .case-body > .case-checks { margin-bottom: 18px; }
     .case-metric + .case-foot { margin-top: 16px; }
-    .case-metric p { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 0; }
+    /* op de kaart: één getal, geen vak */
+    .case-card .case-metric { background: none; border-radius: 0; padding: 0; }
+    .case-card .case-metric p { display: block; padding: 0; }
+    .case-card .case-metric b { display: block; font-size: 38px; margin-bottom: 6px; }
+    .case-card .case-metric span { display: block; font-size: 13.5px; }
+    .case-metric-soon span { display: inline-flex !important; align-items: center; gap: 8px; font-weight: 600; color: #1e5bff; background: rgba(30,91,255,.08); border-radius: 999px; padding: 7px 14px; }
+    .case-modal-body .case-metric-soon { display: none; } /* in het venster staat al het label 'In ontwikkeling' */
+    .case-metric-soon span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #1e5bff; }
+    .case-metric p { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 18px; padding: 14px 0; }
     .case-metric p + p { border-top: 1px solid rgba(15,42,74,.1); }
     .case-metric b { font-size: 32px; font-weight: 800; letter-spacing: -.035em; line-height: 1; color: #0f2a4a; white-space: nowrap; }
     .case-metric b em { font-style: normal; color: #1e5bff; }
@@ -323,7 +397,7 @@
     .tool-group { border: 1px solid rgba(0,0,0,.08); border-radius: 16px; padding: 24px; background: #fff; transition: box-shadow .3s, border-color .3s; }
     .tool-group:hover { border-color: rgba(30,91,255,.3); box-shadow: 0 16px 32px -16px rgba(15,42,74,.25); }
     .tool-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; color: #1e5bff; margin-bottom: 8px; }
-    .tool-group-text { font-size: 13px; color: #6b7aad; line-height: 1.55; margin-bottom: 18px; }
+    .tool-group-text { font-size: 13px; color: #5d6c9c; line-height: 1.55; margin-bottom: 18px; }
     .tool-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
     .tool { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(0,0,0,.07); background: #F7F7F5; border-radius: 999px; padding: 6px 12px 6px 9px; font-size: 13px; font-weight: 500; color: #0f2a4a; }
     .tool img { height: 16px; width: 16px; object-fit: contain; filter: brightness(0); opacity: .8; }
@@ -367,42 +441,280 @@
     .pill-wait { background: rgba(30,91,255,.12); color: #1e5bff; }
     .pill-new { background: rgba(15,42,74,.08); color: rgba(15,42,74,.7); }
     .mock-badge { display: inline-flex; align-items: center; gap: 6px; background: #0f2a4a; color: #fff; font-size: 10.5px; font-weight: 600; border-radius: 999px; padding: 5px 12px; }
-    .mock-flow { display: flex; flex-direction: column; gap: 7px; position: relative; width: 78%; max-width: 360px; }
-    .mock-flow::before { content: ""; position: absolute; left: 21px; top: 14px; bottom: 14px; width: 2px; background: rgba(30,91,255,.25); }
-    .flow-step { position: relative; display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 999px; padding: 5px 12px 5px 6px; font-size: 11px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(15,42,74,.35); }
-    .flow-dot { width: 20px; height: 20px; border-radius: 50%; background: #EBF3FF; color: #1e5bff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .flow-ai .flow-dot { background: #1e5bff; color: #fff; }
-    .flow-end .flow-dot { background: #0f2a4a; color: #fff; }
-    .mock-funnel { width: 86%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .funnel-bar { background: #0f2a4a; color: #fff; border-radius: 8px; padding: 7px 0; text-align: center; font-size: 10.5px; font-weight: 600; white-space: nowrap; }
-    .funnel-bar:nth-child(2) { background: #1d3d63; }
-    .funnel-bar:nth-child(3) { background: #2b527f; }
-    .funnel-end { background: #1e5bff !important; }
-    .mock:has(.mock-phone), .mock-h { flex-direction: row; gap: 14px; }
+    /* Sales-kaart: elk contact krijgt een nieuwe taak, tot de klant tekent. 12 s lus. Basisstand = alles zichtbaar (reduced motion). */
+    .mock-fup { padding: 12px; }
+    .fup { position: relative; width: min(300px, 100%); display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
+    .fup::before { content: ""; position: absolute; left: 12px; top: 13px; height: 124px; width: 2px; background: rgba(30,91,255,.28); transform-origin: top; animation: fupLine 12s ease-in-out infinite; }
+    .fup-row { position: relative; display: flex; align-items: center; gap: 8px; height: 26px; padding: 0 8px 0 4px; background: #fff; border-radius: 999px; box-shadow: 0 6px 14px -8px rgba(15,42,74,.35); font-size: 10.5px; font-weight: 600; color: #0f2a4a; }
+    .fup-ic { width: 18px; height: 18px; border-radius: 50%; background: #EBF3FF; color: #1e5bff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .fup-row b { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; }
+    .fup-task { font-style: normal; font-size: 9px; font-weight: 700; line-height: 1; color: #1e5bff; background: #EBF3FF; border-radius: 999px; padding: 4px 8px; white-space: nowrap; }
+    .fup-end .fup-ic { background: #16a34a; color: #fff; }
+    .fup-end .fup-task { background: #dcfce7; color: #15803d; }
+    .fup-cap { margin: 3px 0 0; line-height: 1.3; text-align: center; font-size: 9.5px; font-weight: 600; color: rgba(15,42,74,.6); animation: fupCap 12s ease-in-out infinite; }
+    .fup-row:nth-of-type(1) { animation: fupR1 12s ease-in-out infinite; } .fup-row:nth-of-type(1) .fup-task { animation: fupT1 12s ease-in-out infinite; }
+    .fup-row:nth-of-type(2) { animation: fupR2 12s ease-in-out infinite; } .fup-row:nth-of-type(2) .fup-task { animation: fupT2 12s ease-in-out infinite; }
+    .fup-row:nth-of-type(3) { animation: fupR3 12s ease-in-out infinite; } .fup-row:nth-of-type(3) .fup-task { animation: fupT3 12s ease-in-out infinite; }
+    .fup-row:nth-of-type(4) { animation: fupR4 12s ease-in-out infinite; } .fup-row:nth-of-type(4) .fup-task { animation: fupT4 12s ease-in-out infinite; }
+    .fup-row:nth-of-type(5) { animation: fupR5 12s ease-in-out infinite; } .fup-row:nth-of-type(5) .fup-task { animation: fupT5 12s ease-in-out infinite; }
+    @keyframes fupR1 { 0%, 2% { opacity: 0; transform: translateY(6px); } 6%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes fupT1 { 0%, 7% { opacity: 0; transform: scale(.7); } 11% { opacity: 1; transform: scale(1.08); } 13%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes fupR2 { 0%, 17% { opacity: 0; transform: translateY(6px); } 21%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes fupT2 { 0%, 22% { opacity: 0; transform: scale(.7); } 26% { opacity: 1; transform: scale(1.08); } 28%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes fupR3 { 0%, 32% { opacity: 0; transform: translateY(6px); } 36%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes fupT3 { 0%, 37% { opacity: 0; transform: scale(.7); } 41% { opacity: 1; transform: scale(1.08); } 43%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes fupR4 { 0%, 47% { opacity: 0; transform: translateY(6px); } 51%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes fupT4 { 0%, 52% { opacity: 0; transform: scale(.7); } 56% { opacity: 1; transform: scale(1.08); } 58%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes fupR5 { 0%, 62% { opacity: 0; transform: translateY(6px); } 66%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes fupT5 { 0%, 67% { opacity: 0; transform: scale(.7); } 71% { opacity: 1; transform: scale(1.08); } 73%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes fupLine { 0%, 2% { transform: scaleY(0); opacity: 1; } 64%, 92% { transform: scaleY(1); opacity: 1; } 97%, 100% { transform: scaleY(1); opacity: 0; } }
+    @keyframes fupCap { 0%, 72% { opacity: 0; } 78%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    .case-mock-modal .fup { transform: scale(1.6); }
+    /* Leads-kaart: nieuwe leads komen in het portaal, KvK-check, status loopt op. 12 s lus. Basisstand = eindstand (reduced motion). */
+    .mock-lp { padding: 12px; }
+    .lp-wrap { width: min(304px, 100%); display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+    .lp { background: #fff; border-radius: 12px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); overflow: hidden; }
+    .lp-bar { display: flex; align-items: center; gap: 4px; padding: 7px 10px; border-bottom: 1px solid rgba(15,42,74,.08); font-size: 9.5px; font-weight: 600; color: rgba(15,42,74,.65); }
+    .lp-bar i { width: 6px; height: 6px; border-radius: 50%; background: rgba(15,42,74,.16); }
+    .lp-bar span { margin-left: 5px; }
+    .lp-bar em { margin-left: auto; font-style: normal; font-size: 8.5px; font-weight: 700; color: #1e5bff; background: #EBF3FF; border-radius: 999px; padding: 3px 7px; }
+    .lp-rows { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px 8px; }
+    .lp-row { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 4px; border-radius: 7px; font-size: 10px; font-weight: 600; color: #0f2a4a; }
+    .lp-row:nth-child(odd) { background: #F4F7FD; }
+    .lp-av { width: 16px; height: 16px; border-radius: 50%; background: #93aef5; color: #fff; font-size: 7px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .lp-row b { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lp-kvk { position: relative; width: 42px; height: 14px; flex-shrink: 0; }
+    .lp-kvk span { position: absolute; inset: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-size: 8px; font-weight: 700; line-height: 1; }
+    .lp-kvk .w { background: #eef0f4; color: #5d6c9c; opacity: 0; }
+    .lp-kvk .k { background: #dcfce7; color: #15803d; }
+    .lp-st { position: relative; width: 92px; height: 15px; flex-shrink: 0; }
+    .lp-st span { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; height: 15px; padding: 0 7px; border-radius: 999px; font-size: 8.5px; font-weight: 700; line-height: 1; white-space: nowrap; opacity: 0; }
+    .lp-st .n { background: #EBF3FF; color: #1e5bff; }
+    .lp-st .c { background: #fef3c7; color: #b45309; }
+    .lp-st .g { background: #dcfce7; color: #15803d; }
+    /* eindstand: rij 1 Geaccepteerd, rij 2 Connectieverzoek, rij 3-4 Nieuw */
+    .lp-row:nth-child(1) .lp-st .g, .lp-row:nth-child(2) .lp-st .c, .lp-row:nth-child(3) .lp-st .n, .lp-row:nth-child(4) .lp-st .n { opacity: 1; }
+    .lp-cap { text-align: center; font-size: 9.5px; font-weight: 600; line-height: 1.3; color: rgba(15,42,74,.6); animation: lpCap 12s ease-in-out infinite; }
+    .lp-row:nth-child(1) { animation: lpR1 12s ease-in-out infinite; } .lp-row:nth-child(1) .lp-kvk .w { animation: lpW1 12s ease-in-out infinite; } .lp-row:nth-child(1) .lp-kvk .k { animation: lpK1 12s ease-in-out infinite; }
+    .lp-row:nth-child(2) { animation: lpR2 12s ease-in-out infinite; } .lp-row:nth-child(2) .lp-kvk .w { animation: lpW2 12s ease-in-out infinite; } .lp-row:nth-child(2) .lp-kvk .k { animation: lpK2 12s ease-in-out infinite; }
+    .lp-row:nth-child(3) { animation: lpR3 12s ease-in-out infinite; } .lp-row:nth-child(3) .lp-kvk .w { animation: lpW3 12s ease-in-out infinite; } .lp-row:nth-child(3) .lp-kvk .k { animation: lpK3 12s ease-in-out infinite; }
+    .lp-row:nth-child(4) { animation: lpR4 12s ease-in-out infinite; } .lp-row:nth-child(4) .lp-kvk .w { animation: lpW4 12s ease-in-out infinite; } .lp-row:nth-child(4) .lp-kvk .k { animation: lpK4 12s ease-in-out infinite; }
+    .lp-row:nth-child(1) .lp-st .n { animation: lpS1a 12s ease-in-out infinite; } .lp-row:nth-child(1) .lp-st .c { animation: lpS1b 12s ease-in-out infinite; } .lp-row:nth-child(1) .lp-st .g { animation: lpS1c 12s ease-in-out infinite; }
+    .lp-row:nth-child(2) .lp-st .n { animation: lpS2a 12s ease-in-out infinite; } .lp-row:nth-child(2) .lp-st .c { animation: lpS2b 12s ease-in-out infinite; }
+    .lp-row:nth-child(3) .lp-st .n { animation: lpS3a 12s ease-in-out infinite; }
+    .lp-row:nth-child(4) .lp-st .n { animation: lpS4a 12s ease-in-out infinite; }
+    @keyframes lpR1 { 0%, 2% { opacity: 0; transform: translateY(-8px); } 6%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes lpW1 { 0%, 5% { opacity: 0; } 6%, 11% { opacity: 1; } 12%, 100% { opacity: 0; } }
+    @keyframes lpK1 { 0%, 11% { opacity: 0; transform: scale(.8); } 13%, 100% { opacity: 1; transform: scale(1); } }
+    @keyframes lpR2 { 0%, 9% { opacity: 0; transform: translateY(-8px); } 13%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes lpW2 { 0%, 12% { opacity: 0; } 13%, 18% { opacity: 1; } 19%, 100% { opacity: 0; } }
+    @keyframes lpK2 { 0%, 18% { opacity: 0; transform: scale(.8); } 20%, 100% { opacity: 1; transform: scale(1); } }
+    @keyframes lpR3 { 0%, 16% { opacity: 0; transform: translateY(-8px); } 20%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes lpW3 { 0%, 19% { opacity: 0; } 20%, 25% { opacity: 1; } 26%, 100% { opacity: 0; } }
+    @keyframes lpK3 { 0%, 25% { opacity: 0; transform: scale(.8); } 27%, 100% { opacity: 1; transform: scale(1); } }
+    @keyframes lpR4 { 0%, 23% { opacity: 0; transform: translateY(-8px); } 27%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes lpW4 { 0%, 26% { opacity: 0; } 27%, 32% { opacity: 1; } 33%, 100% { opacity: 0; } }
+    @keyframes lpK4 { 0%, 32% { opacity: 0; transform: scale(.8); } 34%, 100% { opacity: 1; transform: scale(1); } }
+    @keyframes lpS1a { 0%, 5% { opacity: 0; } 6%, 40% { opacity: 1; } 42%, 100% { opacity: 0; } }
+    @keyframes lpS1b { 0%, 40% { opacity: 0; } 42%, 56% { opacity: 1; } 58%, 100% { opacity: 0; } }
+    @keyframes lpS1c { 0%, 56% { opacity: 0; } 58%, 100% { opacity: 1; } }
+    @keyframes lpS2a { 0%, 12% { opacity: 0; } 13%, 62% { opacity: 1; } 64%, 100% { opacity: 0; } }
+    @keyframes lpS2b { 0%, 62% { opacity: 0; } 64%, 100% { opacity: 1; } }
+    @keyframes lpS3a { 0%, 19% { opacity: 0; } 20%, 100% { opacity: 1; } }
+    @keyframes lpS4a { 0%, 26% { opacity: 0; } 27%, 100% { opacity: 1; } }
+    @keyframes lpCap { 0%, 66% { opacity: 0; } 72%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    .case-mock-modal .lp-wrap { transform: scale(1.6); }
+    /* Uren-kaart: telefoon -> projectportaal -> Exact. 12 s lus. Basisstand = eindstand (reduced motion). */
+    .mock-pr { padding: 12px; }
+    .pr-wrap { width: 330px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+    .pr-row { display: flex; align-items: center; gap: 4px; }
+    .pr-phone { width: 84px; height: 148px; flex-shrink: 0; background: #fff; border: 2.5px solid #0f2a4a; border-radius: 15px; padding: 9px 7px 7px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); animation: prPh 12s ease-in-out infinite; }
+    .pr-ph-top { display: flex; justify-content: space-between; align-items: center; font-size: 8px; font-weight: 700; color: #0f2a4a; }
+    .pr-ph-top em { font-style: normal; font-weight: 600; color: #5d6c9c; }
+    .pr-ph-proj { background: #EBF3FF; color: #1e5bff; border-radius: 6px; padding: 5px 6px; font-size: 7.5px; font-weight: 700; line-height: 1.2; }
+    .pr-ph-hrs { display: flex; flex-direction: column; gap: 4px; }
+    .pr-ph-hrs b { font-size: 17px; font-weight: 800; letter-spacing: -.03em; color: #0f2a4a; line-height: 1; }
+    .pr-ph-bar { display: block; height: 5px; border-radius: 3px; background: rgba(15,42,74,.1); overflow: hidden; }
+    .pr-ph-bar i { display: block; height: 100%; background: #1e5bff; border-radius: 3px; transform-origin: left; animation: prHrs 12s ease-in-out infinite; }
+    .pr-ph-btn { position: relative; margin-top: auto; height: 20px; border-radius: 6px; background: #1e5bff; color: #fff; font-size: 8px; font-weight: 700; animation: prBtn 12s ease-in-out infinite; }
+    .pr-ph-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .pr-ph-btn .a { opacity: 0; animation: prBtnA 12s ease-in-out infinite; }
+    .pr-ph-btn .b { background: #16a34a; border-radius: 6px; animation: prBtnB 12s ease-in-out infinite; }
+    .pr-portal { flex: 1; min-width: 0; background: #fff; border-radius: 11px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); overflow: hidden; animation: prPo 12s ease-in-out infinite; }
+    .pr-po-bar { display: flex; align-items: center; gap: 3px; padding: 6px 8px; border-bottom: 1px solid rgba(15,42,74,.08); font-size: 8px; font-weight: 700; color: #0f2a4a; white-space: nowrap; }
+    .pr-po-bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(15,42,74,.16); flex-shrink: 0; }
+    .pr-po-bar span { margin-left: 3px; overflow: hidden; text-overflow: ellipsis; }
+    .pr-po-body { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .pr-prog { display: grid; grid-template-columns: 1fr auto; gap: 3px 4px; font-size: 7.5px; font-weight: 600; color: #5d6c9c; }
+    .pr-prog em { font-style: normal; font-weight: 700; color: #0f2a4a; }
+    .pr-prog-bar { grid-column: 1 / -1; display: block; height: 5px; border-radius: 3px; background: rgba(15,42,74,.1); overflow: hidden; }
+    .pr-prog-bar i { display: block; width: 62%; height: 100%; border-radius: 3px; background: #1e5bff; transform-origin: left; animation: prProg 12s ease-in-out infinite; }
+    .pr-tm { display: flex; align-items: center; gap: 5px; height: 20px; padding: 0 5px; border-radius: 6px; background: #F4F7FD; font-size: 8px; font-weight: 600; color: #0f2a4a; }
+    .pr-tm u { text-decoration: none; width: 12px; height: 12px; border-radius: 50%; background: #93aef5; color: #fff; font-size: 5.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pr-tm b { flex: 1; font-weight: 600; }
+    .pr-tm em { font-style: normal; font-weight: 700; color: #1e5bff; }
+    .pr-r1 { animation: prR1 12s ease-in-out infinite; }
+    .pr-r2 { animation: prR2 12s ease-in-out infinite; }
+    .pr-ap { display: flex; gap: 4px; }
+    .pr-ap span { flex: 1; text-align: center; border-radius: 999px; background: #dcfce7; color: #15803d; font-size: 7.5px; font-weight: 700; line-height: 1; padding: 4px 0; white-space: nowrap; }
+    .pr-a1 { animation: prA1 12s ease-in-out infinite; }
+    .pr-a2 { animation: prA2 12s ease-in-out infinite; }
+    .pr-exact { width: 70px; flex-shrink: 0; background: #fff; border-radius: 11px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); overflow: hidden; animation: prEx 12s ease-in-out infinite; }
+    .pr-ex-h { padding: 6px 7px; background: #0f2a4a; color: #fff; font-size: 8px; font-weight: 700; }
+    .pr-ex-b { display: flex; justify-content: space-between; margin: 7px 7px 0; padding: 5px 5px; border-radius: 5px; background: #F4F7FD; font-size: 7.5px; font-weight: 600; color: #0f2a4a; animation: prBk 12s ease-in-out infinite; }
+    .pr-ex-b em { font-style: normal; color: #1e5bff; font-weight: 700; }
+    .pr-ex-ok { margin: 6px 7px 7px; text-align: center; border-radius: 999px; background: #dcfce7; color: #15803d; font-size: 7.5px; font-weight: 700; line-height: 1; padding: 4px 0; animation: prOk 12s ease-in-out infinite; }
+    .pr-cap { text-align: center; font-size: 9.5px; font-weight: 600; line-height: 1.3; color: rgba(15,42,74,.6); animation: prCap 12s ease-in-out infinite; }
+    @keyframes prPh { 0%, 1% { opacity: 0; transform: translateY(8px); } 5%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prHrs { 0%, 6% { transform: scaleX(0); } 14%, 100% { transform: scaleX(1); } }
+    @keyframes prBtnA { 0%, 20% { opacity: 1; } 22%, 100% { opacity: 0; } }
+    @keyframes prBtnB { 0%, 21% { opacity: 0; } 23%, 100% { opacity: 1; } }
+    @keyframes prBtn { 0%, 17% { transform: scale(1); } 19% { transform: scale(.92); } 21%, 100% { transform: scale(1); } }
+    @keyframes prPo { 0%, 27% { opacity: 0; transform: translateY(8px); } 32%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prProg { 0%, 33% { transform: scaleX(0); } 46%, 100% { transform: scaleX(1); } }
+    @keyframes prR1 { 0%, 34% { opacity: 0; transform: translateX(-6px); } 38%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prR2 { 0%, 39% { opacity: 0; transform: translateX(-6px); } 43%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prA1 { 0%, 49% { opacity: 0; transform: scale(.8); } 53%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes prA2 { 0%, 57% { opacity: 0; transform: scale(.8); } 61%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes prEx { 0%, 66% { opacity: 0; transform: translateX(6px); } 71%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prBk { 0%, 73% { opacity: 0; transform: translateY(4px); } 77%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes prOk { 0%, 78% { opacity: 0; transform: scale(.8); } 82%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes prCap { 0%, 82% { opacity: 0; } 87%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    .case-mock-modal .pr-wrap { transform: translateY(12px) scale(1.55); }
+    /* Jaarrekening-kaart: PDF wordt gelezen, onepager bouwt zich op. 12 s lus. Basisstand = eindstand (reduced motion). */
+    .mock-jr { padding: 12px; }
+    .jr-wrap { width: 330px; display: flex; flex-direction: column; align-items: center; gap: 9px; flex-shrink: 0; }
+    .jr-row { display: flex; align-items: stretch; gap: 6px; width: 100%; }
+    .jr-pdf { position: relative; width: 78px; flex-shrink: 0; background: #fff; border-radius: 9px; padding: 9px 8px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); animation: jrPdf 12s ease-in-out infinite; }
+    .jr-pdf-h { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-bottom: 3px; font-size: 7.5px; font-weight: 600; color: rgba(15,42,74,.6); }
+    .jr-pdf-h b { background: #0f2a4a; color: #fff; border-radius: 3px; padding: 2px 5px; font-size: 7px; font-weight: 700; letter-spacing: .06em; }
+    .jr-pdf i { display: block; height: 4px; border-radius: 2px; background: rgba(15,42,74,.16); }
+    .jr-pdf i.s { width: 62%; }
+    .jr-scan { position: absolute; left: 3px; right: 3px; top: 30px; height: 12px; border-radius: 3px; background: rgba(30,91,255,.28); opacity: 0; animation: jrScan 12s ease-in-out infinite; }
+    .jr-op { flex: 1; min-width: 0; background: #fff; border-radius: 10px; padding: 9px 10px; display: flex; flex-direction: column; gap: 5px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); animation: jrOp 12s ease-in-out infinite; }
+    .jr-op-h { font-size: 9.5px; font-weight: 700; color: #0f2a4a; }
+    .jr-op-h span { font-weight: 500; color: rgba(15,42,74,.5); }
+    .jr-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+    .jr-k { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; height: 40px; background: #EBF3FF; border-radius: 6px; padding: 5px 3px 4px; font-size: 7px; font-weight: 600; color: rgba(15,42,74,.6); }
+    .jr-k i { display: block; width: 11px; background: #1e5bff; border-radius: 2px; transform-origin: bottom; }
+    .jr-k:nth-child(1) i { height: 20px; animation: jrK1 12s ease-in-out infinite; }
+    .jr-k:nth-child(2) i { height: 14px; animation: jrK2 12s ease-in-out infinite; }
+    .jr-k:nth-child(3) i { height: 7px; animation: jrK3 12s ease-in-out infinite; }
+    .jr-pt { display: flex; align-items: center; gap: 5px; font-size: 8px; font-weight: 600; color: #0f2a4a; white-space: nowrap; }
+    .jr-pt em { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; background: #0f2a4a; }
+    .jr-pt em.g { background: #16a34a; }
+    .jr-pt em.o { background: #f59e0b; }
+    .jr-pt span { font-weight: 500; color: rgba(15,42,74,.55); overflow: hidden; text-overflow: ellipsis; }
+    .jr-p1 { animation: jrP1 12s ease-in-out infinite; }
+    .jr-p2 { animation: jrP2 12s ease-in-out infinite; }
+    .jr-p3 { animation: jrP3 12s ease-in-out infinite; }
+    .jr-done { display: inline-flex; align-items: center; gap: 5px; background: #0f2a4a; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: 9.5px; font-weight: 700; animation: jrDone 12s ease-in-out infinite; }
+    @keyframes jrPdf { 0%, 1% { opacity: 0; transform: translateY(8px); } 5%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes jrScan { 0%, 7% { opacity: 0; transform: translateY(0); } 9% { opacity: 1; transform: translateY(0); } 33% { opacity: 1; transform: translateY(98px); } 36%, 100% { opacity: 0; transform: translateY(98px); } }
+    @keyframes jrOp { 0%, 28% { opacity: 0; transform: translateY(8px); } 33%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes jrK1 { 0%, 34% { transform: scaleY(0); } 41%, 100% { transform: scaleY(1); } }
+    @keyframes jrK2 { 0%, 38% { transform: scaleY(0); } 45%, 100% { transform: scaleY(1); } }
+    @keyframes jrK3 { 0%, 42% { transform: scaleY(0); } 49%, 100% { transform: scaleY(1); } }
+    @keyframes jrP1 { 0%, 50% { opacity: 0; transform: translateX(-6px); } 54%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes jrP2 { 0%, 58% { opacity: 0; transform: translateX(-6px); } 62%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes jrP3 { 0%, 66% { opacity: 0; transform: translateX(-6px); } 70%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes jrDone { 0%, 75% { opacity: 0; transform: scale(.8); } 80%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    .pr-ar, .jr-mid { position: relative; flex-shrink: 0; height: 14px; }
+    .pr-ar { width: 20px; }
+    .jr-mid { width: 26px; align-self: center; }
+    .pr-ar i, .jr-mid i { position: absolute; top: 3px; width: 7px; height: 7px; border-top: 2.5px solid #1e5bff; border-right: 2.5px solid #1e5bff; border-radius: 1.5px; rotate: 45deg; }
+    .pr-ar i:nth-child(1), .jr-mid i:nth-child(1) { left: 0; }
+    .pr-ar i:nth-child(2) { left: 6px; } .jr-mid i:nth-child(2) { left: 8px; }
+    .pr-ar i:nth-child(3) { left: 12px; } .jr-mid i:nth-child(3) { left: 16px; }
+    .pr-ar1 i:nth-child(1) { animation: chA1 12s ease-in-out infinite; } .pr-ar1 i:nth-child(2) { animation: chA2 12s ease-in-out infinite; } .pr-ar1 i:nth-child(3) { animation: chA3 12s ease-in-out infinite; }
+    .pr-ar2 i:nth-child(1) { animation: chB1 12s ease-in-out infinite; } .pr-ar2 i:nth-child(2) { animation: chB2 12s ease-in-out infinite; } .pr-ar2 i:nth-child(3) { animation: chB3 12s ease-in-out infinite; }
+    .jr-mid i:nth-child(1) { animation: chJ1 12s ease-in-out infinite; } .jr-mid i:nth-child(2) { animation: chJ2 12s ease-in-out infinite; } .jr-mid i:nth-child(3) { animation: chJ3 12s ease-in-out infinite; }
+    @keyframes chA1 { 0%, 21% { opacity: 0; translate: -4px 0; } 23%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chA2 { 0%, 24% { opacity: 0; translate: -4px 0; } 26%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chA3 { 0%, 27% { opacity: 0; translate: -4px 0; } 29%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chB1 { 0%, 61% { opacity: 0; translate: -4px 0; } 63%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chB2 { 0%, 64% { opacity: 0; translate: -4px 0; } 66%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chB3 { 0%, 67% { opacity: 0; translate: -4px 0; } 69%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chJ1 { 0%, 7% { opacity: 0; translate: -4px 0; } 9%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chJ2 { 0%, 10% { opacity: 0; translate: -4px 0; } 12%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chJ3 { 0%, 13% { opacity: 0; translate: -4px 0; } 15%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    /* Scrapers-kaart: jobboards -> CRM, contactpersoon aangevuld, status loopt op (gebeld / gemaild). 12 s lus. Basisstand = eindstand (reduced motion). */
+    .mock-sc { padding: 12px; }
+    .sc-wrap { width: 330px; display: flex; flex-direction: column; align-items: center; gap: 9px; flex-shrink: 0; }
+    .sc-row { display: flex; align-items: stretch; gap: 4px; width: 100%; }
+    .sc-src { width: 74px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+    .sc-bd { flex: 1; background: #fff; border-radius: 8px; padding: 6px 7px; display: flex; flex-direction: column; justify-content: center; gap: 3px; box-shadow: 0 8px 18px -10px rgba(15,42,74,.45); animation: scBd 12s ease-in-out infinite; }
+    .sc-bd b { font-size: 8px; font-weight: 700; color: #0f2a4a; }
+    .sc-bd i { display: block; height: 3px; border-radius: 2px; background: rgba(15,42,74,.16); }
+    .sc-bd i.s { width: 60%; }
+    .sc-ar { position: relative; width: 22px; flex-shrink: 0; align-self: center; height: 14px; }
+    .sc-ar i { position: absolute; top: 3px; width: 7px; height: 7px; border-top: 2.5px solid #1e5bff; border-right: 2.5px solid #1e5bff; border-radius: 1.5px; rotate: 45deg; }
+    .sc-ar i:nth-child(1) { left: 0; animation: chS1 12s ease-in-out infinite; } .sc-ar i:nth-child(2) { left: 7px; animation: chS2 12s ease-in-out infinite; } .sc-ar i:nth-child(3) { left: 14px; animation: chS3 12s ease-in-out infinite; }
+    .sc-crm { flex: 1; min-width: 0; background: #fff; border-radius: 11px; box-shadow: 0 10px 22px -12px rgba(15,42,74,.45); overflow: hidden; animation: scCrm 12s ease-in-out infinite; }
+    .sc-bar { display: flex; align-items: center; gap: 3px; padding: 6px 9px; border-bottom: 1px solid rgba(15,42,74,.08); font-size: 8.5px; font-weight: 700; color: #0f2a4a; white-space: nowrap; }
+    .sc-bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(15,42,74,.16); flex-shrink: 0; }
+    .sc-bar span { margin-left: 3px; }
+    .sc-list { display: flex; flex-direction: column; gap: 3px; padding: 7px 7px 8px; }
+    .sc-it { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 6px; border-radius: 7px; background: #F4F7FD; }
+    .sc-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .sc-t b { font-size: 8.5px; font-weight: 700; color: #0f2a4a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sc-sub { position: relative; display: block; height: 9px; font-size: 7.5px; font-weight: 600; white-space: nowrap; }
+    .sc-sub span { position: absolute; left: 0; top: 0; }
+    .sc-sub .a { color: #5d6c9c; opacity: 0; }
+    .sc-sub .b { color: #15803d; }
+    .sc-st { position: relative; width: 50px; height: 15px; flex-shrink: 0; }
+    .sc-st span { position: absolute; right: 0; top: 0; display: inline-flex; align-items: center; height: 15px; padding: 0 8px; border-radius: 999px; font-size: 8px; font-weight: 700; line-height: 1; opacity: 0; white-space: nowrap; }
+    .sc-st .n { background: #EBF3FF; color: #1e5bff; }
+    .sc-st .g { background: #dcfce7; color: #15803d; }
+    .sc-st .m { background: #0f2a4a; color: #fff; }
+    .sc-i1 .sc-st .g, .sc-i2 .sc-st .m, .sc-i3 .sc-st .n { opacity: 1; }
+    .sc-i1 { animation: scR1 12s ease-in-out infinite; } .sc-i1 .sc-sub .a { animation: scA1 12s ease-in-out infinite; } .sc-i1 .sc-sub .b { animation: scB1 12s ease-in-out infinite; } .sc-i1 .sc-st .n { animation: scN1 12s ease-in-out infinite; } .sc-i1 .sc-st .g { animation: scG1 12s ease-in-out infinite; }
+    .sc-i2 { animation: scR2 12s ease-in-out infinite; } .sc-i2 .sc-sub .a { animation: scA2 12s ease-in-out infinite; } .sc-i2 .sc-sub .b { animation: scB2 12s ease-in-out infinite; } .sc-i2 .sc-st .n { animation: scN2 12s ease-in-out infinite; } .sc-i2 .sc-st .m { animation: scM2 12s ease-in-out infinite; }
+    .sc-i3 { animation: scR3 12s ease-in-out infinite; } .sc-i3 .sc-sub .a { animation: scA3 12s ease-in-out infinite; } .sc-i3 .sc-sub .b { animation: scB3 12s ease-in-out infinite; } .sc-i3 .sc-st .n { animation: scN3 12s ease-in-out infinite; }
+    .sc-done { display: inline-flex; align-items: center; gap: 5px; background: #0f2a4a; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: 9.5px; font-weight: 700; animation: scDone 12s ease-in-out infinite; }
+    @keyframes scBd { 0%, 1% { opacity: 0; transform: translateX(-8px); } 5%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes chS1 { 0%, 8% { opacity: 0; translate: -4px 0; } 10%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chS2 { 0%, 11% { opacity: 0; translate: -4px 0; } 13%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes chS3 { 0%, 14% { opacity: 0; translate: -4px 0; } 16%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+    @keyframes scCrm { 0%, 15% { opacity: 0; transform: translateY(8px); } 20%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes scR1 { 0%, 22% { opacity: 0; transform: translateY(-6px); } 26%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes scA1 { 0%, 25% { opacity: 0; } 26% { opacity: 1; } 42%, 100% { opacity: 0; } }
+    @keyframes scB1 { 0%, 42% { opacity: 0; } 44%, 100% { opacity: 1; } }
+    @keyframes scR2 { 0%, 28% { opacity: 0; transform: translateY(-6px); } 32%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes scA2 { 0%, 31% { opacity: 0; } 32% { opacity: 1; } 46%, 100% { opacity: 0; } }
+    @keyframes scB2 { 0%, 46% { opacity: 0; } 48%, 100% { opacity: 1; } }
+    @keyframes scR3 { 0%, 34% { opacity: 0; transform: translateY(-6px); } 38%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+    @keyframes scA3 { 0%, 37% { opacity: 0; } 38% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes scB3 { 0%, 50% { opacity: 0; } 52%, 100% { opacity: 1; } }
+    @keyframes scN1 { 0%, 25% { opacity: 0; } 26%, 58% { opacity: 1; } 60%, 100% { opacity: 0; } }
+    @keyframes scG1 { 0%, 58% { opacity: 0; } 60%, 100% { opacity: 1; } }
+    @keyframes scN2 { 0%, 31% { opacity: 0; } 32%, 66% { opacity: 1; } 68%, 100% { opacity: 0; } }
+    @keyframes scM2 { 0%, 66% { opacity: 0; } 68%, 100% { opacity: 1; } }
+    @keyframes scN3 { 0%, 37% { opacity: 0; } 38%, 100% { opacity: 1; } }
+    @keyframes scDone { 0%, 74% { opacity: 0; transform: scale(.8); } 80%, 92% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; transform: scale(1); } }
+    .case-mock-modal .sc-wrap { transform: scale(1.5); }
+
+    /* Telefoon: animaties in het case-venster passen in het smalle vlak (niet vergroten, vlak past zich aan) */
+    @media (max-width: 640px) {
+      .case-mock-modal .case-visual { aspect-ratio: auto; min-height: 0; padding: 18px 12px; }
+      .case-mock-modal .case-visual .fup, .case-mock-modal .case-visual .lp-wrap, .case-mock-modal .case-visual .pr-wrap, .case-mock-modal .case-visual .jr-wrap, .case-mock-modal .case-visual .sc-wrap { transform: scale(.88); margin: -10px 0; }
+      .case-mock-modal .mock-label { position: static; align-self: flex-start; margin-bottom: 8px; }
+    }
+    /* Aanraakschermen: grotere aanraakvlakken voor menu en footerlinks */
+    @media (pointer: coarse) {
+      #mobile-menu { gap: 2px; }
+      #mobile-menu a:not(.btn) { padding-block: 10px; }
+      footer nav a { padding-block: 8px; }
+      footer a.w-fit { padding-block: 10px; }
+      footer a[aria-label^="LinkedIn"] { padding: 13px; margin: -3px 0 -13px -13px; }
+      footer .border-t a.text-xs { padding-block: 14px; }
+    }
+    @media (max-width: 640px) { .case-card .sc-wrap { transform: scale(.86); } }
+    .case-mock-modal .jr-wrap { transform: scale(1.5); }
+    @media (max-width: 640px) { .case-card .jr-wrap { transform: scale(.86); } }
+    @media (max-width: 640px) { .case-card .pr-wrap { transform: scale(.86); } }
     .mock-row small { display: block; font-size: 9.5px; color: rgba(15,42,74,.5); font-weight: 500; margin-top: 1px; }
-    .mock-file { width: 76px; height: 96px; background: #fff; border-radius: 8px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-size: 9.5px; font-weight: 600; color: rgba(15,42,74,.7); }
-    .mock-file span { background: #0f2a4a; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 8.5px; font-weight: 700; letter-spacing: .05em; }
-    .mock-onepager { width: 156px; background: #fff; border-radius: 10px; padding: 11px 12px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); }
-    .op-title { font-size: 10.5px; font-weight: 700; margin-bottom: 8px; }
-    .op-title span { font-weight: 500; color: rgba(15,42,74,.5); }
-    .op-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
-    .op-kpi { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; height: 46px; background: #EBF3FF; border-radius: 6px; padding: 5px 4px 4px; font-size: 7.5px; font-weight: 600; color: rgba(15,42,74,.6); }
-    .op-kpi i { display: block; width: 12px; background: #1e5bff; border-radius: 2px; }
-    .op-line { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: 600; margin-top: 4px; }
-    .op-line em { width: 7px; height: 7px; border-radius: 50%; background: #0f2a4a; }
-    .op-line em.op-plus { background: #16a34a; }
-    .op-line em.op-attn { background: #f59e0b; }
     .mock-label { position: absolute; top: 12px; left: 12px; background: #fff; color: #1e5bff; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; border-radius: 999px; padding: 3px 9px; }
-    .mock-phone { width: 104px; background: #fff; border-radius: 16px; padding: 10px; box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); border: 3px solid #0f2a4a; }
-    .phone-head { font-size: 10px; font-weight: 700; margin-bottom: 6px; }
-    .phone-bars { display: flex; align-items: flex-end; gap: 5px; height: 58px; }
-    .phone-bars div { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; }
-    .phone-bars i { display: block; width: 100%; background: #1e5bff; border-radius: 3px; }
-    .phone-bars span { font-size: 7.5px; color: rgba(15,42,74,.5); }
-    .phone-ok { margin-top: 8px; display: flex; align-items: center; gap: 4px; font-size: 9.5px; font-weight: 600; color: #15803d; }
-    .mock-arrow { color: #1e5bff; }
-    .mock-erp { background: #fff; border-radius: 10px; padding: 10px 12px; font-size: 10.5px; line-height: 1.4; color: rgba(15,42,74,.7); box-shadow: 0 10px 24px -10px rgba(15,42,74,.35); }
-    .mock-erp b { color: #0f2a4a; }
 
     /* Case-venster */
     .case-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
@@ -446,7 +758,7 @@
         <img src="Pareto Partners Cropped Logo Image.png" alt="Pareto Partners" style="height:36px;width:auto;" />
       </a>
 
-      <nav class="hidden lg:flex items-center gap-7 text-[14px] font-medium text-[#6b7aad]">
+      <nav class="hidden lg:flex items-center gap-7 text-[14px] font-medium text-[#5d6c9c]">
         <a href="#strategie" class="hover:text-[#0f2a4a] transition-colors">Strategie</a>
         <a href="#maatwerk" class="hover:text-[#0f2a4a] transition-colors">Maatwerk</a>
         <a href="#werk" class="hover:text-[#0f2a4a] transition-colors">Resultaten</a>
@@ -521,21 +833,21 @@
       <div>
         <p class="fade-1 kicker mb-7">Strategie &amp; automatisering · Breda</p>
         <h1 class="fade-2 hero-h1 mb-7">Van groeiplan naar processen die <span class="accent">zichzelf afhandelen</span>.</h1>
+        <!-- Onderkop: optie 4, gekozen door Rob. Tweede keus (bewaard): "Strategie, automatisering en AI voor de 20% die 80% van je tijd kost." -->
         <p class="fade-3 lead !text-[18px] max-w-xl mb-8">
-          We vinden samen de 20% die 80% oplevert, vertalen dat naar KPI's en bouwen de automatisering zelf.
-          Geen overdracht. Betaald uit wat het oplevert.
+          Eerst de strategie: welke 20% kost 80% van je tijd? Dan automatiseren wij die, met AI waar het past.
         </p>
         <div class="fade-4 flex flex-wrap items-center gap-3 mb-9">
           <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)" class="btn btn-primary">
             Plan een kennismaking
             <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
           </a>
-          <a href="#werk" class="btn btn-ghost">Bekijk wat we bouwden</a>
+          <a href="#werk" class="btn btn-ghost">Bekijk de projecten</a>
         </div>
-        <ul class="fade-4 flex flex-wrap gap-x-6 gap-y-2">
+        <ul class="fade-4 flex flex-wrap gap-x-5 gap-y-2">
           <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Vaste prijs vooraf</li>
-          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Werkend binnen weken</li>
-          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Wie bedenkt, bouwt</li>
+          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Eerste versie in 2 weken</li>
+          <li class="hero-check"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1e5bff" fill-opacity=".12"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#1e5bff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Betrokken bij elke stap</li>
         </ul>
       </div>
 
@@ -543,7 +855,7 @@
       <div class="relative fade-3 lg:pl-6">
         <div class="float-chip hidden sm:inline-flex -top-5 left-6 lg:left-2">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e5bff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
-          80/20: alleen wat het meest oplevert
+          80/20: focus op waar de meeste winst te halen valt
         </div>
         <div class="wk-card" data-week role="img" aria-label="Voorbeeld: een werkweek met 14 uur handwerk. Na automatisering komt 12 uur per week terug voor klanten en groei.">
           <div class="wk-head">
@@ -589,7 +901,7 @@
           </div>
         </div>
         <div class="float-chip blue hidden sm:inline-flex -bottom-5 right-2 lg:-right-4">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
           Betaald uit wat het oplevert
         </div>
       </div>
@@ -598,7 +910,7 @@
 
   <!-- ═══ LOGO-CARROUSEL ═══ -->
   <div class="bg-white border-y border-black/[0.06] py-9" aria-label="Opdrachtgevers en partners">
-    <p class="text-center text-[11px] text-[#0f2a4a]/45 uppercase tracking-[0.18em] font-medium mb-6 px-6">Opdrachtgevers &amp; partners</p>
+    <p class="text-center text-[11px] text-[#0f2a4a]/70 uppercase tracking-[0.18em] font-medium mb-6 px-6">Opdrachtgevers &amp; partners</p>
     <div class="logo-strip">
       <ul class="logo-track" data-marquee>
         <li class="logo-item"><span class="logo-swap"><img class="mono" src="logos/beter-ondernemen.png" alt="Beter Ondernemen" style="height:30px" /><img class="color" src="logos/strip-beter-ondernemen.png" alt="" style="height:30px" /></span></li>
@@ -620,16 +932,12 @@
       <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center mb-14">
         <div data-reveal>
           <p class="kicker mb-7">Strategie</p>
-          <h2 class="h2 mb-5">Eerst weten waar het om draait. Dan pas bouwen.</h2>
-          <p class="lead">Strategie zonder uitvoering blijft een goede intentie. Daarom beginnen we bij je groeiambitie
-            en je cijfers, en pas daarna bij de techniek. Zo bouwen we alleen wat jouw bedrijf echt verder helpt.</p>
+          <h2 class="h2 mb-5">Eerst kiezen wat telt. Dan pas bouwen.</h2>
+          <p class="lead">Strategie zonder uitvoering blijft een goede intentie. Daarom kiezen we samen waar je bedrijf
+            mee groeit, én bouwen wij precies dat.</p>
         </div>
-        <!-- FOTO: strategiesessie -->
-        <div class="ph rounded-[24px] aspect-[4/3]" data-reveal data-reveal-delay="100">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg>
-          <b>Foto · strategiesessie</b>
-          <span>Rob en Jilles met een klant aan tafel: whiteboard of laptop met cijfers, echt in gesprek. Laat zien dat we eerst samen nadenken.</span>
-        </div>
+        <!-- FOTO: Jilles en Rob in het park (IMG_0060). Eventueel later vervangen door een strategiesessie-foto (met een klant aan tafel, whiteboard of laptop met cijfers). -->
+        <img src="Jilles_en_Rob_strategie.jpg" alt="Jilles en Rob, oprichters van Pareto Partners" width="1400" height="1050" decoding="async" class="w-full rounded-[24px] object-cover aspect-[4/3]" data-reveal data-reveal-delay="100" />
       </div>
 
       <div class="grid lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 items-start" data-reveal>
@@ -643,13 +951,13 @@
           <button type="button" class="st-tab" role="tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false" tabindex="-1">
             <span class="st-num">02</span>
             <span class="st-title">De 20% vinden</span>
-            <span class="st-sub">Waar lekt de meeste tijd weg?</span>
+            <span class="st-sub">Waar lekt de meeste tijd en energie weg?</span>
             <span class="st-bar" aria-hidden="true"><i></i></span>
           </button>
           <button type="button" class="st-tab" role="tab" id="st-tab-3" aria-controls="st-panel-3" aria-selected="false" tabindex="-1">
             <span class="st-num">03</span>
-            <span class="st-title">Eén dashboard</span>
-            <span class="st-sub">Sturen op cijfers, elke dag</span>
+            <span class="st-title">Meten en bijsturen</span>
+            <span class="st-sub">Ook na livegang kijken we mee</span>
             <span class="st-bar" aria-hidden="true"><i></i></span>
           </button>
         </div>
@@ -660,10 +968,10 @@
             <div class="grid md:grid-cols-2">
               <div class="p-7 sm:p-9">
                 <h3 class="text-[23px] font-bold leading-tight mb-4">Strategie begint al in het eerste gesprek.</h3>
-                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">In de kennismaking vragen we waar je over een paar jaar wilt staan, wat je nu tegenhoudt en waar je team de meeste tijd aan kwijt is. Na een half uur weten we allebei of, en waar, wij het verschil maken. Ook als er geen match is, ga je weg met een scherper beeld.</p>
+                <p class="text-[#5d6c9c] text-[15px] leading-relaxed mb-6">In de kennismaking vragen we waar je over een paar jaar wilt staan, wat je nu tegenhoudt en waar je team de meeste tijd aan kwijt is. Zo weten we allebei snel of wij het verschil kunnen maken, en waar.</p>
                 <ul class="case-checks !mb-0">
-                  <li>30 minuten, kosteloos en vrijblijvend</li>
                   <li>Ambitie, knelpunten en kansen op een rij</li>
+                  <li>Ook zonder match ga je weg met een scherper beeld</li>
                 </ul>
               </div>
               <div class="st-visual">
@@ -682,8 +990,8 @@
           <div class="st-panel" role="tabpanel" id="st-panel-2" aria-labelledby="st-tab-2" hidden>
             <div class="grid md:grid-cols-2">
               <div class="p-7 sm:p-9">
-                <h3 class="text-[23px] font-bold leading-tight mb-4">Waar lekt de meeste tijd weg?</h3>
-                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">We duiken een dag in jouw processen en brengen in kaart waar de tijd naartoe gaat. De 20% die 80% kost, pakken we als eerste aan. Binnen een week ligt er een concreet verbetervoorstel, met prijs en verwacht rendement.</p>
+                <h3 class="text-[23px] font-bold leading-tight mb-4">Waar lekt de meeste tijd en energie weg?</h3>
+                <p class="text-[#5d6c9c] text-[15px] leading-relaxed mb-6">We duiken een dag in jouw processen en brengen in kaart waar de tijd naartoe gaat. De 20% die 80% kost, pakken we als eerste aan. Binnen een week ligt er een concreet verbetervoorstel, met prijs en verwacht rendement.</p>
                 <ul class="case-checks !mb-0">
                   <li>Eén dag meekijken in je processen</li>
                   <li>Verbetervoorstel binnen een week</li>
@@ -703,27 +1011,33 @@
             </div>
           </div>
 
-          <!-- 3 · Eén dashboard -->
+          <!-- 3 · Meten en bijsturen -->
           <div class="st-panel" role="tabpanel" id="st-panel-3" aria-labelledby="st-tab-3" hidden>
             <div class="grid md:grid-cols-2">
               <div class="p-7 sm:p-9">
-                <h3 class="text-[23px] font-bold leading-tight mb-4">Eén overzicht dat je team echt opent.</h3>
-                <p class="text-[#6b7aad] text-[15px] leading-relaxed mb-6">We zetten je KPI's in een dashboard dat iedereen begrijpt en dagelijks gebruikt: omzet, productiviteit en jaardoelen in samenhang. Altijd actueel, zonder handmatig exporteren.</p>
+                <h3 class="text-[23px] font-bold leading-tight mb-4">Wij blijven kijken tot het resultaat er is.</h3>
+                <p class="text-[#5d6c9c] text-[15px] leading-relaxed mb-6">Elke automatisering krijgt een dashboard. Daarin zien we de KPI's en voortgang. Niet direct de gewenste resultaten? Dan sturen we bij totdat we het doel halen.</p>
                 <ul class="case-checks !mb-0">
-                  <li>Gekoppeld aan je eigen systemen</li>
-                  <li>Elke automatisering krijgt een meting</li>
+                  <li>Een dashboard bij elke automatisering</li>
+                  <li>Bijsturen tot de doelen zijn gehaald</li>
                 </ul>
               </div>
               <div class="st-visual">
                 <span class="vb">Voorbeeld</span>
                 <div class="dash anim" style="--d:0">
-                  <p class="text-[12px] font-bold">Dashboard <span class="font-medium text-[#6b7aad]">· deze maand</span></p>
+                  <p class="text-[12px] font-bold">Offerte-automatisering <span class="font-medium text-[#5d6c9c]">· week 6</span></p>
                   <div class="dash-kpis">
-                    <div class="dash-kpi">Omzet<b data-count-to="184" data-prefix="€ " data-suffix="k">€ 184k</b><em>▲ 8%</em></div>
-                    <div class="dash-kpi">Declarabel<b data-count-to="78" data-suffix="%">78%</b><em>▲ 3%</em></div>
-                    <div class="dash-kpi">Jaardoel<b data-count-to="64" data-suffix="%">64%</b><em>op koers</em></div>
+                    <div class="dash-kpi">Uren bespaard<b data-count-to="12" data-suffix=" u">12 u</b><em>▲ doel: 10 u</em></div>
+                    <div class="dash-kpi">Fouten<b data-count-to="2">2</b><em>▼ was 9</em></div>
+                    <div class="dash-kpi">Doorlooptijd<b data-count-to="1" data-suffix=" dag">1 dag</b><em>▼ was 4</em></div>
                   </div>
-                  <div class="dash-bars"><i style="--h:40%;--i:0"></i><i style="--h:55%;--i:1"></i><i style="--h:48%;--i:2"></i><i style="--h:66%;--i:3"></i><i style="--h:72%;--i:4"></i><i class="on" style="--h:86%;--i:5"></i></div>
+                  <p class="dash-cap">Uren bespaard per week</p>
+                  <div class="dash-chart">
+                    <div class="dash-bars"><i style="--h:29%;--i:0"></i><i style="--h:43%;--i:1"></i><i style="--h:43%;--i:2"></i><i style="--h:50%;--i:3"></i><i style="--h:71%;--i:4"></i><i class="on" style="--h:86%;--i:5"></i></div>
+                    <span class="dash-goal anim" style="--d:1200"><em>doel 10 u</em></span>
+                    <span class="dash-flag anim" style="--d:1500">bijgestuurd</span>
+                  </div>
+                  <div class="dash-weeks" aria-hidden="true"><span>w1</span><span>w2</span><span>w3</span><span>w4</span><span>w5</span><span>w6</span></div>
                 </div>
               </div>
             </div>
@@ -736,55 +1050,67 @@
   <!-- ═══ MAATWERK ═══ -->
   <section id="maatwerk" class="bg-white px-6 py-24 lg:py-28">
     <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-14" data-reveal>
-        <div>
-          <p class="kicker mb-7">Maatwerk</p>
-          <h2 class="h2">Geen standaardpakket. Wij bouwen wat jouw situatie vraagt.</h2>
-        </div>
-        <p class="lead">We beginnen bij je proces, niet bij een tool. Soms is de oplossing een koppeling, soms een eigen
-          portaal, soms AI, en soms helemaal geen AI. Je betaalt voor wat werkt, niet voor een pakket vol functies die je
-          nooit gebruikt.</p>
+      <div class="mb-14" data-reveal>
+        <p class="kicker mb-7">Maatwerk</p>
+        <h2 class="h2 mb-5">Geen standaardpakket.<br /> Wij bouwen wat jij nodig hebt.</h2>
+        <p class="lead max-w-2xl [text-wrap:balance]">Jouw proces bepaalt wat we bouwen. Alles wat we maken moet iets opleveren: tijd, geld of gemak.</p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="grid lg:grid-cols-3 gap-5">
         <article class="mw-card" data-reveal>
           <div class="mw-visual">
-            <span class="chip-app"><i></i>CRM</span><span class="link-line"></span><span class="chip-app"><i style="background:#0f2a4a"></i>Boekhouding</span>
+            <div class="sot" aria-hidden="true">
+              <svg class="sot-lines" viewBox="0 0 240 130"><line x1="120" y1="65" x2="88" y2="18" /><line x1="120" y1="65" x2="152" y2="18" /><line x1="120" y1="65" x2="88" y2="112" /><line x1="120" y1="65" x2="152" y2="112" /></svg>
+              <span class="sot-chip src" style="left:0;top:4px"><i></i>CRM</span>
+              <span class="sot-chip" style="left:152px;top:4px"><i style="background:#0f2a4a"></i>Boekhouding</span>
+              <span class="sot-chip" style="left:0;top:98px"><i style="background:#5d6c9c"></i>Mail</span>
+              <span class="sot-chip" style="left:152px;top:98px"><i style="background:#93aef5"></i>Planning</span>
+              <span class="sot-hub"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" /></svg>Eén bron</span>
+              <span class="sot-dot sot-in" style="left:84px;top:14px;--dx:32px;--dy:47px"></span>
+              <span class="sot-dot sot-out" style="left:116px;top:61px;--dx:32px;--dy:-47px"></span>
+              <span class="sot-dot sot-out" style="left:116px;top:61px;--dx:-32px;--dy:47px"></span>
+              <span class="sot-dot sot-out" style="left:116px;top:61px;--dx:32px;--dy:47px"></span>
+            </div>
           </div>
           <div class="mw-body">
-            <p class="mw-num">01</p>
-            <h3 class="mw-title">Koppelen wat je al hebt</h3>
-            <p class="mw-text">Je CRM, boekhouding en mail gaan met elkaar praten. Eén keer invoeren, overal actueel. Geen nieuw pakket waar je team aan moet wennen.</p>
+            <p class="mw-tag">Verbinden</p>
+            <h3 class="mw-title">Meer uit je huidige systemen</h3>
+            <p class="mw-text">Wij zetten de functies in die je systemen al hebben en verbinden ze met elkaar. Eén keer invoeren, overal actueel.</p>
           </div>
         </article>
         <article class="mw-card" data-reveal data-reveal-delay="100">
           <div class="mw-visual">
-            <div class="mini-app"><aside><i></i><i></i><i></i><i></i></aside><main><i style="width:60%"></i><div class="row"><i></i><b></b></div><div class="row"><i></i><b></b></div><div class="row"><i></i><b style="background:rgba(30,91,255,.35)"></b></div></main></div>
+            <div class="por" aria-hidden="true">
+              <aside><b>Jouw portaal</b><span>Klanten</span><span style="animation-delay:2.5s">Offertes</span><span style="animation-delay:5s">Planning</span><span style="animation-delay:7.5s">Facturen</span></aside>
+              <div class="por-screen on"><h4>Klanten</h4><p>Bakker &amp; Zn<em>Actief</em></p><p>Jansen Techniek<em class="b">Nieuw</em></p><p>De Vries Groep<em>Actief</em></p></div>
+              <div class="por-screen" style="animation-delay:2.5s"><h4>Offertes</h4><p>0142 &middot; &euro; 4.800<em class="b">Verstuurd</em></p><p>0143 &middot; &euro; 2.150<em>Akkoord</em></p><p>0144 &middot; &euro; 7.300<em class="g">Concept</em></p></div>
+              <div class="por-screen" style="animation-delay:5s"><h4>Planning deze week</h4><p>Ma &middot; Jansen<em class="b">Montage</em></p><p>Di &middot; Bakker<em class="g">Inspectie</em></p><p>Wo &middot; De Vries<em>Oplevering</em></p></div>
+              <div class="por-screen" style="animation-delay:7.5s"><h4>Facturen</h4><p>F-2041 &middot; &euro; 4.800<em>Betaald</em></p><p>F-2042 &middot; &euro; 2.150<em class="b">Open</em></p><p>F-2043 &middot; &euro; 980<em>Betaald</em></p></div>
+              <svg class="por-cur" width="11" height="15" viewBox="0 0 11 15"><path d="M1 1v11l3-3 2 5 2-1-2-5h4z" fill="#fff" stroke="#0f2a4a" stroke-width="1" stroke-linejoin="round" /></svg>
+            </div>
           </div>
           <div class="mw-body">
-            <p class="mw-num">02</p>
-            <h3 class="mw-title">Een eigen portaal of app</h3>
-            <p class="mw-text">Past geen enkel pakket? Dan bouwen we een eigen omgeving voor jouw werkwijze, zoals een contractportaal of een uren-app voor op de bouwplaats.</p>
+            <p class="mw-tag">Bouwen</p>
+            <h3 class="mw-title">Een systeem op maat</h3>
+            <p class="mw-text">Past geen enkel pakket? Dan bouwen we een systeem voor jouw werkwijze. Vaak als verlengstuk op wat je al hebt, zodat je team in een bekende omgeving blijft werken. Gebruiksgemak staat voorop.</p>
           </div>
         </article>
         <article class="mw-card" data-reveal data-reveal-delay="200">
           <div class="mw-visual">
-            <div class="ai-doc"><div class="paper"><i></i><i></i><i style="width:70%"></i><i></i><i style="width:55%"></i></div><span class="ai-spark">AI</span><div class="summary"><i></i><i></i><i></i></div></div>
+            <div class="asst" aria-hidden="true">
+              <div class="asst-mail"><small>Nieuwe mail</small><div class="asst-from"><u></u><i></i></div><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><span class="asst-scan"></span></div>
+              <div class="asst-panel">
+                <p class="asst-head"><svg width="11" height="11" viewBox="0 0 24 24" fill="#1e5bff"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z" /></svg>AI</p>
+                <div class="asst-row"><em>&#10003;</em><div><b>Samenvatting</b><span>Offerte, deadline vrijdag</span></div></div>
+                <div class="asst-row"><em>&#10003;</em><div><b>Taak aangemaakt</b><span>Offerte nasturen</span></div></div>
+                <div class="asst-row"><em>&#10003;</em><div><b>Concept klaar</b><span>Antwoord op de mail</span></div></div>
+              </div>
+            </div>
           </div>
           <div class="mw-body">
-            <p class="mw-num">03</p>
+            <p class="mw-tag">Slimmer maken</p>
             <h3 class="mw-title">AI waar het echt iets oplevert</h3>
-            <p class="mw-text">AI die leest, samenvat en voorbereidt, in jouw tone of voice. Alleen waar het tijd scheelt. Soms is de beste oplossing helemaal geen AI.</p>
-          </div>
-        </article>
-        <article class="mw-card" data-reveal data-reveal-delay="300">
-          <div class="mw-visual">
-            <div class="plug"><span class="side">Jouw<br>systeem</span><span class="bridge"></span><span class="side">Geen<br>API</span></div>
-          </div>
-          <div class="mw-body">
-            <p class="mw-num">04</p>
-            <h3 class="mw-title">Geen koppeling? Dan bouwen we die</h3>
-            <p class="mw-text">Heeft een systeem geen API, dan bouwen we zelf de verbinding. Zo lukt het koppelen alsnog, zonder dat je van pakket hoeft te wisselen.</p>
+            <p class="mw-text">AI die leest, samenvat en voorbereidt, in jouw toon. Alleen waar het tijd scheelt. Soms is de beste oplossing geen AI.</p>
           </div>
         </article>
       </div>
@@ -794,7 +1120,7 @@
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
           <div>
             <h3 class="text-[20px] font-bold">Waar wij mee bouwen</h3>
-            <p class="text-[#6b7aad] text-[14.5px] mt-1">We kiezen de techniek die bij jouw vraag past, en koppelen aan de systemen die je al gebruikt.</p>
+            <p class="text-[#5d6c9c] text-[14.5px] mt-1">Je houdt je eigen systemen. Wij maken ze slimmer, met de techniek die bij jouw vraag past.</p>
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -803,10 +1129,11 @@
             <ul class="tool-list">
               <li class="tool"><img src="logos/tools/claude.svg" alt="" /><span>Claude</span></li>
               <li class="tool"><img src="logos/tools/openai.svg" alt="" /><span>OpenAI</span></li>
+              <li class="tool"><img src="logos/tools/lovable.png" alt="" /><span>Lovable</span></li>
             </ul>
           </div>
           <div>
-            <p class="tool-group-label">Cloud &amp; data</p>
+            <p class="tool-group-label">Software en hosting</p>
             <ul class="tool-list">
               <li class="tool"><img src="logos/tools/microsoftazure.svg" alt="" /><span>Azure</span></li>
               <li class="tool"><img src="logos/tools/supabase.svg" alt="" /><span>Supabase</span></li>
@@ -816,7 +1143,7 @@
             </ul>
           </div>
           <div>
-            <p class="tool-group-label">Automatisering &amp; data ophalen</p>
+            <p class="tool-group-label">Automatiseren en koppelen</p>
             <ul class="tool-list">
               <li class="tool"><img src="logos/tools/make.svg" alt="" /><span>Make</span></li>
               <li class="tool"><img src="logos/tools/n8n.svg" alt="" /><span>n8n</span></li>
@@ -826,7 +1153,7 @@
             </ul>
           </div>
           <div>
-            <p class="tool-group-label">CRM, ERP &amp; boekhouding</p>
+            <p class="tool-group-label">Jouw bedrijfssystemen</p>
             <ul class="tool-list">
               <li class="tool"><img src="logos/tools/salesforce.svg" alt="" /><span>Salesforce</span></li>
               <li class="tool"><img src="logos/tools/exact.svg" alt="" /><span>Exact Online</span></li>
@@ -837,8 +1164,6 @@
             </ul>
           </div>
         </div>
-        <p class="mt-7 pt-6 border-t border-black/[0.06] text-[15px] text-[#0f2a4a]"><b>Staat jouw pakket er niet tussen?</b>
-          <span class="text-[#6b7aad]">Heeft het een API, dan koppelen we het. Zo niet, dan bouwen we de verbinding zelf.</span></p>
       </div>
     </div>
   </section>
@@ -869,66 +1194,78 @@
       <div class="case-track" data-case-track>
 
         <!-- Case 1: Vacaturescrapers -->
-        <article class="case-card" data-case="scrapers" tabindex="0" role="button" aria-label="Bekijk de case: Nooit meer handmatig zoeken naar opdrachten">
+        <article class="case-card use-mock" data-case="scrapers" tabindex="0" role="button" aria-label="Bekijk de case: Nooit meer handmatig zoeken naar opdrachten">
           <div class="case-photo ph"><!-- FOTO: Interim-consultant aan de telefoon, laptop met het overzicht van nieuwe opdrachten open. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div data-mock class="case-visual mock">
-            <div class="mock-window">
-              <div class="mock-bar"><i></i><i></i><i></i><span>Nieuwe opdrachten vandaag</span></div>
-              <div class="mock-rows">
-                <div class="mock-row"><span><b>Interim controller</b><small>Jobboard A · Breda</small></span><span class="pill pill-wait">Nieuw</span></div>
-                <div class="mock-row"><span><b>Financial controller</b><small>Jobboard B · Tilburg</small></span><span class="pill pill-done">Gebeld</span></div>
+          <div data-mock class="case-visual mock mock-sc">
+            <div class="sc-wrap" aria-hidden="true">
+              <div class="sc-row">
+                <div class="sc-src"><div class="sc-bd"><b>Jobboard A</b><i></i><i class="s"></i></div><div class="sc-bd"><b>Jobboard B</b><i></i><i class="s"></i></div><div class="sc-bd"><b>Jobboard C</b><i></i><i class="s"></i></div></div>
+                <div class="sc-ar"><i></i><i></i><i></i></div>
+                <div class="sc-crm">
+                  <div class="sc-bar"><i></i><i></i><i></i><span>CRM · Kansen</span></div>
+                  <div class="sc-list">
+                    <div class="sc-it sc-i1"><div class="sc-t"><b>Interim controller · Breda</b><span class="sc-sub"><span class="a">Contactpersoon zoeken&hellip;</span><span class="b">&#10003; J. de Vries toegevoegd</span></span></div><span class="sc-st"><span class="n">Nieuw</span><span class="g">Gebeld</span></span></div>
+                    <div class="sc-it sc-i2"><div class="sc-t"><b>Financial controller · Tilburg</b><span class="sc-sub"><span class="a">Contactpersoon zoeken&hellip;</span><span class="b">&#10003; M. Peeters toegevoegd</span></span></div><span class="sc-st"><span class="n">Nieuw</span><span class="m">Gemaild</span></span></div>
+                    <div class="sc-it sc-i3"><div class="sc-t"><b>Finance manager · Roosendaal</b><span class="sc-sub"><span class="a">Contactpersoon zoeken&hellip;</span><span class="b">&#10003; S. Jansen toegevoegd</span></span></div><span class="sc-st"><span class="n">Nieuw</span></span></div>
+                  </div>
+                </div>
               </div>
+              <div class="sc-done"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>&plusmn;25 nieuwe kansen per week, direct in je CRM</div>
             </div>
-            <div class="mock-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg> Inclusief contactpersoon, klaar om te bellen</div>
           </div>
           <div class="case-body">
             <p class="case-sector">Interim finance · Breda</p>
             <h3 class="case-title">Nooit meer handmatig zoeken naar opdrachten.</h3>
             <ul class="case-checks">
-              <li>Inclusief contactpersoon, klaar om te bellen</li>
-              <li>Consultant focust op bellen, niet op zoeken</li>
+              <li>Elke week &plusmn;25 nieuwe kansen</li>
+              <li>Direct in het CRM, met de juiste status</li>
+              <li>Contactgegevens vanzelf aangevuld</li>
+              <li>Consultant belt en mailt, zoekt niet meer</li>
             </ul>
-            <div class="case-metric"><p><b>±20</b><span>gekwalificeerde leads per week</span></p><p><b>±2<em> u</em></b><span>per dag terug voor gesprekken</span></p></div>
+            <div class="case-metric"><p><b>2<em> u</em></b><span>per dag terug voor bellen en mailen</span></p></div>
             <div class="case-foot">
-              <span class="case-tag">Leadgeneratie</span>
+              <span class="case-tag">Leadgeneratie &amp; CRM</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
             </div>
           </div>
         </article>
 
         <!-- Case 2: Jaarrapportagetool -->
-        <article class="case-card" data-case="jaarrekening" tabindex="0" role="button" aria-label="Bekijk de case: Van jaarrekening naar gespreksklaar advies in minuten">
+        <article class="case-card use-mock" data-case="jaarrekening" tabindex="0" role="button" aria-label="Bekijk de case: Van jaarrekening naar gespreksklaar advies in minuten">
           <div class="case-photo ph"><!-- FOTO: Accountant en ondernemer aan tafel, met de onepager op papier of tablet tussen hen in. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div data-mock class="case-visual mock mock-h">
-            <div class="mock-file">
-              <svg width="22" height="26" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2 2h12l6 6v16H2z" /><path d="M14 2v6h6" /></svg>
-              <span>PDF</span>
-              Jaarrekening
-            </div>
-            <div class="mock-arrow">
-              <svg width="28" height="14" viewBox="0 0 28 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h25M20 1l6 6-6 6" /></svg>
-            </div>
-            <div class="mock-onepager">
-              <p class="op-title">Onepager <span>· gespreksklaar</span></p>
-              <div class="op-kpis">
-                <div class="op-kpi"><i style="height:26px"></i>Omzet</div>
-                <div class="op-kpi"><i style="height:18px"></i>Kosten</div>
-                <div class="op-kpi"><i style="height:9px"></i>Resultaat</div>
+          <div data-mock class="case-visual mock mock-jr">
+            <div class="jr-wrap" aria-hidden="true">
+              <div class="jr-row">
+                <div class="jr-pdf">
+                  <div class="jr-pdf-h"><b>PDF</b>Jaarrekening</div>
+                  <i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i>
+                  <span class="jr-scan"></span>
+                </div>
+                <div class="jr-mid"><i></i><i></i><i></i></div>
+                <div class="jr-op">
+                  <div class="jr-op-h">Onepager <span>· gespreksklaar</span></div>
+                  <div class="jr-kpis">
+                    <div class="jr-k"><i></i>Omzet</div>
+                    <div class="jr-k"><i></i>Kosten</div>
+                    <div class="jr-k"><i></i>Resultaat</div>
+                  </div>
+                  <div class="jr-pt jr-p1"><em class="g"></em><b>Pluspunten</b><span>Omzet groeit</span></div>
+                  <div class="jr-pt jr-p2"><em class="o"></em><b>Aandachtspunten</b><span>Kosten stijgen</span></div>
+                  <div class="jr-pt jr-p3"><em></em><b>Adviespunten</b><span>Tarieven herzien</span></div>
+                </div>
               </div>
-              <p class="op-line"><em class="op-plus"></em>Pluspunten</p>
-              <p class="op-line"><em class="op-attn"></em>Aandachtspunten</p>
-              <p class="op-line"><em></em>Adviespunten</p>
+              <div class="jr-done"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>Klaar in 5 minuten</div>
             </div>
           </div>
           <div class="case-body">
             <p class="case-sector">Accountancy · Breda</p>
             <h3 class="case-title">Van jaarrekening naar gespreksklaar advies in minuten.</h3>
             <ul class="case-checks">
-              <li>Omzet, kosten en resultaat direct in beeld, zonder de PDF te openen</li>
-              <li>Gericht advies, met de kennis van een accountant ingebouwd</li>
-              <li>Gespreksklaar én commercieel inzetbaar</li>
+              <li>Omzet, kosten, resultaat in één blik</li>
+              <li>Advies met accountantskennis</li>
+              <li>Klaar voor het gesprek</li>
             </ul>
-            <div class="case-metric"><p><b>5<em> min</em></b><span>van PDF naar gespreksklare onepager</span></p></div>
+            <div class="case-metric"><p><b>5<em> min</em></b><span>gespreksvoorbereiding, in plaats van uren</span></p></div>
             <div class="case-foot">
               <span class="case-tag">AI-assistenten</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -937,8 +1274,8 @@
         </article>
 
         <!-- Case 3: Contractportaal -->
-        <article class="case-card" data-case="contracten" tabindex="0" role="button" aria-label="Bekijk de case: Van plaatsing naar getekend contract, zonder overtypen">
-          <div class="case-photo ph"><!-- FOTO: Close-up van handen die een contract digitaal ondertekenen op tablet of laptop. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <article class="case-card" data-case="contracten" tabindex="0" role="button" aria-label="Bekijk de case: Van plaatsing naar getekend contract, in één veilig portaal">
+          <div class="case-photo has-img"><img src="Sjef_En_Rob.jpg" alt="Sjef en Rob geven elkaar een boks" width="946" height="570" decoding="async" /></div>
           <div data-mock class="case-visual mock">
             <div class="mock-window">
               <div class="mock-bar"><i></i><i></i><i></i><span>Contractportaal</span></div>
@@ -952,12 +1289,12 @@
           </div>
           <div class="case-body">
             <p class="case-sector">Interim finance · Breda</p>
-            <h3 class="case-title">Van plaatsing naar getekend contract, zonder overtypen.</h3>
+            <h3 class="case-title">Van plaatsing naar getekend contract, in één veilig portaal.</h3>
             <ul class="case-checks">
-              <li>Contract uit CRM-data, digitaal getekend en automatisch terug in het CRM</li>
-              <li>Persoonlijke stukken via het portaal uitgevraagd, automatisch in het CRM</li>
+              <li>Stukken aanleveren via het portaal</li>
+              <li>Contract veilig digitaal getekend</li>
+              <li>Alles terug in het CRM, zonder overtypen</li>
               <li>Status van elk contract in één overzicht</li>
-              <li>Professionelere, soepelere communicatie met interimmer, opdrachtgever en andere partijen</li>
             </ul>
             <div class="case-metric"><p><b>2–3<em> u</em></b><span>bespaard per plaatsing</span></p></div>
             <div class="case-foot">
@@ -968,25 +1305,28 @@
         </article>
 
         <!-- Case 4: Salesautomatisering -->
-        <article class="case-card" data-case="sales" tabindex="0" role="button" aria-label="Bekijk de case: Geen showroombezoek meer zonder opvolging">
+        <article class="case-card use-mock" data-case="sales" tabindex="0" role="button" aria-label="Bekijk de case: Geen lead meer vergeten, van showroom tot handtekening">
           <div class="case-photo ph"><!-- FOTO: Showroom met een massagebad, verkoper in gesprek met een stel (niet herkenbaar, of met toestemming). --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div data-mock class="case-visual mock">
-            <div class="mock-flow">
-              <div class="flow-step"><span class="flow-dot">1</span>Showroombezoek</div>
-              <div class="flow-step"><span class="flow-dot">2</span>Gesprekken &amp; mails verzameld</div>
-              <div class="flow-step flow-ai"><span class="flow-dot">AI</span>Samenvatting + belmoment</div>
-              <div class="flow-step flow-end"><span class="flow-dot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span>Opvolgtaak in het CRM</div>
+          <div data-mock class="case-visual mock mock-fup">
+            <div class="fup" aria-hidden="true">
+              <div class="fup-row"><span class="fup-ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6v9a1 1 0 01-1 1H4a1 1 0 01-1-1z" /></svg></span><b>Showroombezoek</b><em class="fup-task">Taak · +7 dagen</em></div>
+              <div class="fup-row"><span class="fup-ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" /></svg></span><b>Voicemail, gelogd</b><em class="fup-task">Taak · +2 dagen</em></div>
+              <div class="fup-row"><span class="fup-ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" /></svg></span><b>Gesprek, gelogd</b><em class="fup-task">Taak · +9 dagen</em></div>
+              <div class="fup-row"><span class="fup-ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg></span><b>Mail beloofd</b><em class="fup-task">Mailtaak</em></div>
+              <div class="fup-row fup-end"><span class="fup-ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span><b>Offerte getekend</b><em class="fup-task">Opvolging stopt</em></div>
+              <div class="fup-cap">Na elk contact een nieuwe taak, tot de klant tekent of afhaakt</div>
             </div>
           </div>
           <div class="case-body">
             <p class="case-sector">Wellness- en productiebranche</p>
-            <h3 class="case-title">Geen showroombezoek meer zonder opvolging.</h3>
+            <h3 class="case-title">Geen lead meer vergeten, van showroom tot handtekening.</h3>
             <ul class="case-checks">
-              <li>Elk bezoek krijgt automatisch een opvolgtaak</li>
+              <li>Na elk gesprek een nieuwe opvolgtaak</li>
+              <li>Door tot de klant tekent of afhaakt</li>
+              <li>Elk belgesprek automatisch gelogd</li>
               <li>AI vat gesprekken en mails samen</li>
-              <li>Telefoongesprekken direct bij de juiste lead</li>
             </ul>
-            <div class="case-metric"><p><b>0</b><span>leads uit het oog verloren</span></p><p><b>1,5<em> u</em></b><span>per dag bespaard op verslagen en administratie</span></p></div>
+            <div class="case-metric"><p><b>2<em> u</em></b><span>per dag bespaard op verslagen en administratie</span></p></div>
             <div class="case-foot">
               <span class="case-tag">Salesautomatisering</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
@@ -995,64 +1335,82 @@
         </article>
 
         <!-- Case 5: Leadpijplijn -->
-        <article class="case-card" data-case="leads" tabindex="0" role="button" aria-label="Bekijk de case: Elke week een verse lijst ondernemers uit de regio">
+        <article class="case-card use-mock" data-case="leads" tabindex="0" role="button" aria-label="Bekijk de case: Elke week verse leads uit de regio, in je eigen CRM-portaal">
           <div class="case-photo ph"><!-- FOTO: Zzp'er of kleine ondernemer in de eigen werkplaats of winkel, regio Breda. --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div data-mock class="case-visual mock">
-            <div class="mock-funnel">
-              <div class="funnel-bar" style="width:100%"><span>Profielen in de regio</span></div>
-              <div class="funnel-bar" style="width:80%"><span>Filter op doelgroep</span></div>
-              <div class="funnel-bar" style="width:60%"><span>KVK-verificatie</span></div>
-              <div class="funnel-bar funnel-end" style="width:42%"><span>Leadportaal</span></div>
+          <div data-mock class="case-visual mock mock-lp">
+            <div class="lp-wrap" aria-hidden="true">
+              <div class="lp">
+                <div class="lp-bar"><i></i><i></i><i></i><span>Leadportaal</span><em>Nieuw deze week</em></div>
+                <div class="lp-rows">
+                  <div class="lp-row"><span class="lp-av">VD</span><b>Van Dijk Installatie</b><span class="lp-kvk"><span class="w">KvK&hellip;</span><span class="k">KvK &#10003;</span></span><span class="lp-st"><span class="n">Nieuw</span><span class="c">Connectieverzoek</span><span class="g">Geaccepteerd</span></span></div>
+                  <div class="lp-row"><span class="lp-av">SL</span><b>Studio Lindeman</b><span class="lp-kvk"><span class="w">KvK&hellip;</span><span class="k">KvK &#10003;</span></span><span class="lp-st"><span class="n">Nieuw</span><span class="c">Connectieverzoek</span><span class="g">Geaccepteerd</span></span></div>
+                  <div class="lp-row"><span class="lp-av">JM</span><b>Jansen Montage</b><span class="lp-kvk"><span class="w">KvK&hellip;</span><span class="k">KvK &#10003;</span></span><span class="lp-st"><span class="n">Nieuw</span><span class="c">Connectieverzoek</span><span class="g">Geaccepteerd</span></span></div>
+                  <div class="lp-row"><span class="lp-av">BT</span><b>Bakker Tuinen</b><span class="lp-kvk"><span class="w">KvK&hellip;</span><span class="k">KvK &#10003;</span></span><span class="lp-st"><span class="n">Nieuw</span><span class="c">Connectieverzoek</span><span class="g">Geaccepteerd</span></span></div>
+                </div>
+              </div>
+              <div class="lp-cap">Elke week nieuwe leads, opvolging in je eigen CRM-portaal</div>
             </div>
           </div>
           <div class="case-body">
             <p class="case-sector">Financiële administratie · Breda</p>
-            <h3 class="case-title">Elke week een verse lijst ondernemers uit de regio.</h3>
+            <h3 class="case-title">Elke week verse leads uit de regio, in je eigen CRM-portaal.</h3>
             <ul class="case-checks">
-              <li>Leads gevonden zonder handmatig zoekwerk</li>
-              <li>Rechtsvorm en regio geverifieerd via de KVK</li>
-              <li>Opvolging per lead in een eigen portaal</li>
+              <li>Geen handmatig zoekwerk</li>
+              <li>Gecheckt via de KvK</li>
+              <li>Eigen CRM-portaal voor de opvolging</li>
             </ul>
-            <div class="case-metric"><p><b>75</b><span>gekwalificeerde, KvK-gecheckte leads per week</span></p></div>
+            <div class="case-metric"><p><b>75<em> leads</em></b><span>gekwalificeerd, elke week</span></p></div>
             <div class="case-foot">
-              <span class="case-tag">Leadgeneratie</span>
+              <span class="case-tag">Leadgeneratie &amp; CRM</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
             </div>
           </div>
         </article>
 
         <!-- Case 6: Urenportaal -->
-        <article class="case-card" data-case="uren" tabindex="0" role="button" aria-label="Bekijk de case: Uren schrijven op de bouwplaats, direct in de boekhouding">
+        <article class="case-card use-mock" data-case="uren" tabindex="0" role="button" aria-label="Bekijk de case: Projectadministratie van bouwplaats tot boekhouding, in één portaal">
           <div class="case-photo ph"><!-- FOTO: Vakman op de bouwplaats die zijn uren invoert op de telefoon (kans: Vermeulen-fotoshoot 20 nov). --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div data-mock class="case-visual mock">
+          <div data-mock class="case-visual mock mock-pr">
             <span class="mock-label">In ontwikkeling</span>
-            <div class="mock-phone">
-              <p class="phone-head">Week 46</p>
-              <div class="phone-bars">
-                <div><i style="height:80%"></i><span>ma</span></div>
-                <div><i style="height:100%"></i><span>di</span></div>
-                <div><i style="height:90%"></i><span>wo</span></div>
-                <div><i style="height:100%"></i><span>do</span></div>
-                <div><i style="height:55%"></i><span>vr</span></div>
+            <div class="pr-wrap" aria-hidden="true">
+              <div class="pr-row">
+                <div class="pr-phone">
+                  <div class="pr-ph-top"><span>Vandaag</span><em>ma</em></div>
+                  <div class="pr-ph-proj">Dorpsstraat 12</div>
+                  <div class="pr-ph-hrs"><b>8 u</b><span class="pr-ph-bar"><i></i></span></div>
+                  <div class="pr-ph-btn"><span class="a">Indienen</span><span class="b">Ingediend &#10003;</span></div>
+                </div>
+                <div class="pr-ar pr-ar1"><i></i><i></i><i></i></div>
+                <div class="pr-portal">
+                  <div class="pr-po-bar"><i></i><i></i><i></i><span>Project Dorpsstraat 12</span></div>
+                  <div class="pr-po-body">
+                    <div class="pr-prog"><span>Voortgang</span><em>62%</em><span class="pr-prog-bar"><i></i></span></div>
+                    <div class="pr-tm pr-r1"><u>PB</u><b>Peter</b><em>8 u</em></div>
+                    <div class="pr-tm pr-r2"><u>KV</u><b>Kees</b><em>7,5 u</em></div>
+                    <div class="pr-ap"><span class="pr-a1">Voorman &#10003;</span><span class="pr-a2">Directie &#10003;</span></div>
+                  </div>
+                </div>
+                <div class="pr-ar pr-ar2"><i></i><i></i><i></i></div>
+                <div class="pr-exact">
+                  <div class="pr-ex-h">Exact Online</div>
+                  <div class="pr-ex-b"><span>26001</span><em>15,5 u</em></div>
+                  <div class="pr-ex-ok">Geboekt &#10003;</div>
+                </div>
               </div>
-              <p class="phone-ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg> Goedgekeurd</p>
+              <div class="pr-cap">Van bouwplaats tot boekhouding, in één portaal</div>
             </div>
-            <div class="mock-arrow">
-              <svg width="28" height="14" viewBox="0 0 28 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h25M20 1l6 6-6 6" /></svg>
-            </div>
-            <div class="mock-erp">Boeking op<br>project in de<br><b>boekhouding</b></div>
           </div>
           <div class="case-body">
             <p class="case-sector">Vastgoedonderhoud · West-Brabant</p>
-            <h3 class="case-title">Uren schrijven op de bouwplaats, direct in de boekhouding.</h3>
+            <h3 class="case-title">Projectadministratie van bouwplaats tot boekhouding, in één portaal.</h3>
             <ul class="case-checks">
-              <li>Uren per project op de telefoon, in twee stappen goedgekeurd</li>
-              <li>Direct naar Exact Online, projectadministratie op orde</li>
-              <li>Minder fouten en veel minder administratieve rommel</li>
+              <li>Het hele team schrijft uren op de telefoon</li>
+              <li>Per project uren, voortgang en documenten</li>
+              <li>Direct in Exact Online</li>
             </ul>
-            <div class="case-metric"><!-- TODO vóór livegang: urenportaal is nog in ontwikkeling; resultaat pas tonen als het zo draait. Bevestigen: 1 u per week per medewerker of in totaal? --><p><b>1<em> u</em></b><span>per week bespaard</span></p></div>
+            <div class="case-metric case-metric-soon"><!-- TODO vóór livegang: urenportaal is nog in ontwikkeling. Zodra het draait: getal tonen (verwachting 1 u per week; bevestigen: per medewerker of in totaal?) en het label vervangen. --><p><span>Wordt nu gebouwd</span></p></div>
             <div class="case-foot">
-              <span class="case-tag">ERP-koppeling</span>
+              <span class="case-tag">Projectportaal &amp; ERP</span>
               <span class="case-more">Bekijk de case <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
             </div>
           </div>
@@ -1067,13 +1425,14 @@
       <p>Een interim financekantoor uit Breda had een medewerker die dagelijks jobboards afstruinde op zoek naar
         finance-vacatures, een uur of twee per dag. Toen die capaciteit wegviel, stapelden gemiste kansen zich op.</p>
       <h4>Wat we bouwden</h4>
-      <p>Scrapers die meerdere jobboards automatisch doorzoeken, de relevante vacatures filteren en inclusief
-        contactpersoon op één plek klaarzetten. De consultant hoeft alleen nog contact op te nemen: hét werk waar hij
-        goed in is.</p>
+      <p>Scrapers die meerdere jobboards automatisch doorzoeken en elke week zo'n 25 relevante kansen vinden. Die
+        komen direct in het CRM (Carerix) te staan, met de juiste status. Ontbreekt er informatie, zoals de
+        contactpersoon, dan vult de automatisering die zelf aan. De consultant hoeft alleen nog te bellen of te mailen:
+        hét werk waar hij goed in is.</p>
       <h4>Resultaat</h4>
-      <p>Zo'n twintig gekwalificeerde leads per week en ongeveer twee uur per dag terug voor gesprekken in plaats van
-        zoekwerk.</p>
-      <div class="case-tools" data-tools="Apify,Make"></div>
+      <p>Elke week zo'n 25 kansen, al compleet in het CRM, en ongeveer twee uur per dag terug voor gesprekken en
+        mails in plaats van zoekwerk.</p>
+      <div class="case-tools" data-label="Gekoppelde systemen" data-tools="Carerix"></div>
     </template>
 
     <template id="case-jaarrekening">
@@ -1088,7 +1447,7 @@
       <p>In 5 minuten van PDF naar een gespreksklare onepager, zonder dat iemand de PDF hoeft te openen. De kennis van
         een accountant zit in de tool ingebouwd, dus het advies is gericht en direct bruikbaar. Accountants beginnen het
         gesprek met de cijfers al op een rij.</p>
-      <div class="case-tools" data-tools="OpenAI,Make"></div>
+      
     </template>
 
     <template id="case-contracten">
@@ -1097,15 +1456,16 @@
         een Word-document vullen, mailen, wachten op handtekeningen en het getekende stuk weer terugzetten: foutgevoelig
         handwerk dat per contract veel tijd kostte.</p>
       <h4>Wat we bouwden</h4>
-      <p>Een beveiligd portaal dat de gegevens van een plaatsing rechtstreeks uit het CRM (Carerix) haalt. Ontbrekende
-        gegevens en persoonlijke stukken worden via het portaal uitgevraagd en komen automatisch terug in het CRM, het contract wordt in de eigen huisstijl als PDF opgesteld en met één
-        klik digitaal ter ondertekening verstuurd. Zodra alle partijen getekend hebben, staat het contract automatisch
-        terug in het CRM en krijgt iedereen bericht.</p>
+      <p>Een beveiligd portaal waar alles rond een plaatsing samenkomt. De gegevens komen rechtstreeks uit het CRM
+        (Carerix). Wat nog ontbreekt, vraagt het portaal uit en de interimmer levert zijn persoonlijke stukken zelf aan.
+        Die komen automatisch terug in het CRM. Het contract wordt in de eigen huisstijl als PDF opgesteld en met één
+        klik in een veilige omgeving digitaal ter ondertekening verstuurd. Zijn alle partijen getekend, dan staat het
+        contract automatisch in het CRM en krijgt iedereen bericht.</p>
       <h4>Resultaat</h4>
-      <p>Per plaatsing 2 tot 3 uur minder handwerk, contracten zonder overtypen en professionelere, soepelere
-        communicatie met interimmer, opdrachtgever en andere partijen. Eén vaste werkwijze voor het hele team en altijd
-        zicht op welk contract waar staat.</p>
-      <div class="case-tools" data-tools="Carerix,Make,Vercel"></div>
+      <p>Per plaatsing 2 tot 3 uur minder handwerk. Interimmers leveren hun stukken veilig aan in één portaal en
+        contracten worden zonder overtypen getekend. Jij ziet altijd welk contract waar staat. Eén vaste werkwijze voor
+        het hele team, en een professionelere indruk bij interimmer en opdrachtgever.</p>
+      <div class="case-tools" data-label="Gekoppelde systemen" data-tools="Carerix,Legalesign"></div>
     </template>
 
     <template id="case-sales">
@@ -1113,15 +1473,20 @@
       <p>Na een showroombezoek is de opvolging alles. Maar gesprekken, mails en afspraken stonden verspreid, en het
         verkoopteam moest zelf bijhouden wie wanneer teruggebeld moest worden. Warme leads vielen tussen wal en schip.</p>
       <h4>Wat we bouwden</h4>
-      <p>Een automatisering rond Salesforce. Elk telefoongesprek uit de telefooncentrale (Voys) komt automatisch als
-        activiteit bij de juiste lead. Na een showroombezoek leest AI de volledige klantgeschiedenis (gesprekken, mails
-        en afspraken), schrijft een korte samenvatting en zet een opvolgtaak met het juiste belmoment klaar voor de
-        verkoper. Komt een klant opnieuw langs, dan wordt de bestaande taak bijgewerkt in plaats van verdubbeld.</p>
+      <p>Een automatisering rond Salesforce die elke lead blijft opvolgen, tot de klant tekent of aangeeft geen
+        interesse meer te hebben. Na een showroombezoek leest AI de volledige klantgeschiedenis (gesprekken, mails en
+        afspraken), schrijft een korte samenvatting en zet een opvolgtaak met het juiste belmoment klaar. Elk
+        telefoongesprek uit de telefooncentrale (Voys) komt automatisch bij de juiste lead te staan. AI vat het gesprek
+        samen en bepaalt de vervolgstap: opnieuw bellen, een mail sturen, de klant bedenktijd geven of een herinnering
+        vlak voor de offerte verloopt. Ook een voicemail of gemiste poging levert een nieuwe taak op, en een toegezegde
+        mail krijgt een eigen mailtaak. Zegt de klant te gaan tekenen, dan staat er een taak klaar voor als de offerte
+        uitblijft. Zodra de klant tekent, ruimt de automatisering de openstaande taken op. Komt een klant opnieuw langs,
+        dan wordt de bestaande taak bijgewerkt in plaats van verdubbeld.</p>
       <h4>Resultaat</h4>
-      <p>Geen showroombezoek meer zonder opvolging: er gaat geen lead meer verloren. Het team bespaart ongeveer
-        anderhalf uur per dag aan verslagen en administratie, en een verkoper begint elk gesprek met de context al voor
-        zich.</p>
-      <div class="case-tools" data-tools="Salesforce,Voys,Claude,Make"></div>
+      <p>Ongeveer twee uur per dag minder met verslagen en administratie. Elk gesprek staat gelogd en heeft een
+        vervolgstap, dus de verkoper hoeft niets meer te onthouden en begint elk gesprek met de context al voor zich.
+        Geen showroombezoek zonder opvolging en sinds de livegang geen lead meer uit beeld.</p>
+      <div class="case-tools" data-label="Gekoppelde systemen" data-tools="Salesforce,Voys"></div>
     </template>
 
     <template id="case-leads">
@@ -1129,14 +1494,16 @@
       <p>Een administratiekantoor voor zzp'ers en vof's wilde groeien in de eigen regio, maar had geen tijd om zelf
         ondernemers te zoeken. Gekochte lijsten waren duur en pasten slecht bij de doelgroep.</p>
       <h4>Wat we bouwden</h4>
-      <p>Een pijplijn die ondernemers in de regio vindt op basis van hun eigen profiel, bedrijven die niet passen er
-        automatisch uitfiltert en de rest controleert via de officiële KVK-registratie (rechtsvorm, vestiging,
-        inschrijfdatum). Dubbele contacten worden herkend. Elke week komt een nieuwe lichting vrij in een eigen
-        leadportaal, waar de opvolging per lead wordt bijgehouden.</p>
+      <p>Een leadpijplijn die ondernemers in de regio vindt op basis van hun eigen profiel, bedrijven die niet passen
+        er automatisch uitfiltert en de rest controleert via de officiële KvK-registratie (rechtsvorm, vestiging,
+        inschrijfdatum). Dubbele contacten worden herkend. De leads komen in een eigen CRM-portaal dat we voor het
+        kantoor bouwden. Elke week komt er een nieuwe lichting vrij. In het portaal zie je alle leads in één overzicht,
+        zoek en filter je (bijvoorbeeld op branche) en houd je per lead de status bij: van nieuw en connectieverzoek tot
+        opvolging en lead.</p>
       <h4>Resultaat</h4>
-      <p>Elke week 75 gekwalificeerde, KvK-gecheckte leads uit precies de doelgroep, zonder handmatig zoekwerk en met
-        overzicht over wie al benaderd is.</p>
-      <div class="case-tools" data-tools="Apify,KVK API,Make,Notion"></div>
+      <p>Elke week 75 gekwalificeerde, KvK-gecheckte leads uit precies de doelgroep, zonder handmatig zoekwerk. In het
+        eigen portaal staat per lead waar de opvolging staat, dus je weet altijd wie al benaderd is.</p>
+      <div class="case-tools" data-label="Gekoppelde systemen" data-tools="KVK API"></div>
     </template>
 
     <template id="case-uren">
@@ -1145,15 +1512,17 @@
         appjes en lijstjes en moesten daarna met de hand worden verwerkt in de boekhouding. Zicht op de voortgang per
         project ontbrak.</p>
       <h4>Wat we bouwden</h4>
-      <p>Een app voor op de telefoon waarin medewerkers per dag hun uren op een project schrijven. Voormannen en
-        directie keuren in twee stappen goed. Per project zie je het team, de uren, de voortgang en een logboek met
-        foto's. Goedgekeurde uren gaan rechtstreeks als boeking naar Exact Online, op het juiste project. Iedere rol
-        ziet alleen wat nodig is.</p>
-      <h4>Resultaat</h4>
+      <p>Een projectportaal als app op de telefoon, waar het hele bedrijf mee werkt. Medewerkers schrijven per dag hun
+        uren op een project, voormannen en directie keuren in twee stappen goed. Per project komt alles samen: wie er
+        werkt en hoeveel uren, de voortgang ten opzichte van de planning, afspraken met opdrachtgever en aannemer, een
+        logboek met meldingen en foto's en de documenten zoals leverbonnen en garantiebewijzen. Zo weet iedereen op de
+        bouwplaats en op kantoor waar een project staat. Goedgekeurde uren gaan rechtstreeks als boeking naar Exact
+        Online, op het juiste project. Iedere rol ziet alleen wat nodig is.</p>
+      <h4>Doel</h4>
       <p>Een uur per week minder met uren bezig, minder fouten en veel minder administratieve rommel. De
         projectadministratie staat direct op orde: uren die kloppen, projectkosten die actueel in de boekhouding staan en
-        geen overtypwerk meer.</p>
-      <div class="case-tools" data-tools="Supabase,Vercel,Exact"></div>
+        geen overtypwerk meer. Het portaal wordt nu gebouwd; de eerste resultaten volgen.</p>
+      <div class="case-tools" data-label="Gekoppelde systemen" data-tools="Exact"></div>
     </template>
   </section>
 
@@ -1185,12 +1554,10 @@
   <!-- ═══ AANPAK — tijdlijn ═══ -->
   <section id="aanpak" class="bg-white px-6 py-24 lg:py-28">
     <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-16" data-reveal>
-        <div>
-          <p class="kicker mb-7">Aanpak</p>
-          <h2 class="h2">Vooraf weet je wat het kost en wat het oplevert.</h2>
-        </div>
-        <p class="lead">Geen open einde, geen verrassingen. In vier stappen van gesprek naar meetbaar resultaat, met de
+      <div class="mb-16" data-reveal>
+        <p class="kicker mb-7">Aanpak</p>
+        <h2 class="h2 mb-5">Vooraf weet je wat het kost en wat het oplevert.</h2>
+        <p class="lead max-w-2xl [text-wrap:balance]">In vier stappen van gesprek naar meetbaar resultaat, met de
           eerste werkende automatisering binnen weken.</p>
       </div>
 
@@ -1202,7 +1569,7 @@
           <div class="step-body">
             <span class="step-week">Week 0</span>
             <h3>Kennismaking</h3>
-            <p>In dit gesprek bespreken we waar je tegenaan loopt en of wij iets voor je kunnen betekenen. Geen verplichtingen, geen verkooppraatjes — gewoon kijken of er een match is.</p>
+            <p>In dit gesprek bespreken we waar je tegenaan loopt en of wij iets voor je kunnen betekenen.</p>
           </div>
         </div>
         <div class="step" role="listitem">
@@ -1265,28 +1632,27 @@
        (C06, C15, C19 + de laagrisico-zinnen uit het datadocument). De 2FA-kaart (C04/C13) klopt pas als Jilles 2FA overal aan heeft. -->
   <section id="dataveiligheid" class="bg-[#F1F3F7] px-6 py-24 lg:py-28">
     <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-14" data-reveal>
-        <div>
-          <p class="kicker mb-7">Dataveiligheid</p>
-          <h2 class="h2">AI gebruiken zonder de regie over je data kwijt te raken.</h2>
-        </div>
-        <p class="lead">Jouw gegevens, jouw regie. We zijn eerlijk over wat waar staat, ook als het antwoord minder mooi
+      <div class="mb-14" data-reveal>
+        <p class="kicker mb-7">Dataveiligheid</p>
+        <h2 class="h2 mb-5">AI gebruiken zonder de regie over je data kwijt te raken.</h2>
+        <p class="lead max-w-2xl [text-wrap:balance]">Jouw gegevens, jouw regie. We zijn eerlijk over wat waar staat, ook als het antwoord minder mooi
           klinkt dan je zou willen horen.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="safe-card" data-reveal>
-          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>
-          <h3>Versleuteld onderweg</h3>
-          <p>Al het verkeer tussen jouw systemen en onze oplossingen loopt via een versleutelde verbinding (HTTPS).</p>
+          <!-- LET OP: klopt nu alleen voor Supabase (claim-checklist C27). Cijferwijs-leads staan nog in Notion en Make-datastores staan in de VS: oplossen (Cijferwijs naar een EU-database) of de zin beperken vóór livegang. -->
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v6.5c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V5.5"/><path d="M5 12v6.5c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V12"/></svg></span>
+          <h3>Opgeslagen in de EU</h3>
+          <p>Alles wat we opslaan staat in een Europese omgeving die wij zelf kiezen. Liever in je eigen omgeving, zoals Microsoft Azure? Dan gebruiken wij die.</p>
         </div>
         <div class="safe-card" data-reveal data-reveal-delay="100">
-          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9h6v6H9z"/><path d="M4 4l16 16"/></svg></span>
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/><path d="M3 21L21 3"/></svg></span>
           <h3>Geen training op jouw data</h3>
           <p>We gebruiken geen AI-diensten die jouw gegevens inzetten om hun eigen modellen te trainen.</p>
         </div>
         <div class="safe-card" data-reveal data-reveal-delay="200">
-          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M3 21L21 3"/></svg></span>
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 01-12 0V8z"/><path d="M12 17v5"/></svg></span>
           <h3>Wat we niet opslaan, kan niet lekken</h3>
           <p>Waar het kan, halen we gegevens live uit jouw eigen systeem op in plaats van er een kopie van te bewaren.</p>
         </div>
@@ -1296,15 +1662,15 @@
           <p>Het zijn en blijven jouw gegevens. Je kunt ze altijd opvragen, meenemen in een gangbaar formaat of laten verwijderen.</p>
         </div>
         <div class="safe-card" data-reveal data-reveal-delay="100">
-          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="14" width="4" height="6"/></svg></span>
-          <h3>In jouw eigen omgeving</h3>
-          <p>Heb je al een plek waar je gegevens wilt laten staan, zoals je eigen Microsoft Azure-omgeving? Dan gebruiken wij die.</p>
-        </div>
-        <div class="safe-card" data-reveal data-reveal-delay="200">
           <!-- LET OP: klopt pas als Jilles 2FA aan heeft op Google, Make, GitHub, Vercel en Supabase (claim-checklist C04/C13). Anders vóór livegang weghalen. -->
           <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 6h4"/><path d="M9.5 13.5l2 2 3.5-4"/></svg></span>
           <h3>Tweestapsverificatie</h3>
           <p>Iedereen die bij jouw gegevens kan, logt in met een persoonlijk account en tweestapsverificatie.</p>
+        </div>
+        <div class="safe-card" data-reveal data-reveal-delay="200">
+          <span class="safe-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>
+          <h3>Versleuteld onderweg</h3>
+          <p>Al het verkeer tussen jouw systemen en onze oplossingen loopt via een versleutelde verbinding (HTTPS).</p>
         </div>
       </div>
 
@@ -1313,7 +1679,7 @@
           Lees hoe wij met jouw data omgaan
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="text-[#6b7aad] text-[14px]">PDF, 3 pagina's</span>
+        <span class="text-[#5d6c9c] text-[14px]">PDF, 3 pagina's</span>
       </div>
     </div>
   </section>
@@ -1322,23 +1688,23 @@
   <section id="wie-wij-zijn" class="bg-white px-6 py-24 lg:py-28">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-center">
       <div class="relative" data-reveal>
-        <img src="Jilles_en_Rob_Foto.jpeg" alt="Jilles en Rob, oprichters van Pareto Partners" class="w-full rounded-[28px] object-cover aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
+        <img src="Jilles_en_Rob_Foto.jpeg" alt="Rob en Jilles, oprichters van Pareto Partners" class="w-full rounded-[28px] object-cover aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
         <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 bg-white rounded-2xl px-4 py-3 shadow-[0_18px_36px_-18px_rgba(15,42,74,.5)] flex items-center gap-3">
           <span class="w-9 h-9 rounded-xl bg-[#EBF3FF] flex items-center justify-center"><img src="blue_icon_location.png" alt="" class="w-5 h-5 object-contain" /></span>
-          <span class="text-[13.5px] leading-tight"><b class="block">Lokaal in Breda</b><span class="text-[#6b7aad]">Betrokken vanaf dag één</span></span>
+          <span class="text-[13.5px] leading-tight"><b class="block">Lokaal in Breda</b><span class="text-[#5d6c9c]">Betrokken vanaf dag één</span></span>
         </div>
       </div>
       <div data-reveal data-reveal-delay="100">
         <p class="kicker mb-7">Wie wij zijn</p>
         <h2 class="h2 mb-6">Wij zijn Jilles en Rob.</h2>
         <div class="space-y-4 text-[#4c5b84] text-[16px] leading-[1.7]">
-          <p>Twee ondernemers uit Breda die geloven dat het MKB dé motor van Nederland kan zijn — zodra ondernemers weer de tijd krijgen om te ondernemen. Wij zien te vaak dat die tijd wegvreet aan losse systemen, repetitief werk en beslissingen op onderbuikgevoel, omdat data verspreid ligt over vijf plekken.</p>
+          <p>Twee ondernemers uit Breda die geloven dat ondernemers dé motor van Nederland zijn — zodra ze weer de tijd krijgen om te ondernemen. Wij zien te vaak dat die tijd wegvreet aan losse systemen, repetitief werk en beslissingen op onderbuikgevoel, omdat data verspreid ligt over vijf plekken.</p>
           <p>Toen we voor dezelfde opdrachtgever aan een project werkten, kwamen twee werelden bij elkaar: strategie zonder uitvoering blijft een goede intentie — en die uitvoering bouw je door slimme automatisering in de dagelijkse processen te weven. Vanaf dat moment sloegen we de handen ineen.</p>
           <p>Vandaar Pareto Partners: één plek waar strategie en uitvoering samenvallen. Van eerste gesprek, tot laatste meetpunt.</p>
         </div>
         <div class="grid sm:grid-cols-2 gap-3 mt-8">
-          <div class="founder"><b>Jilles Verbeek</b><span>Was zelfstandig strategisch consultant. Vertaalt groeiambitie naar concrete KPI's en actiepunten.</span></div>
           <div class="founder"><b>Rob Rokx</b><span>Bouwde in New York zijn eerste automatiseringen voor bedrijven. Zorgt dat het plan ook echt draait.</span></div>
+          <div class="founder"><b>Jilles Verbeek</b><span>Was zelfstandig strategisch consultant. Vertaalt groeiambitie naar concrete KPI's en actiepunten.</span></div>
         </div>
       </div>
     </div>
@@ -1351,7 +1717,7 @@
       <div class="relative">
         <p class="kicker dark mb-7">Kennismaking</p>
         <h2 class="h2 mb-5">Wil jij ook weer tijd voor het échte werk?</h2>
-        <p class="text-white/60 text-[17px] leading-relaxed mb-8 max-w-lg">Plan een kennismakingsgesprek in. Geen verkooppraatje — we luisteren, verkennen samen waar de meeste winst zit en zeggen eerlijk of we een match zijn.</p>
+        <p class="text-white/60 text-[17px] leading-relaxed mb-8 max-w-lg">Een gesprek van 30 minuten. We luisteren, kijken samen waar de meeste winst zit en zeggen meteen of we iets voor je kunnen betekenen.</p>
         <div class="flex flex-wrap gap-3">
           <a href="https://calendly.com/rob-paretopartners/kennismakingsgesprek" onclick="openCalendly(event)" class="btn btn-primary">
             Plan een kennismakingsgesprek
@@ -1360,15 +1726,15 @@
         </div>
       </div>
       <div class="relative flex flex-col gap-4">
-        <div class="ph rounded-3xl aspect-[16/9] !bg-none !bg-white/[0.04] !border-white/25 !text-white"><!-- FOTO --><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="4"/></svg><b class="!text-[#9db8ff]">Foto · kennismaking</b><span class="!text-white/70">Rob en Jilles aan de keukentafel bij een klant, koffie erbij. Past bij "lokaal en persoonlijk".</span></div>
+        <img src="Jilles_en_Rob_cta.jpg" alt="Jilles en Rob van Pareto Partners" width="1400" height="788" loading="lazy" decoding="async" class="w-full rounded-3xl object-cover aspect-[16/9]" />
       <div class="relative rounded-3xl bg-white text-[#0f2a4a] p-6 sm:p-7 shadow-[0_30px_60px_-30px_rgba(0,0,0,.6)]">
           <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#1e5bff] mb-4">Na het eerste gesprek weet je</p>
           <ul class="case-checks !mb-5 !gap-3">
-            <li class="!text-[15px]">Waar in je processen de meeste tijd weglekt</li>
+            <li class="!text-[15px]">Waar in je processen de meeste winst te halen valt</li>
             <li class="!text-[15px]">Of automatisering daar het juiste antwoord op is</li>
             <li class="!text-[15px]">Wat een eerste stap ongeveer kan opleveren</li>
           </ul>
-          <p class="text-[13px] text-[#6b7aad] border-t border-black/[0.06] pt-4">Geen verplichtingen. Aan het einde van het gesprek weet je wat er mogelijk is. De keuze is aan jou.</p>
+          <p class="text-[13px] text-[#5d6c9c] border-t border-black/[0.06] pt-4">Geen verplichtingen. Aan het einde van het gesprek weet je wat er mogelijk is. De keuze is aan jou.</p>
         </div>
       </div>
     </div>
@@ -1386,8 +1752,8 @@
         <div class="flex flex-col items-start">
           <p class="text-white font-bold text-lg mb-1">Pareto Partners</p>
           <div class="flex flex-col gap-1 mb-7">
-            <p class="text-white/45 text-sm">Breda, Nederland</p>
-            <p class="text-white/45 text-sm">KvK 42116229</p>
+            <p class="text-white/60 text-sm">Breda, Nederland</p>
+            <p class="text-white/60 text-sm">KvK 42116229</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-5 sm:gap-10 mb-6">
             <div class="flex flex-col items-start gap-1">
@@ -1431,12 +1797,12 @@
 
         <!-- Right: nav links -->
         <nav class="flex flex-col gap-3">
-          <a href="#strategie" class="text-white/45 hover:text-white transition-colors text-base">Strategie</a>
-          <a href="#maatwerk" class="text-white/45 hover:text-white transition-colors text-base">Maatwerk</a>
-          <a href="#werk" class="text-white/45 hover:text-white transition-colors text-base">Resultaten</a>
-          <a href="#aanpak" class="text-white/45 hover:text-white transition-colors text-base">Aanpak</a>
-          <a href="#dataveiligheid" class="text-white/45 hover:text-white transition-colors text-base">Dataveiligheid</a>
-          <a href="#wie-wij-zijn" class="text-white/45 hover:text-white transition-colors text-base">Wie wij zijn</a>
+          <a href="#strategie" class="text-white/60 hover:text-white transition-colors text-base">Strategie</a>
+          <a href="#maatwerk" class="text-white/60 hover:text-white transition-colors text-base">Maatwerk</a>
+          <a href="#werk" class="text-white/60 hover:text-white transition-colors text-base">Resultaten</a>
+          <a href="#aanpak" class="text-white/60 hover:text-white transition-colors text-base">Aanpak</a>
+          <a href="#dataveiligheid" class="text-white/60 hover:text-white transition-colors text-base">Dataveiligheid</a>
+          <a href="#wie-wij-zijn" class="text-white/60 hover:text-white transition-colors text-base">Wie wij zijn</a>
         </nav>
 
       </div>
@@ -1446,12 +1812,12 @@
         <a href="#top" class="flex-shrink-0 bg-white rounded px-3 py-1.5 justify-self-start">
           <img src="Pareto Partners Cropped Logo Image.png" alt="Pareto Partners" style="height:30px;width:auto;" />
         </a>
-        <div class="flex items-center gap-6 justify-self-start sm:justify-self-center">
-          <a href="zo-gaan-wij-met-jouw-data-om.pdf" target="_blank" rel="noopener" class="text-white/30 hover:text-white/55 transition-colors text-xs">Dataveiligheid</a>
-          <a href="privacy-policy.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Privacyverklaring</a>
-          <a href="terms-of-service.html" class="text-white/30 hover:text-white/55 transition-colors text-xs">Algemene voorwaarden</a>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-0 justify-self-start sm:justify-self-center">
+          <a href="zo-gaan-wij-met-jouw-data-om.pdf" target="_blank" rel="noopener" class="text-white/50 hover:text-white/55 transition-colors text-xs">Dataveiligheid</a>
+          <a href="privacy-policy.html" class="text-white/50 hover:text-white/55 transition-colors text-xs">Privacyverklaring</a>
+          <a href="terms-of-service.html" class="text-white/50 hover:text-white/55 transition-colors text-xs">Algemene voorwaarden</a>
         </div>
-        <p class="text-white/25 text-xs justify-self-start sm:justify-self-end">© 2026 Pareto Partners</p>
+        <p class="text-white/50 text-xs justify-self-start sm:justify-self-end">© 2026 Pareto Partners</p>
       </div>
 
     </div>
@@ -1620,7 +1986,7 @@
       if (tools) {
         const label = document.createElement('span');
         label.className = 'case-tools-label';
-        label.textContent = 'Gebouwd met';
+        label.textContent = tools.dataset.label || 'Gebouwd met';
         tools.appendChild(label);
         tools.dataset.tools.split(',').forEach((name) => {
           const chip = document.createElement('span');
@@ -1629,7 +1995,7 @@
           chip.innerHTML = icon
             ? `<img${icon === 'kvk.png' ? ' class="wide"' : ''} src="logos/tools/${icon}" alt="" />`
             : `<span class="tool-mono">${name[0]}</span>`;
-          chip.append(name);
+          chip.append(name === 'KVK API' ? 'KvK' : name);
           tools.appendChild(chip);
         });
       }
